@@ -1,0 +1,177 @@
+%!TEX encoding = UTF-8 Unicode
+%
+% uaThesis example
+%
+% the complete list of options and commands can be found in uaThesis.sty 
+%
+% Based on the example.tex file provided by Tomás Oliveira e Silva
+%
+% Modified by João Paulo Barraca <jpbarraca@ua.pt>
+%
+
+\documentclass[11pt,twoside,a4paper]{report}
+
+%Select your department
+\usepackage[DETI]{uaThesisTemplate}
+
+\def\ThesisYear{2012}
+
+% optional packages for utf8 encoding and T1 fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%By default we consider portuguese
+\usepackage[english,portuguese]{babel}
+
+ 
+\usepackage{xspace}% used by \sigla
+
+
+% For testing purposes
+\usepackage{blindtext}
+
+\begin{document}
+
+
+%
+% Cover page (use only one of the first two \TitlePage)
+%
+% First alternative, with a figure
+\TitlePage
+   \HEADER{\BAR} % the \FIG{} is optional
+         {\ThesisYear}
+  \TITLE{NOME COMPLETO}
+        {TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+% Second alternative, with a citation
+\TitlePage
+  \HEADER{\BAR\FIG{\begin{minipage}{100mm} % no more than 120mm
+          ``\textit{The greatest challenge to any thinker is stating the problem in a way that will allow a solution}''
+           \begin{flushright}
+			--- Bertrand Russell
+           \end{flushright}
+          \end{minipage}}}
+         {\ThesisYear}
+  \TITLE{FULL NAME}
+        {\selectlanguage{english} THESIS TITLE (MAX 70 CHARACTERS)}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+%
+% First thesis pages
+%
+\TitlePage
+  \INNERHEADER{}{\ThesisYear}
+  \TITLE{NOME COMPLETO}
+        {TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
+  \vspace*{25mm}
+  \TEXT{}
+       {Dissertação apresentada à Universidade de Aveiro para cumprimento dos requisitos necessários à obtenção do grau de Mestre em (designação do mestrado), realizada sob a orientação científica do Doutor (nome do orientador), Professor (categoria do orientador) do Departamento de (designação do departamento) da Universidade de Aveiro}
+       
+    \vspace{120mm}
+    \SPONSOR{}{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.
+    \\(se aplicável}
+    {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio. \\
+    (se aplicável)}
+   \EndTitlePage
+
+\TitlePage
+  \vspace*{55mm}
+  \TEXT{}
+       {texto Dedico este trabalho à minha esposa e filho pelo incansável apoio.\\
+       \\
+(opcional)
+}
+   \EndTitlePage
+
+
+\TitlePage
+  \vspace*{55mm}
+  \SECTION{o júri~/~the jury}
+       {}
+  \JURI{presidente~/~president}
+       {Prof. Doutor João Antunes da Silva}
+       {professor associado da Faculdade de Engenharia da Universidade do Porto}
+  \JURI{vogais~/~examiners committee}
+       {Prof. Doutor João Antunes da Silva}
+       {professor associado da Faculdade de Engenharia da Universidade do Porto}
+   \JURI{}
+       {Prof. Doutor João Antunes da Silva}
+       {professor associado da Faculdade de Engenharia da Universidade do Porto} 
+   \JURI{}
+       {Prof. Doutor João Antunes da Silva}
+       {professor associado da Faculdade de Engenharia da Universidade do Porto} 
+   \JURI{}
+       {Prof. Doutor João Antunes da Silva}
+       {professor associado da Faculdade de Engenharia da Universidade do Porto} 
+   \JURI{}
+       {Prof. Doutor João Antunes da Silva}
+       {professor associado da Faculdade de Engenharia da Universidade do Porto} 
+   \JURI{}
+       {Prof. Doutor João Antunes da Silva}
+       {professor associado da Faculdade de Engenharia da Universidade do Porto}      
+   \EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+%
+% Acknowledgement page
+%
+%
+%
+\TitlePage
+  \vspace*{55mm}
+  \SECTION{\textbf{agradecimentos~/\newline acknowledgements}}
+       {Agradecimentos}
+  \SECTION{}
+       {
+       % If acknowledgements are in english, just uncomment the line
+       %\selectlanguage{english}
+       \blindtext[3]
+       }
+
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+%
+% Portuguese Abstract
+%
+%
+\TitlePage
+  \vspace*{55mm}
+    \SECTION{\textbf{Palavras Chave}}
+       {texto livro, arquitectura, história, construção, materiais de construção, saber tradicional.}
+  \vspace*{10mm}
+  \SECTION{\textbf{Resumo}}
+       {
+       \blindtext[3]
+			}
+
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+%
+%
+% English Abstract
+%
+%
+\TitlePage
+  \vspace*{55mm}
+ \SECTION{\textbf{Keywords}}
+       {\selectlanguage{english} texto livro, arquitectura, história, construção, materiais de construção, saber tradicional.}
+  \vspace*{10mm}
+  \SECTION{\textbf{Abstract}}
+       {
+       \selectlanguage{english}
+       \blindtext[3]
+       }
+
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+\end{document}

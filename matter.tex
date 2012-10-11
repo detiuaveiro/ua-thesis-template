@@ -1,0 +1,345 @@
+%%!TEX encoding = UTF-8 Unicode
+
+% According to UA rules, font size should range from 10 to 12pt.
+\documentclass[12pt,a4paper,openright,final,twoside,onecolumn]{memoir}
+
+\listfiles
+\fixpdflayout
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%SET DPI to 300
+\pdfpxdimen=\dimexpr 1in/300\relax
+
+\usepackage{morewrites} % Allow the use of a larger number of packages
+
+%For English and Portuguese languages
+%Portuguese will be the default.
+%Use \setdefaultlanguage to change it
+
+\usepackage[english,portuguese]{babel}
+
+% For custom date format
+\usepackage{datetime}
+\newdateformat{thesisdate}{\monthname[\THEMONTH] \THEYEAR} % Month Year
+
+
+% floats on facing pages
+%\usepackage{dpfloat}
+
+%Side by side figures
+% Eg. Fig 1a, Fig 1b
+\let\subcaption\undefined
+\let\subfloat\undefined
+\usepackage{subcaption}
+
+% Computer Modern Typewritter (For bold ttfamily in listings)
+\usepackage{lmodern}
+
+%Dropped Caps
+%\usepackage{lettrine}
+
+
+%Configure Hyperlink color
+%\usepackage[breaklinks=true,colorlinks=false,linkcolor=blue]
+\usepackage{hyperref}
+
+
+%Redefine section names
+%\def\sectionautorefname{Section}
+%\def\chapterautorefname{Chapter}
+%\def\figureautorefname{Figure}
+%\def\listingautorefname{Listing}
+%\def\tableautorefname{Table}
+
+%For PDF Comments
+\usepackage{comment}
+\usepackage{pdfcomment}
+\usepackage{bookmark} % New Bookmarks
+
+%For Multiple columns in Glossary
+\usepackage{multicol}
+
+%Math symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%Graphics
+\usepackage{graphicx}
+
+%Colors
+\usepackage{xcolor}
+
+%Euro symbol
+\usepackage{eurosym}
+
+% Code boxes
+\usepackage{listings}
+
+\lstloadlanguages{C++,Java}
+
+\lstset{
+	frame=tb,
+	frameround=ffff,
+	language=C++,
+	tabsize=2,
+	captionpos=b,
+	commentstyle=\ttfamily\color{gray},
+	stringstyle=\ttfamily\color{gray},
+	keywordstyle=\ttfamily\bfseries,
+	basicstyle=\scriptsize\mdseries,
+	aboveskip=1.5\baselineskip,
+	belowskip=1.5\baselineskip,
+	breaklines=true,
+	float,
+	numberbychapter=false,
+	breakatwhitespace=true
+	%stepnumber=1,
+	%numbersep=5pt,
+	%numbers = left
+}
+
+%Biber using IEEE style for proper UTF-8 support
+\usepackage[backend=biber,style=ieee, sorting=none]{biblatex}
+\bibliography{bib/references.bib, bib/rfc.bib}
+
+ %Configure Linespacing
+\usepackage{setspace}
+
+% As the name says... Allow using custom font sizes
+\usepackage{anyfontsize}
+
+%Use acronyms
+\usepackage[printonlyused]{acronym} % For acronyms
+
+% Enable chart support through pgf and tikz
+\usepackage[version=0.96]{pgf}
+\usepackage{tikz}
+\usepackage{pgf-umlsd}
+\usetikzlibrary{arrows,shadows,trees,shapes,snakes,automata,backgrounds,petri,mindmap} % for pgf-umlsd
+
+%For Electric Circuits
+\usepackage{siunitx}
+\usepackage[american,cuteinductors,smartlabels]{circuitikz}
+
+\usetikzlibrary{calc}
+\ctikzset{bipoles/thickness=1}
+\ctikzset{bipoles/length=0.8cm}
+\ctikzset{bipoles/diode/height=.375}
+\ctikzset{bipoles/diode/width=.3}
+\ctikzset{tripoles/thyristor/height=.8}
+\ctikzset{tripoles/thyristor/width=1}
+\ctikzset{bipoles/vsourceam/height/.initial=.7}
+\ctikzset{bipoles/vsourceam/width/.initial=.7}
+\tikzstyle{every node}=[font=\small]
+\tikzstyle{every path}=[line width=0.8pt,line cap=round,line join=round]
+
+
+\usepackage{verbatim}
+
+ %Frames around figures and allow force placement
+\usepackage{float}
+
+%Configure Float style
+%\floatstyle{boxed}
+%\restylefloat{table}
+%\restylefloat{figure}
+%\restylefloat{lstlisting}
+
+%For test purposes
+\usepackage{lipsum}
+
+%Keep floats inside section!
+\usepackage[section]{placeins}
+\let \oldsubsubsection \subsubsection
+\renewcommand{\subsubsection}[2][]{
+  \FloatBarrier
+  \oldsubsubsection#1{#2}
+}
+\let \oldsubsection \subsection
+\renewcommand{\subsection}[2][]{
+  \FloatBarrier
+  \oldsubsection#1{#2}
+}
+\let \oldsection \section
+\renewcommand{\section}[2][]{
+  \FloatBarrier
+  \oldsection#1{#2}
+}
+\let \oldchapter \chapter
+\renewcommand{\chapter}[2][]{
+  \FloatBarrier
+  \oldchapter#1{#2}
+}
+
+
+%%%% Use the built-in division styling
+\headstyles{memman}
+
+%%% ToC down to subsections
+\settocdepth{subsection}
+
+%%% Numbering down to subsections as well
+\setsecnumdepth{subsection}
+
+%%%% extra index for first lines
+\makeindex[lines]
+
+%Margins for University of Aveiro Thesis
+\setlrmarginsandblock{3cm}{2.5cm}{*}
+\setulmarginsandblock{3cm}{3cm}{*}
+\checkandfixthelayout
+
+%Line spacing: 1.5 pt
+\OnehalfSpacing
+
+%Or custom spacing
+%\addtolength{\parskip}{0.5\baselineskip}
+
+
+\begin{document}
+
+%
+%Front matter (%Custom Chapter style
+\makechapterstyle{thesis}{% Based on ell
+  \chapterstyle{default}
+  \renewcommand*{\chapnumfont}{\normalfont\sffamily}
+  \renewcommand*{\chaptitlefont}{\normalfont\Huge\sffamily}
+  \settowidth{\chapindent}{\chapnumfont 111}
+  \renewcommand*{\chapterheadstart}{\begingroup
+    \vspace*{\beforechapskip}%
+    \begin{adjustwidth}{}{-\chapindent}%
+    \hrulefill
+    \smash{\rule{0.4pt}{15mm}}
+    \end{adjustwidth}\endgroup}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapternamenum}{}
+  \renewcommand*{\printchapternum}{%
+    \begin{adjustwidth}{}{-\chapindent}
+    \hfill
+    \raisebox{10mm}[0pt][0pt]{\fontsize{30}{25}\selectfont\chapnumfont \thechapter}%
+                              \hspace*{1em}
+    \end{adjustwidth}\vspace*{-3.0\onelineskip}}
+  \renewcommand*{\printchaptertitle}[1]{%
+    \vskip\onelineskip
+    \raggedleft {\chaptitlefont ##1}\par\nobreak\vskip 4\onelineskip}}
+
+%Select chapter style from existing or select custom
+\chapterstyle{brotherton} % Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo,indexes)
+%
+
+
+%\chapterstyle{thesis} % Custom ``Thesis' or use one of above'
+
+
+%Change header style for sections, subsection, sub subsections, captions, etc...
+%\setsecheadstyle{\raggedright\LARGE\sffamily}
+%  \setbeforesecskip{-3\onelineskip}
+%  \setaftersecskip{\onelineskip}
+
+%\setsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\Large\sffamily}
+%  \setbeforesubsecskip{-3\onelineskip}
+%  \setaftersubsecskip{\onelineskip}
+
+%\setsubsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\large\sffamily}
+%	\setbeforesubsubsecskip{-3\onelineskip}
+%  \setaftersubsubsecskip{\onelineskip}
+
+
+%\captiontitlefont{\small}% title font
+%\precaption{\small\raggedright\bfseries}% for Caption N
+%\captionstyle{\small\raggedright\normalfont}% for title
+%\setlength{\belowcaptionskip}{\onelineskip}
+
+
+%Exclude sub figures from List of Figures
+%\captionsetup[subfloat]{list=no}
+
+
+%Select Page style
+\pagestyle{plain}
+
+
+\frontmatter
+
+\tightlists
+\midsloppy
+\raggedbottom
+
+\setcounter{tocdepth}{2} %subsections are added to the TOC
+\setcounter{secnumdepth}{4} %subsubsections are numbered
+
+
+%%Optional! Remove in final version.
+%\small
+%\listofpdfcomments[liststyle=SubjectAuthor]
+%\cleardoublepage
+
+%Table of contents
+\small
+\tableofcontents
+\cleardoublepage
+
+%List of figures
+\small
+\listoffigures
+\normalsize
+
+%List of tables
+\cleardoublepage
+\small
+\listoftables
+
+
+
+
+
+
+%
+%Main document starts here
+%
+\mainmatter
+
+
+
+% Start of Thesis text ----------------------------------------------------------
+
+
+
+%\include{chapter1}
+%\include{chapter2}
+%\include{chapter3}
+%\include{chapter4}
+
+
+
+% End of Thesis text ---------------------------------------------------------
+% Including files is advised:
+
+
+%Appendix and Glossary
+
+\backmatter
+
+%Print Glossary
+\include{glossary}
+
+%Print all used references
+\begingroup
+\renewcommand{\bibfont}{\footnotesize}
+
+%Redefine References name
+%\defbibheading{bibliography}[References]{
+%	\chapter{#1}
+%}
+\SingleSpacing
+\setlength\bibitemsep{8pt}
+\printbibliography[heading=bibliography]
+\endgroup
+
+%Load appendix
+%\include{appendix-a}
+
+
+\end{document}
