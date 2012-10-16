@@ -20,31 +20,32 @@
 
 %
 % color of the cover page top bar
+% (pantone approximations according to http://goffgrafix.com/pantone-rgb-100.php)
 %
 \DeclareOption{usecolor}{} % no longer used
 
 \newif\ifua@whitebar@\ua@whitebar@false
 
 \def\ua@arts       {% approximation of the color pantone  264
-                    \def\ua@red{0.72}\def\ua@green{0.59}\def\ua@blue{1.00}}
+                    \def\ua@red{0.776}\def\ua@green{0.667}\def\ua@blue{0.859}}
 
 \def\ua@sciences   {% approximation of the color pantone 3105
-                    \def\ua@red{0.52}\def\ua@green{1.00}\def\ua@blue{0.89}}
+                    \def\ua@red{0.498}\def\ua@green{0.839}\def\ua@blue{0.859}}
 
 \def\ua@education  {% approximation of the color pantone 1505
-                    \def\ua@red{1.00}\def\ua@green{0.43}\def\ua@blue{0.00}}
+                    \def\ua@red{0.957}\def\ua@green{0.486}\def\ua@blue{0.00}}
 
 \def\ua@economy    {% approximation of the color pantone 1787 (the middle bar is white!)
-                    \def\ua@red{1.00}\def\ua@green{0.20}\def\ua@blue{0.35}}
+                    \def\ua@red{0.957}\def\ua@green{0.247}\def\ua@blue{0.310}}
 
 \def\ua@engineering{% approximation of the color pantone  484
-                    \def\ua@red{0.64}\def\ua@green{0.00}\def\ua@blue{0.00}}
+                    \def\ua@red{0.608}\def\ua@green{0.188}\def\ua@blue{0.110}}
 
 \def\ua@humanities {% approximation of the color pantone  301
-                    \def\ua@red{0.00}\def\ua@green{0.25}\def\ua@blue{0.77}}
+                    \def\ua@red{0}\def\ua@green{0.357}\def\ua@blue{0.6}}
 
 \def\ua@health     {% approximation of the color pantone  115
-                    \def\ua@red{0.95}\def\ua@green{0.88}\def\ua@blue{0.00}}
+                    \def\ua@red{0.976}\def\ua@green{0.878}\def\ua@blue{0.298}}
 
 % Electrical Engineering and Informatics
 \DeclareOption{DETI}{\ua@engineering
