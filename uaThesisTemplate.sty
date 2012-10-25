@@ -1,4 +1,4 @@
-%!TEX encoding = UTF-8 Unicode
+%TEX encoding = UTF-8 Unicode
 %
 % LaTeX style file for thesis made at the University of Aveiro
 %
@@ -10,8 +10,31 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{a4wide}
+\usepackage{etoolbox}
 
 \usepackage{helvet}
+
+\def\ciJuriMember{}
+  
+%User Hooks
+\newcommand{\ThesisYear}[1]{\def\ciThesisYear{#1}}
+\newcommand{\TitlePT}[1]{\def\ciTitlePT{#1}}
+\newcommand{\TitleEN}[1]{\def\ciTitleEN{#1}}
+\newcommand{\Author}[1]{\def\ciAuthor{#1}}
+\newcommand{\Quote}[2]{\def\ciQuoteText{#1}\def\ciQuoteAuthor{#2}}
+\newcommand{\AbstractPT}[1]{\def\ciAbstractPT{#1}}
+\newcommand{\AbstractEN}[1]{\def\ciAbstractEN{#1}}
+\newcommand{\KeywordsPT}[1]{\def\ciKeywordsPT{#1}}
+\newcommand{\KeywordsEN}[1]{\def\ciKeywordsEN{#1}}
+\newcommand{\Dedication}[1]{\def\ciDedication{#1}}
+\newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2 }}}
+\newcommand{\Degree}[2]{\def\ciDegreeTitle{#1}\def\ciDegreeName{#2}}
+\newcommand{\GrantText}[2]{\def\ciGrantFirst{#1}\def\ciGrantSecond{#2}}
+\newcommand{\Acknowledgements}[1]{\def\ciAcknowledgements{#1}}
+\newcommand{\JuriMember}[2]{
+    \listadd{\ciJuriMember}{\JURI{\JURICATEGORY}{#1}{#2}}
+ } 
+
 %
 % Remove "Documento provisório" from the cover page
 %
@@ -269,5 +292,147 @@
     \addtocontents{lot}{\protect\addvspace{10\p@}}%
     % end of new stuff
   }}
+
+%Dynamic handling of Jury members
+\newcounter{cjuri}
+\newcommand{\JURICATEGORY}{
+    \ifnum\value{cjuri} = 0%
+     presidente~/~president
+     \else
+         \ifnum\value{cjuri} =1%
+         vogais~/~examiners committee
+         \fi    
+     \fi
+     \addtocounter{cjuri}{1}
+}
+
+
+%
+% Creates entire cover
+%
+\newcommand{\MakeCover}{%
+%
+% Cover page (use only one of the first two \TitlePage)
+%
+% First alternative, with a figure
+
+  \TitlePage
+     \HEADER{\BAR} % the \FIG{} is optional
+           {\ciThesisYear}
+    \TITLE{\ciAuthor}
+          {{\ciTitlePT} }
+  \EndTitlePage
+  \titlepage\ \endtitlepage % empty page
+
+
+\ifdefined \ciTitleEN
+% Second alternative, with a citation
+  \TitlePage
+    \HEADER{\BAR\FIG{\begin{minipage}{100mm} % no more than 120mm
+            ``\textit{\ciQuoteText}''
+             \begin{flushright}
+	  	  	     --- \ciQuoteAuthor
+             \end{flushright}
+          \end{minipage}}}
+           {\ThesisYear}
+    \TITLE{\Author}
+          {\selectlanguage{english} \ciTitleEN}
+  \EndTitlePage
+  \titlepage\ \endtitlepage % empty page
+\fi
+
+
+%
+% First thesis pages
+%
+\TitlePage
+  \INNERHEADER{}{\ciThesisYear}
+  \TITLE{\Author}
+        {\TitlePT}
+  \vspace*{25mm}
+  \TEXT{}
+       {Disserta\c c\~ao apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a obten\c c\~ao do grau de {\ciDegreeTitle} em {\ciDegreeName}, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro}
+
+    \vspace{120mm}
+    \SPONSOR{}{\ciGrantFirst}
+    {\ciGrantSecond}
+   \EndTitlePage
+
+\TitlePage
+  \vspace*{55mm}
+  \TEXT{}
+       {\ciDedication}
+   \EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+\TitlePage
+  \vspace*{55mm}
+  \SECTION{o j\'uri~/~the jury}
+       {}   
+       \begingroup
+        \renewcommand*{\do}[1]{
+            ##1
+        }
+        \dolistloop{\ciJuriMember}
+       \endgroup
+   \EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+%
+% Acknowledgement page
+%
+%
+%
+\ifdefined \ciAcknowledgements
+\TitlePage
+  \vspace*{55mm}
+  \SECTION{\textbf{agradecimentos~/\newline acknowledgements}}
+       {Agradecimentos}
+  \SECTION{}
+       {\ciAcknowledgements}
+
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+\fi
+
+%
+% Portuguese Abstract
+%
+%
+\TitlePage
+  \vspace*{55mm}
+    \SECTION{\textbf{Palavras Chave}}
+       {\ciKeywordsPT}
+  \vspace*{10mm}
+  \SECTION{\textbf{Resumo}}
+       {\ciAbstractPT}
+
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+%
+%
+% English Abstract
+%
+%
+\ifdefined \ciAbstractEN
+\TitlePage
+  \vspace*{55mm}
+ \SECTION{\textbf{Keywords}}
+       {\selectlanguage{english} \ciKeywordsEN}
+  \vspace*{10mm}
+  \SECTION{\textbf{Abstract}}
+       {
+       \selectlanguage{english}
+       \ciAbstractEN
+       }
+
+\titlepage\ \endtitlepage % empty page
+\fi
+
+}
 
 \endinput
