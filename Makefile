@@ -17,11 +17,10 @@ matter:
 	latexmk -pdf -g matter.tex
 
 thesis: matter cover
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-print.pdf cover.pdf matter.pdf
-
+	pdftk cover.pdf matter.pdf cat output out/thesis-print.pdf
 
 publish: clean matter cover thesis
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-ebook.pdf cover.pdf matter.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-ebook.pdf out/thesis-print.pdf
 	#scp somehwere
 
 clean-out:
