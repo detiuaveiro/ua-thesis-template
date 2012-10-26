@@ -383,15 +383,16 @@
   \TEXT{}
        {Disserta\c c\~ao apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a obten\c c\~ao do grau de {\ciDegreeTitle} em {\ciDegreeName}, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro}
     \vspace{120mm}
-\ifdefined\ciGrantFirst
+\ifdefined \ciGrantFirst
     \SPONSOR{}{
-          \ifdefined\ciGrantFirst%
+          \ifdefined \ciGrantFirst%
               \ciGrantFirst
            \fi}
-             {\ifdefined\ciGrantSecond%
+             {\ifdefined \ciGrantSecond%
               \ciGrantSecond
            \fi
            }
+\fi
    \EndTitlePage
 \titlepage\ \endtitlepage % empty page
 
