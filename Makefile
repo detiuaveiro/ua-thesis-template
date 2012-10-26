@@ -17,7 +17,7 @@ matter: cover
 	latexmk -pdf -g matter.tex
 
 thesis: matter
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/print -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-print.pdf matter.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-print.pdf matter.pdf
 
 publish: clean matter
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-ebook.pdf matter.pdf
