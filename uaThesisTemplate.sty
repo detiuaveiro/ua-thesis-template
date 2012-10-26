@@ -309,7 +309,7 @@
 
 %Dynamic handling of Jury members
 \newcounter{cjuri}
-\newcommand{\JURICATEGORY}{
+\newcommand{\JURICATEGORY}{%
     \ifnum\value{cjuri} = 0%
      presidente~/~president
      \else
@@ -322,9 +322,9 @@
 
 %Dynamic handling of Titles
 \newcounter{ctitle}
-\newcommand{\DISPLAYAUTHOR}{
+\newcommand{\DISPLAYAUTHOR}{%
     \ifnum\value{ctitle} = 0%
-     \ciAuthor
+     {\ciAuthor}
      \fi
      \addtocounter{ctitle}{1}
 }
@@ -430,10 +430,8 @@
 \TitlePage
   \vspace*{55mm}
   \SECTION{\textbf{agradecimentos~/\newline acknowledgements}}
-       {Agradecimentos}
-  \SECTION{}
        {\ciAcknowledgements}
-
+       
 \EndTitlePage
 \titlepage\ \endtitlepage % empty page
 \fi
