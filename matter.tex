@@ -9,6 +9,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+%For PDF merging
+\usepackage{pdfpages}
+
 %SET DPI to 300
 \pdfpxdimen=\dimexpr 1in/300\relax
 
@@ -199,6 +202,7 @@
 
 
 \begin{document}
+\includepdf{cover.pdf}
 
 %
 %Front matter (%Custom Chapter style
