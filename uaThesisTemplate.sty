@@ -25,7 +25,14 @@
 \newcommand{\Title}[1]{\listadd{\ciTitle}{\TITLE{\DISPLAYAUTHOR}{#1\newline} }}
 \newcommand{\Author}[1]{\def\ciAuthor{#1}}
 \newcommand{\Quote}[2]{\def\ciQuoteText{#1}\def\ciQuoteAuthor{#2}}
-
+\newcommand{\Dedication}[1]{\def\ciDedication{#1}}
+\newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2 }}}
+\newcommand{\Degree}[2]{\def\ciDegreeTitle{#1}\def\ciDegreeName{#2}}
+\newcommand{\GrantText}[2]{\def\ciGrantFirst{#1}\def\ciGrantSecond{#2}}
+\newcommand{\Acknowledgements}[1]{\def\ciAcknowledgements{#1}}
+\newcommand{\JuriMember}[2]{
+    \listadd{\ciJuriMember}{\JURI{\JURICATEGORY}{#1}{#2}}
+} 
 \newcommand{\Abstract}[4]{\listadd{\ciAbstract}{
   \TitlePage
     \vspace*{55mm}
@@ -39,15 +46,6 @@
  }
 }
 
-\newcommand{\Dedication}[1]{\def\ciDedication{#1}}
-\newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2 }}}
-\newcommand{\Degree}[2]{\def\ciDegreeTitle{#1}\def\ciDegreeName{#2}}
-\newcommand{\GrantText}[2]{\def\ciGrantFirst{#1}\def\ciGrantSecond{#2}}
-\newcommand{\Acknowledgements}[1]{\def\ciAcknowledgements{#1}}
-\newcommand{\JuriMember}[2]{
-    \listadd{\ciJuriMember}{\JURI{\JURICATEGORY}{#1}{#2}}
- } 
-
 %
 % Remove "Documento provisório" from the cover page
 %
@@ -59,8 +57,6 @@
 % (pantone approximations according to http://goffgrafix.com/pantone-rgb-100.php)
 %
 \DeclareOption{usecolor}{} % no longer used
-
-\newif\ifua@whitebar@\ua@whitebar@false
 
 \def\ua@arts       {% approximation of the color pantone  264
                     \def\ua@red{0.776}\def\ua@green{0.667}\def\ua@blue{0.859}}
@@ -83,36 +79,145 @@
 \def\ua@health     {% approximation of the color pantone  115
                     \def\ua@red{0.976}\def\ua@green{0.878}\def\ua@blue{0.298}}
 
-% Electrical Engineering and Informatics
-\DeclareOption{DETI}{\ua@engineering
+\def\ua@white{1}
+
+
+\DeclareOption{engineering}{\ua@arts
   \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
   \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
   \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+}
+\DeclareOption{sciences}{\ua@sciences
+  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
+  \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
+  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+}
+\DeclareOption{education}{\ua@education
+  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
+  \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
+  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+}
+\DeclareOption{economy}{\ua@economy
+  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue% the middle bar is white
+  \let\ua@redM=\ua@white\let\ua@greenM=\ua@white\let\ua@blueM=\ua@white
+  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+}
+\DeclareOption{engineering}{\ua@engineering
+  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
+  \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
+  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+}
+\DeclareOption{humanities}{\ua@humanities
+  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
+  \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
+  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+}
+\DeclareOption{health}{\ua@health
+  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
+  \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
+  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+}
+
+%
+% Department names
+%
+\DeclareOption{dao}{%
   \def\ua@textA{Departamento de}%
-  \def\ua@textB{Eletr\'onica, Telecomunica\c c\~oes e Inform\'atica}%
+  \def\ua@textB{Ambiente e Ordenamento}%
   \def\ua@textC{}%
-  \def\ua@textD{}}
-% Mathematics
-\DeclareOption{DM}{\ua@sciences
-  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
-  \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
-  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+  \def\ua@textD{}%
+}
+\DeclareOption{bio}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de Biologia}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{csjp}{%
+  \def\ua@textA{Departamento de}%
+  \def\ua@textB{Ci\^{e}ncias Sociais, Pol\'{\i}ticas e do Territ\'{o}rio}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{ca}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de Comunica\c{c}\~{a}o e Arte}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{egi}{%
+  \def\ua@textA{Departamento de}%
+  \def\ua@textB{Economia, Gest\~{a} e Engenharia Industrial}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{de}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de Educa\c{c}\~{a}o}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{deti}{%
+  \def\ua@textA{Departamento de}%
+  \def\ua@textB{Eletr\'{o}nica, Telecomunica\c{c}\~{o}es e Inform\'{a}tica}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{cv}{%
+  \def\ua@textA{Departamento de}%
+  \def\ua@textB{Engenharia de Materiais e Cer\^{a}mica}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{civil}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de Engenharia Civil}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{mec}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de Engenharia Mec\^{a}nica}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{fis}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de F\'{\i}sica}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{dlc}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de L\'{\i}nguas e Culturas}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
+\DeclareOption{mat}{%
   \def\ua@textA{}%
   \def\ua@textB{Departamento de Matem\'atica}%
   \def\ua@textC{}%
-  \def\ua@textD{}}
-% Physics
-\DeclareOption{DF}{\ua@sciences
-  \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
-  \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
-  \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
+  \def\ua@textD{}%
+}
+\DeclareOption{dq}{%
   \def\ua@textA{}%
-  \def\ua@textB{Departamento de F\'\i sica}%
+  \def\ua@textB{Departamento de Qu\'{\i}mica}%
   \def\ua@textC{}%
-  \def\ua@textD{}}
+  \def\ua@textD{}%
+}
+\DeclareOption{cs}{%
+  \def\ua@textA{}%
+  \def\ua@textB{Departamento de Ci\^{e}ncias da Sa\'{u}de}%
+  \def\ua@textC{}%
+  \def\ua@textD{}%
+}
 
-\ExecuteOptions{DETI}    % default!
-\ExecuteOptions{newLogo} % default!
+%
+% Process options
+%
+\ExecuteOptions{engineering} % default!
+\ExecuteOptions{deti}        % default!
+\ExecuteOptions{newLogo}     % default!
 \ProcessOptions
 
 %
@@ -131,6 +236,7 @@
 %
 \long\def\FIG#1{\smash{\rlap{\setbox0=\hbox{#1}\dimen0=137mm%
   \advance\dimen0 by\ht0\lower\dimen0\box0}}}
+
 
 %
 % fixed font sizes
