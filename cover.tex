@@ -14,18 +14,15 @@
 %Select your department
 \usepackage[DETI]{uaThesisTemplate}
 
-
 % optional packages for utf8 encoding and T1 fonts
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 %By default we consider portuguese
 \usepackage[english,portuguese]{babel}
- 
 \usepackage{xspace}% used by \sigla
 
-
-% For testing purposes
+% For testing purposes. Not needed for final document
 \usepackage{blindtext}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,37 +30,52 @@
 %                  START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
        
+%Thesis Year
 \ThesisYear{2012}
 
-\TitlePT{TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
-
-\TitleEN{THESIS TITLE (MAX 70 CHARACTERS)}
-
-\Quote{The greatest challenge to any thinker is stating the problem in a way that will allow a solution}{Bertrand Russell}
-
+%Authors full name
 \Author{NOME COMPLETO}
-\Supervisor{(nome do orientador)}{(categoria do orientador)}
-\Degree{Mestre}{(desgina\c cão do mestrado)}
 
+%Thesis Mandatory Title in Portuguese
+\Title{TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
+
+%Optional Titles in additional languages. Any number can be added.
+\Title{\selectlanguage{english}THESIS TITLE (MAX 70 CHARACTERS)}
+
+%Quotation (Optional)
+\Quote{\selectlanguage{english}The greatest challenge to any thinker is stating the problem in a way that will allow a solution}{Bertrand Russell}
+
+%Supervisor name
+\Supervisor{(nome do orientador)}{(categoria do orientador)}
+
+%Degree title (Mestre or Doutor) and name 
+\Degree{Mestre}{(designa\c cão do mestrado)}
+
+%Optional Grant support texts
 \GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.\\
     (se aplicável)}
     {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.
     (se aplicável)}
-    
+
+%Optional Dedication text
 \Dedication{texto Dedico este trabalho à minha esposa e filho pelo incansável apoio.\\
 (opcional)}
 
+%Optional Acknowledgement text
 \Acknowledgements{(opcional)}
 
-\KeywordsPT{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
+%Mandatory Keywords and Abstract in Portuguese
+\Abstract{Palavras Chave}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
+         {Resumo}{\blindtext[3]}
 
-\KeywordsEN{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
-
-\AbstractPT{\blindtext[3]}
-\AbstractEN{\blindtext[3]}
-
+%Optional Keywords and Abstract in additional languages. Any number can be added.
+\Abstract{Keywords}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
+         {Abstract}{\selectlanguage{english}\blindtext[3]}     
+         
 %First Member will be the President of the Juri
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
+
+%Additional members of the Juri
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
