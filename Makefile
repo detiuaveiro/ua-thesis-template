@@ -13,14 +13,14 @@ bib:
 cover:
 	latexmk -pdf -g cover.tex
 
-matter:
+matter: cover
 	latexmk -pdf -g matter.tex
 
-thesis: matter cover
-	pdftk cover.pdf matter.pdf cat output out/thesis-print.pdf
+thesis: matter
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-print.pdf matter.pdf
 
-publish: clean matter cover thesis
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-ebook.pdf out/thesis-print.pdf
+publish: clean matter
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-ebook.pdf matter.pdf
 	#scp somehwere
 
 clean-out:
