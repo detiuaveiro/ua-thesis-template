@@ -1,0 +1,568 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+%!TEX encoding = UTF-8 Unicode
+%
+% uaThesisTemplate example
+%
+% the complete list of options and commands can be found in uaThesisTemplate.sty 
+%
+% Based on the example.tex file provided by Tomás Oliveira e Silva
+%
+% Modified by João Paulo Barraca <jpbarraca@ua.pt>
+%
+
+%\documentclass[11pt,twoside,a4paper]{report}
+
+%Select your department
+\usepackage[engineering,deti]{uaThesisTemplate}
+
+% optional packages for utf8 encoding and T1 fonts
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+%By default we consider portuguese
+\usepackage[english,portuguese]{babel}
+\usepackage{xspace}% used by \sigla
+
+% For testing purposes. Not needed for final document
+\usepackage{blindtext}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language portuguese
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%!TEX encoding = UTF-8 Unicode
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% uaThesisTemplate example
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% the complete list of options and commands can be found in uaThesisTemplate.sty
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Based on the example.tex file provided by Tomás Oliveira e Silva
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Modified by João Paulo Barraca <jpbarraca@ua.pt>
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%       DEFINE THESIS COVER FIELDS
+\end_layout
+
+\begin_layout Plain Layout
+
+%                  START
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Thesis Year
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ThesisYear{2012}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Authors full name
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Author{NOME
+\backslash
+
+\backslash
+COMPLETO}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Thesis Mandatory Title in Portuguese
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Title{TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Optional Titles in additional languages.
+ Any number can be added.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Title{
+\backslash
+selectlanguage{english}THESIS TITLE (MAX 70 CHARACTERS)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Quotation (Optional)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Quote{
+\backslash
+selectlanguage{english}The greatest challenge to any thinker is stating
+ the problem in a way that will allow a solution}{Bertrand Russell}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Supervisor name
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Supervisor{(nome do orientador)}{(categoria do orientador)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Optional SecondSuperviser: {name}, {category}, {[preposition: (at, in,
+ no, da)] department}, {[preposition: (at, in, do, na)] school}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SecondSupervisor{co-orientador}{auxiliar convidado}{do Departamento de Matemátic
+a}{da Universidade de Aveiro}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Degree title (Mestre or Doutor) and name 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Degree{Mestre}{(designa
+\backslash
+c cão do mestrado)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Optional Grant support texts
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário
+ de Apoio.
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    (se aplicável)}
+\end_layout
+
+\begin_layout Plain Layout
+
+    {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário
+ de Apoio.
+\end_layout
+
+\begin_layout Plain Layout
+
+    (se aplicável)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Optional Dedication text
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Dedication{texto Dedico este trabalho à minha esposa e filho pelo incansável
+ apoio.
+\backslash
+
+\backslash
+ (opcional)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Optional Acknowledgement text
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Acknowledgements{texto Agradecimentos
+\backslash
+
+\backslash
+(opcional)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Mandatory Keywords and Abstract in Portuguese
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Abstract{Palavras Chave}{texto livro, arquitetura, história, construção,
+ materiais de construção, saber tradicional.}
+\end_layout
+
+\begin_layout Plain Layout
+
+         {Resumo}{
+\backslash
+blindtext[3]}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Optional Keywords and Abstract in additional languages.
+ Any number can be added.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Abstract{Keywords}{texto livro, arquitetura, história, construção, materiais
+ de construção, saber tradicional.}
+\end_layout
+
+\begin_layout Plain Layout
+
+         {Abstract}{
+\backslash
+selectlanguage{english}
+\backslash
+blindtext[3]}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%First Member will be the President of the Juri
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+JuriMember{Prof.
+ Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia
+ da Universidade do Porto}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Additional members of the Juri
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+JuriMember{Prof.
+ Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia
+ da Universidade do Porto}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+JuriMember{Prof.
+ Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia
+ da Universidade do Porto}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+JuriMember{Prof.
+ Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia
+ da Universidade do Porto}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+JuriMember{Prof.
+ Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia
+ da Universidade do Porto}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+JuriMember{Prof.
+ Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia
+ da Universidade do Porto}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%       DEFINE THESIS COVER FIELDS
+\end_layout
+
+\begin_layout Plain Layout
+
+%                  END
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+begin{document}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+MakeCover
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+end{document}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
