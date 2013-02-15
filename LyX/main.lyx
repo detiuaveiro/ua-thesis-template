@@ -1,0 +1,737 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass memoir
+\begin_preamble
+%%!TEX encoding = UTF-8 Unicode
+
+% According to UA rules, font size should range from 10 to 12pt.
+%\documentclass[12pt,a4paper,openright,final,twoside,onecolumn]{memoir}
+
+%\listfiles
+%\fixpdflayout
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+%For PDF merging
+\usepackage{pdfpages}
+
+%SET DPI to 300
+\pdfpxdimen=\dimexpr 1in/300\relax
+
+%\usepackage{morewrites} % Allow the use of a larger number of packages
+
+% For custom date format
+%\usepackage{datetime}
+%\newdateformat{thesisdate}{\monthname[\THEMONTH] \THEYEAR} % Month Year
+
+
+% floats on facing pages
+%\usepackage{dpfloat}
+
+%Side by side figures
+% Eg. Fig 1a, Fig 1b
+%\let\subcaption\undefined
+%\let\subfloat\undefined
+%\usepackage{subcaption}
+
+% Computer Modern Typewritter (For bold ttfamily in listings)
+\usepackage{lmodern}
+
+%Dropped Caps
+%\usepackage{lettrine}
+
+
+%Configure Hyperlink color
+%\usepackage[breaklinks=true,colorlinks=false,linkcolor=blue]
+\usepackage{hyperref}
+
+
+%Redefine section names
+%\def\sectionautorefname{Section}
+%\def\chapterautorefname{Chapter}
+%\def\figureautorefname{Figure}
+%\def\listingautorefname{Listing}
+%\def\tableautorefname{Table}
+
+%For PDF Comments
+\usepackage{comment}
+\usepackage{pdfcomment}
+\usepackage{bookmark} % New Bookmarks
+
+%For Multiple columns in Glossary
+\usepackage{multicol}
+
+%Math symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+
+%Graphics
+\usepackage{graphicx}
+
+%Colors
+\usepackage{xcolor}
+
+%Euro symbol
+\usepackage{eurosym}
+
+% Code boxes
+\usepackage{listings}
+
+\lstloadlanguages{C++,Java}
+
+\lstset{
+frame=tb,
+frameround=ffff,
+language=Java,
+tabsize=3,
+captionpos=b,
+commentstyle=\ttfamily\color{gray},
+stringstyle=\ttfamily\color{gray},
+keywordstyle=\ttfamily\bfseries,
+basicstyle=\scriptsize\mdseries,
+aboveskip=1.5\baselineskip,
+belowskip=1.5\baselineskip,
+breaklines=true,
+float,
+%numberbychapter=false,
+breakatwhitespace=true
+%stepnumber=1,
+%numbersep=5pt,
+%numbers = left
+}
+
+% ------- REPLACED BY LyX BibTex Suport -------
+%Biber using IEEE style for proper UTF-8 support
+%\usepackage[backend=biber,style=ieee, sorting=none]{biblatex}
+%\bibliography{bib/references.bib, bib/rfc.bib}
+%\bibliography{bib/bibtex.bib}
+
+ %Configure Linespacing
+\usepackage{setspace}
+
+% As the name says... Allow using custom font sizes
+%\usepackage{anyfontsize}
+
+%Use acronyms
+\usepackage{acronym} % For acronyms
+
+% Enable chart support through pgf and tikz
+%\usepackage[version=0.96]{pgf}
+%\usepackage{tikz}
+%\usepackage{pgf-umlsd}
+%\usetikzlibrary{arrows,shadows,trees,shapes,snakes,automata,backgrounds,petri,mindmap} % for pgf-umlsd
+
+\usepackage{verbatim}
+
+ %Frames around figures and allow force placement
+\usepackage{float}
+
+%Configure Float style
+%\floatstyle{boxed}
+%\restylefloat{table}
+%\restylefloat{figure}
+%\restylefloat{lstlisting}
+
+%For test purposes
+\usepackage{lipsum}
+
+%Keep floats inside section!
+%THIS CAUSE A BAD FORMAT OF BIBLIOGRAPHY TITLE
+%\usepackage[section]{placeins}
+%\let \oldsubsubsection \subsubsection
+%\renewcommand{\subsubsection}[2][]{
+%  \FloatBarrier
+%  \oldsubsubsection#1{#2}
+%}
+%\let \oldsubsection \subsection
+%\renewcommand{\subsection}[2][]{
+%  \FloatBarrier
+%  \oldsubsection#1{#2}
+%}
+%\let \oldsection \section
+%\renewcommand{\section}[2][]{
+%  \FloatBarrier
+%  \oldsection#1{#2}
+%}
+%\let \oldchapter \chapter
+%\renewcommand{\chapter}[2][]{
+%  \FloatBarrier
+%  \oldchapter#1{#2}
+%}
+
+%%% ToC down to subsections
+%\settocdepth{subsection}
+
+%%% Numbering down to subsections as well
+%\setsecnumdepth{subsection}
+
+%%%% extra index for first lines
+\makeindex[lines]
+
+%Margins for University of Aveiro Thesis
+\setlrmarginsandblock{3cm}{2.5cm}{*}
+\setulmarginsandblock{3cm}{3cm}{*}
+\checkandfixthelayout
+
+%Line spacing: 1.5 pt
+\OnehalfSpacing
+
+%Or custom spacing
+%\addtolength{\parskip}{0.5\baselineskip}
+\end_preamble
+\options 12pt,a4paper,openright,final,twoside,onecolumn
+\use_default_options true
+\maintain_unincluded_children false
+\language portuguese
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[pages=-]{cover.pdf}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Select chapter style from existing or select custom
+\end_layout
+
+\begin_layout Plain Layout
+
+% (dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher,
+ veelo, indexes)
+\end_layout
+
+\begin_layout Plain Layout
+
+% NOT ADVISED TO CHANGE THIS
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapterstyle{brotherton}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+chapternamenum{ }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+printchapternum{
+\backslash
+chapnumfont
+\backslash
+thechapter
+\backslash
+par}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% title font
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+precaption{
+\backslash
+small
+\backslash
+raggedright
+\backslash
+bfseries}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% for Caption N
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+captionstyle{
+\backslash
+small
+\backslash
+raggedright
+\backslash
+normalfont}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% for title
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+setlength{
+\backslash
+belowcaptionskip}{
+\backslash
+onelineskip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Exclude sub figures from List of Figures
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+captionsetup[subfloat]{list=no}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Select Page style
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{plain}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tightlists
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+midsloppy
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+raggedbottom
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{tocdepth}{2}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%subsections are added to the TOC
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{secnumdepth}{4}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%subsubsections are numbered
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+%Optional! Remove in final version.
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+listofpdfcomments[liststyle=SubjectAuthor]
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+cleardoublepage
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Table of contents
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%List of figures
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoffigures
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%List of tables
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoftables
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Set glossary as Roman Index
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+backmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "glossary.lyx"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%Main document starts here
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+Must export cover.lyx to cover.pdf first (recommended: pdflatex)
+\end_layout
+
+\begin_layout Itemize
+Every new doc.lyx should be included by adding a new child document in: Insert
+ / File / Child Document
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+MUST INSTALL (ubuntu)
+\end_layout
+
+\begin_layout Itemize
+biblatex
+\end_layout
+
+\begin_layout Itemize
+TEXLIVE-PUBLISHERS (maybe)
+\end_layout
+
+\begin_layout Itemize
+Should install: cm-super or/and texlive-fonts-recommended
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+In: Document / Settings
+\end_layout
+
+\begin_layout Itemize
+Every new document must set the document type in Document Class, to Book
+ (memoir)
+\end_layout
+
+\begin_layout Itemize
+You may want to define the option 
+\begin_inset Quotes eld
+\end_inset
+
+Here if possible
+\begin_inset Quotes erd
+\end_inset
+
+ on Float Placement to position the images/tables where you put them
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "introducao.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "estado da arte.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "bib/bibtex"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
