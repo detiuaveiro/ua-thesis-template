@@ -37,7 +37,7 @@
 \Author{NOME\\COMPLETO}
 
 %Thesis Mandatory Title in Portuguese
-\Title{TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
+\Title{\selectlanguage{portuguese}TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
 
 %Optional Titles in additional languages. Any number can be added.
 \Title{\selectlanguage{english}THESIS TITLE (MAX 70 CHARACTERS)}
@@ -68,7 +68,7 @@
 
 %Mandatory Keywords and Abstract in Portuguese
 \Abstract{Palavras Chave}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
-         {Resumo}{\blindtext[3]}
+         {Resumo}{\selectlanguage{portuguese}\blindtext[3]}
 
 %Optional Keywords and Abstract in additional languages. Any number can be added.
 \Abstract{Keywords}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
@@ -92,6 +92,10 @@
        
 
 \begin{document}
+
+% Uncomment the following to change the default language to english
+%\selectlanguage{english}
+
 \MakeCover
 
 \end{document}
