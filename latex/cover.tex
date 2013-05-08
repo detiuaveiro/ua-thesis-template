@@ -1,83 +1,179 @@
 %!TEX encoding = UTF-8 Unicode
-%
-% uaThesisTemplate example
-%
-% the complete list of options and commands can be found in uaThesisTemplate.sty 
+
+% Thesis cover pages
 %
 % Based on the example.tex file provided by Tomás Oliveira e Silva
 %
 % Modified by João Paulo Barraca <jpbarraca@ua.pt>
-%
+% Modified by Filipe Manco <filipe.manco@ua.pt>
 
 \documentclass[11pt,twoside,a4paper]{report}
 
-%Select your department
+%%% This file is a template for the cover of your
+%%%  thesis.
+%%% Lines like this one, starting with %%% , are
+%%%  instructions. Search them to know where and
+%%%  how to edit this file. After editing the
+%%%  document you can delete them.
+%%% Items marked with OPTIONAL can be removed.
+%%% The complete list of options and commands can
+%%%  be found in uaThesisTemplate.sty
+
+
+%%% Select your area of study and department from
+%%%  the following lists and replace them in the
+%%%  \usepackage declaration ([area,department]).
+%%%
+%%% | area        |   | department |
+%%% ---------------   --------------
+%%% | arts        |   | dao        |
+%%% | sciences    |   | bio        |
+%%% | education   |   | csjp       |
+%%% | economy     |   | ca         |
+%%% | engineering |   | egi        |
+%%% | humanities  |   | de         |
+%%% | health      |   | deti       |
+%%% |             |   | mac        |
+%%% |             |   | civil      |
+%%% |             |   | mec        |
+%%% |             |   | fis        |
+%%% |             |   | dlc        |
+%%% |             |   | mat        |
+%%% |             |   | dq         |
+%%% |             |   | cs         |
+%%% ---------------   --------------
+%% Import the UA thesis template
 \usepackage[economy,egi]{uaThesisTemplate}
+
 
 % optional packages for utf8 encoding and T1 fonts
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-%By default we consider portuguese
+%% We will use english and portuguese
 \usepackage[english,portuguese]{babel}
+
 \usepackage{xspace}% used by \sigla
 
-% For testing purposes. Not needed for final document
+%%% This package is only used to create a dummy
+%%%  text for the abstract. You can remove the
+%%%  following line in the final document.
 \usepackage{blindtext}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       DEFINE THESIS COVER FIELDS
 %                  START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-       
-%Thesis Year
+
+%%% Edit thesis year
+%% Thesis Year
 \ThesisYear{2012}
 
-%Authors full name
+%%% Edit author's name
+%% Author's full name
 \Author{NOME\\COMPLETO}
 
-%Thesis Mandatory Title in Portuguese
+%%% Edit thesis title in Portuguese
+%% Thesis Mandatory Title in Portuguese
 \Title{\selectlanguage{portuguese}TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
 
-%Optional Titles in additional languages. Any number can be added.
+%%% OPTIONAL: you can write your thesis title in
+%%%  other languages. You can repeat the following
+%%%  line as many times as you want, or remove it
+%%%  if you only want the portuguese title.
+%% Optional Titles in additional languages.
 \Title{\selectlanguage{english}THESIS TITLE (MAX 70 CHARACTERS)}
 
-%Quotation (Optional)
+%%% OPTIONAL: add a quotation if you like.
+%% Optional Quotation
 \Quote{\selectlanguage{english}The greatest challenge to any thinker is stating the problem in a way that will allow a solution}{Bertrand Russell}
 
-%Supervisor name
+%%% Edit your supervisor's information.
+%%%
+%%% \Supervisor{name}{category}
+%%%
+%%% name   : Supervisor's name
+%%% categoy: One of the following list
+%%%
+%%% | category               |
+%%% --------------------------
+%%% | catedrático            |
+%%% | catedrático convidado  |
+%%% | associado c/ agregação |
+%%% | associado              |
+%%% | auxiliar               |
+%%% | auxiliar convidado     |
+%%% --------------------------
+%% Supervisor information
 \Supervisor{(nome do orientador)}{(categoria do orientador)}
-%Optional SecondSuperviser: {name}, {category}, {[preposition: (at, in, no, da)] department}, {[preposition: (at, in, do, na)] school}
+
+%%% OPTIONAL: you can add a second supervisor.
+%%%
+%%% \SecondSupervisor{name}{category}
+%%%  {[preposition: (at, in, no, da)] department}
+%%%  {[preposition: (at, in, do, na)] school}
+%%%
+%%% name      : See above.
+%%% category  : See above.
+%%% department: Can be a department, faculty or
+%%%             other; Choose the preposition
+%%%             accordingly.
+%%% school    : University/Scholl name; Choose the
+%%%             preposition accordingly.
+%% Optional SecondSuperviser information
 \SecondSupervisor{co-orientador}{auxiliar convidado}{do Departamento de Matemática}{da Universidade de Aveiro}
 
-%Degree title (Mestre or Doutor) and name 
+%%% Edit your degree information.
+%%%
+%%% \Degree{title}{name}
+%%%
+%%% title: Degree title (Mestre or Doutor)
+%%% name : Degree name
+%% Degree title and name
 \Degree{Mestre}{(designa\c cão do mestrado)}
 
-%Optional Grant support texts
+%%% OPTIONAL: edit grant support texts where
+%%%  appropriate. Maximum two.
+%%%
+%%% \GrantText{grant1}{grant2}
+%% Optional Grant support texts
 \GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.\\
     (se aplicável)}
     {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.
     (se aplicável)}
 
-%Optional Dedication text
+%%% OPTIONAL: Add a dedication text.
+%% Optional Dedication text
 \Dedication{texto Dedico este trabalho à minha esposa e filho pelo incansável apoio.\\
 (opcional)}
 
-%Optional Acknowledgement text
+%%% OPTIONAL: Add an acknowledgement text
+%% Optional Acknowledgement text
 \Acknowledgements{texto Agradecimentos\\(opcional)}
 
-%Mandatory Keywords and Abstract in Portuguese
+%%% Edit the keywords and abstract in Portuguese
+%%% Don't forget to remove the \blindtext[3]
+%%%  declaration.
+%% Mandatory Keywords and Abstract in Portuguese
 \Abstract{Palavras Chave}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
          {Resumo}{\selectlanguage{portuguese}\blindtext[3]}
 
-%Optional Keywords and Abstract in additional languages. Any number can be added.
+%%% OPTIONAL: you can write the keywords and
+%%%  abstract in other languages. You can repeat
+%%%  the following lines as many times as you want
+%%%  or remove them if you only want portuguese.
+%% Optional Keywords and Abstract in additional languages.
 \Abstract{Keywords}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
          {Abstract}{\selectlanguage{english}\blindtext[3]}     
-         
-%First Member will be the President of the Juri
+
+%%% Edit the Jury President information.
+%% First Member will be the President of the Jury
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
 
-%Additional members of the Juri
+%%% Repeat the above declaration for additional
+%%%  members of the jury as many times as necessary.
+%% Additional members of the Jury
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
 \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Faculdade de Engenharia da Universidade do Porto}
@@ -89,12 +185,15 @@
 %       DEFINE THESIS COVER FIELDS
 %                  END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-       
+
 
 \begin{document}
 
-% Uncomment the following to change the default language to english
-%\selectlanguage{english}
+%%% By default we consider portuguese to be the
+%%%  main language (the last one in the usepackage
+%%%  declaration). If you're writing your thesis
+%%%  in english uncomment the following line.
+%\setdefaultlanguage{english}
 
 \MakeCover
 
