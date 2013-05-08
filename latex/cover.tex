@@ -1,11 +1,11 @@
 %!TEX encoding = UTF-8 Unicode
 
-% Thesis cover pages
-%
-% Based on the example.tex file provided by Tomás Oliveira e Silva
-%
-% Modified by João Paulo Barraca <jpbarraca@ua.pt>
-% Modified by Filipe Manco <filipe.manco@ua.pt>
+%% Thesis cover pages
+%%
+%% Based on the example.tex file provided by Tomás Oliveira e Silva
+%%
+%% Modified by João Paulo Barraca <jpbarraca@ua.pt>
+%% Modified by Filipe Manco <filipe.manco@ua.pt>
 
 \documentclass[11pt,twoside,a4paper]{report}
 
@@ -16,6 +16,8 @@
 %%%  how to edit this file. After editing the
 %%%  document you can delete them.
 %%% Items marked with OPTIONAL can be removed.
+%%% Most of the lines you will have to change
+%%%  already have examples to help you understand.
 %%% The complete list of options and commands can
 %%%  be found in uaThesisTemplate.sty
 
@@ -43,10 +45,10 @@
 %%% |             |   | cs         |
 %%% ---------------   --------------
 %% Import the UA thesis template
-\usepackage[economy,egi]{uaThesisTemplate}
+\usepackage[engineering,deti]{uaThesisTemplate}
 
 
-% optional packages for utf8 encoding and T1 fonts
+%% Optional packages for utf8 encoding and T1 fonts
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -62,8 +64,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       DEFINE THESIS COVER FIELDS
-%                  START
+%%       DEFINE THESIS COVER FIELDS
+%%                  START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Edit thesis year
@@ -72,7 +74,7 @@
 
 %%% Edit author's name
 %% Author's full name
-\Author{NOME\\COMPLETO}
+\Author{FIRST NAME\\LAST NAME}
 
 %%% Edit thesis title in Portuguese
 %% Thesis Mandatory Title in Portuguese
@@ -87,7 +89,8 @@
 
 %%% OPTIONAL: add a quotation if you like.
 %% Optional Quotation
-\Quote{\selectlanguage{english}The greatest challenge to any thinker is stating the problem in a way that will allow a solution}{Bertrand Russell}
+\Quote{\selectlanguage{english}The greatest challenge to any thinker is stating
+the problem in a way that will allow a solution}{Bertrand Russell}
 
 %%% Edit your supervisor's information.
 %%%
@@ -106,7 +109,7 @@
 %%% | auxiliar convidado     |
 %%% --------------------------
 %% Supervisor information
-\Supervisor{(nome do orientador)}{(categoria do orientador)}
+\Supervisor{(nome do orientador)}{associado}
 
 %%% OPTIONAL: you can add a second supervisor.
 %%%
@@ -122,7 +125,7 @@
 %%% school    : University/Scholl name; Choose the
 %%%             preposition accordingly.
 %% Optional SecondSuperviser information
-\SecondSupervisor{co-orientador}{auxiliar convidado}{do Departamento de Matemática}{da Universidade de Aveiro}
+\SecondSupervisor{(co-orientador)}{auxiliar convidado}{do Departamento de Matemática}{da Universidade de Aveiro}
 
 %%% Edit your degree information.
 %%%
@@ -131,26 +134,23 @@
 %%% title: Degree title (Mestre or Doutor)
 %%% name : Degree name
 %% Degree title and name
-\Degree{Mestre}{(designa\c cão do mestrado)}
+\Degree{Mestre}{Engenharia de Computadores e Telemática}
 
 %%% OPTIONAL: edit grant support texts where
 %%%  appropriate. Maximum two.
 %%%
 %%% \GrantText{grant1}{grant2}
 %% Optional Grant support texts
-\GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.\\
-    (se aplicável)}
-    {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.
-    (se aplicável)}
+\GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.}
+          {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.}
 
 %%% OPTIONAL: Add a dedication text.
 %% Optional Dedication text
-\Dedication{texto Dedico este trabalho à minha esposa e filho pelo incansável apoio.\\
-(opcional)}
+\Dedication{Dedico este trabalho à minha esposa e filho pelo incansável apoio.}
 
 %%% OPTIONAL: Add an acknowledgement text
 %% Optional Acknowledgement text
-\Acknowledgements{texto Agradecimentos\\(opcional)}
+\Acknowledgements{Agradeço toda a ajuda a todos os meus colegas e companheiros.}
 
 %%% Edit the keywords and abstract in Portuguese
 %%% Don't forget to remove the \blindtext[3]
@@ -164,7 +164,7 @@
 %%%  the following lines as many times as you want
 %%%  or remove them if you only want portuguese.
 %% Optional Keywords and Abstract in additional languages.
-\Abstract{Keywords}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
+\Abstract{Keywords}{textbook, architecture, history, construction, construction materials, traditional knowledge.}
          {Abstract}{\selectlanguage{english}\blindtext[3]}     
 
 %%% Edit the Jury President information.
@@ -182,8 +182,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       DEFINE THESIS COVER FIELDS
-%                  END
+%%       DEFINE THESIS COVER FIELDS
+%%                  END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
