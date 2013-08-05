@@ -20,15 +20,17 @@
 %For English and Portuguese languages
 %Portuguese will be the default.
 %Use \setdefaultlanguage to change it
-
+\usepackage{csquotes}
 \usepackage[english,portuguese]{babel}
 
 % For custom date format
 \usepackage{datetime}
 \newdateformat{thesisdate}{\monthname[\THEMONTH] \THEYEAR} % Month Year
 
+\usepackage{microtype} % Make pdf look better
 
-% floats on facing pages
+
+% Uncomment to enable floats on facing pages
 %\usepackage{dpfloat}
 
 %Side by side figures
@@ -39,12 +41,17 @@
 
 % Computer Modern Typewritter (For bold ttfamily in listings)
 \usepackage{lmodern}
+% OR... this one
+%\usepackage[scaled]{beramono} % TTT Font
+\usepackage{anyfontsize} % As the name says...
 
-%Dropped Caps
+\RequirePackage{textcase}
+
+% Dropped Caps
 %\usepackage{lettrine}
 
 
-%Configure Hyperlink color
+% Configure Hyperlink color
 %\usepackage[breaklinks=true,colorlinks=false,linkcolor=blue]
 \usepackage{hyperref}
 
@@ -110,8 +117,7 @@
  %Configure Linespacing
 \usepackage{setspace}
 
-% As the name says... Allow using custom font sizes
-\usepackage{anyfontsize}
+
 
 %Use acronyms
 \usepackage[printonlyused]{acronym} % For acronyms
@@ -232,41 +238,33 @@
     \raggedleft {\chaptitlefont ##1}\par\nobreak\vskip 4\onelineskip}}
 
 %Select chapter style from existing or select custom
-\chapterstyle{thesis} % Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo,indexes)
+% \chapterstyle{thesis} % Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo,indexes)
 % thesis can also be used as defined previously
 %
 
-
-%\chapterstyle{thesis} % Custom ``Thesis' or use one of above'
-
-
-%Change header style for sections, subsection, sub subsections, captions, etc...
-%\setsecheadstyle{\raggedright\LARGE\sffamily}
-%  \setbeforesecskip{-3\onelineskip}
-%  \setaftersecskip{\onelineskip}
-
-%\setsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\Large\sffamily}
-%  \setbeforesubsecskip{-3\onelineskip}
-%  \setaftersubsecskip{\onelineskip}
-
-%\setsubsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\large\sffamily}
-%	\setbeforesubsubsecskip{-3\onelineskip}
-%  \setaftersubsubsecskip{\onelineskip}
-
-
-%\captiontitlefont{\small}% title font
-%\precaption{\small\raggedright\bfseries}% for Caption N
-%\captionstyle{\small\raggedright\normalfont}% for title
-%\setlength{\belowcaptionskip}{\onelineskip}
+%If you feel adventurous you can also define all aspects of your theme
+%Use either this input or the chapterstyle before
+\input{custom-theme.tex}
 
 
 %Exclude sub figures from List of Figures
 %\captionsetup[subfloat]{list=no}
 
 
+% Texts
+\newenvironment{introduction}
+{%
+  \begin{minipage}{\textwidth}%
+   \itshape%
+}
+{%
+  \end{minipage}%
+  \par\addvspace{2\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}%
+}
+
+
 %Select Page style
 \pagestyle{plain}
-
 
 \frontmatter
 

@@ -1,0 +1,198 @@
+% Rules
+\newcommand{\thinRule}{\rule{\textwidth}{0.25pt}}
+
+% Customize heading appearances
+% Define styles
+\newcommand{\partSize}{\Huge}
+\newcommand{\partStyle}{\lsstyle\scshape}
+\newcommand{\chapterSize}{\Huge}
+\newcommand{\chapterStyle}{\lsstyle\scshape}
+\newcommand{\chapterAfter}{}
+\newcommand{\sectionSize}{\Large}
+\newcommand{\sectionStyle}{\scshape\MakeTextLowercase}
+\newcommand{\subsectionSize}{\large}
+\newcommand{\subsectionStyle}{\scshape\MakeTextLowercase}
+\newcommand{\subsubsectionSize}{\large}
+\newcommand{\subsubsectionStyle}{\scshape\MakeTextLowercase}
+\newlength{\partNumSizePt}
+\setlength{\partNumSizePt}{60pt}
+\newlength{\chapterNumSizePt}
+\setlength{\chapterNumSizePt}{60pt}
+\newcommand{\partNumSize}{%
+  \fontsize{\partNumSizePt}{1.2\partNumSizePt}\selectfont%
+}
+\newcommand{\partNumStyle}{\partChapterNumColor}
+\newcommand{\chapterNumSize}{%
+  \fontsize{\chapterNumSizePt}{1.2\chapterNumSizePt}\selectfont%
+}
+\newcommand{\chapterNumStyle}{\partChapterNumColor}
+
+% Customize parts
+\renewcommand{\partnamefont}{\partSize\partStyle}
+\renewcommand{\partnumfont}{\partNumSize\partNumStyle}
+\renewcommand{\printpartname}{}
+\renewcommand{\printparttitle}[1]{%
+  \normalfont\normalcolor\partnamefont #1
+}
+
+% Customize chapters
+\makeatletter
+\setlength{\beforechapskip}{30pt}
+\renewcommand*{\chapterheadstart}{\vspace*{\beforechapskip}}
+\setlength{\afterchapskip}{3ex}
+\setlength{\midchapskip}{3ex}
+\renewcommand*{\chapnamefont}{%
+  \Large\flushright\chapterStyle\partChapterNumColor%
+}
+\renewcommand*{\chapnumfont}{\chapterNumSize\chapterNumStyle}
+\renewcommand*{\chaptitlefont}{%
+  \normalfont\flushleft\normalcolor\chapterSize\chapterStyle%
+}
+\renewcommand*{\printchaptername}{%
+  \chapnamefont\MakeTextLowercase{\@chapapp}%
+}
+\renewcommand*{\chapternamenum}{\quad}
+\renewcommand*{\printchapternum}{%
+%  \chapnumfont\textls[-75]{\classicstylenums{\thechapter}}%
+ \chapnumfont\textls[-75]{\thechapter}%
+
+}
+\renewcommand*{\printchaptertitle}[1]{%
+  \chaptitlefont #1
+  \chapterAfter
+}
+\makeatother
+% Customize sections and subsections
+\setsecnumformat{\csname my#1\endcsname\quad}
+\setsecheadstyle{\sectionSize\sectionStyle}
+\newcommand{\mysection}{{\thesection}}
+\setlength{\beforesecskip}{3em}
+
+
+\setsubsecheadstyle{\subsectionSize\subsectionStyle}
+\newcommand{\mysubsection}{{\normalfont\subsectionSize\thesubsection}}
+\setlength{\beforesubsecskip}{3em}
+
+\setsubsubsecheadstyle{\subsubsectionSize\subsubsectionStyle}
+\newcommand{\mysubsubsection}{{\normalfont\subsubsectionSize\thesubsubsection}}
+\setlength{\beforesubsubsecskip}{2em}
+
+% Customize "Table of ..." appearance
+% Customize headings
+\newcommand{\renewPrintXTitle}[1]{%
+  \renewcommand{#1}[1]{%
+    \printchaptertitle{##1}%
+  }%
+}
+\renewPrintXTitle{\printtoctitle}
+\renewPrintXTitle{\printlottitle}
+\renewPrintXTitle{\printloftitle}
+
+% Customize ToC headings
+\renewcommand{\cftpartfont}{\partChapterNumColor\partStyle}
+\renewcommand{\cftchapterfont}{\chapterStyle}
+\renewcommand{\cftsectionfont}{}
+\renewcommand{\cftsubsectionfont}{}
+\renewcommand{\cftfigurefont}{}
+\renewcommand{\cfttablefont}{}
+\newcommand{\cftlstlistingfont}{}
+
+% Increase number width
+\newlength{\cftNumWidthIncrease}
+\setlength{\cftNumWidthIncrease}{0.25em}
+\addtolength{\cftpartnumwidth}{\cftNumWidthIncrease}
+\addtolength{\cftchapternumwidth}{\cftNumWidthIncrease}
+\addtolength{\cftsectionindent}{\cftNumWidthIncrease}
+\addtolength{\cftsubsectionindent}{\cftNumWidthIncrease}
+% No leader dots
+\renewcommand*{\cftpartdotsep}{\cftnodots}
+\renewcommand*{\cftchapterdotsep}{\cftnodots}
+\renewcommand*{\cftsectiondotsep}{\cftnodots}
+\renewcommand*{\cftsubsectiondotsep}{\cftnodots}
+\renewcommand*{\cftfiguredotsep}{\cftnodots}
+\renewcommand*{\cfttabledotsep}{\cftnodots}
+\newcommand*{\cftlstlistingdotsep}{\cftnodots}
+% Set page numbers immediately after entry text
+\newcommand{\tocEntryPageSep}{\hspace{1em}}
+\renewcommand{\cftpartleader}{\tocEntryPageSep}
+\renewcommand{\cftpartafterpnum}{\cftparfillskip}
+\renewcommand{\cftchapterleader}{\tocEntryPageSep}
+\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+\renewcommand{\cftsectionleader}{\tocEntryPageSep}
+\renewcommand{\cftsectionafterpnum}{\cftparfillskip}
+\renewcommand{\cftsubsectionleader}{\tocEntryPageSep}
+\renewcommand{\cftsubsectionafterpnum}{\cftparfillskip}
+\renewcommand{\cftfigureleader}{\tocEntryPageSep}
+\renewcommand{\cftfigureafterpnum}{\cftparfillskip}
+\renewcommand{\cfttableleader}{\tocEntryPageSep}
+\renewcommand{\cfttableafterpnum}{\cftparfillskip}
+\newcommand{\cftlstlistingleader}{\tocEntryPageSep}
+\newcommand{\cftlstlistingafterpnum}{\cftparfillskip}
+% Customize page numbers
+\newcommand{\tocPageStyle}{\tocPageColor}
+\renewcommand{\cftpartpagefont}{\tocPageStyle}
+\renewcommand{\cftchapterpagefont}{\tocPageStyle}
+\renewcommand{\cftsectionpagefont}{\tocPageStyle}
+\renewcommand{\cftsubsectionpagefont}{\tocPageStyle}
+\renewcommand{\cftfigurepagefont}{\tocPageStyle}
+\renewcommand{\cfttablepagefont}{\tocPageStyle}
+\newcommand{\cftlstlistingpagefont}{\tocPageStyle}
+
+% Abstract
+% Remove indents around abstract text
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+% Change font size to conform with the rest of the document text
+\renewcommand{\abstracttextfont}{\normalsize}
+
+% Customize headers and footers
+\newcommand{\hfTextSize}{\footnotesize}
+\newcommand{\headTextStyle}{\lsstyle\scshape\MakeTextLowercase}
+\nouppercaseheads
+\makeevenhead{headings}%
+             {\hfTextSize\thepage}%
+             {}%
+             {\hfTextSize\headTextStyle\leftmark}
+\makeoddhead{headings}%
+            {\hfTextSize\headTextStyle\rightmark}%
+            {}%
+            {\hfTextSize\thepage}
+
+
+\pagestyle{headings}
+% Clear style for title page (no header nor footer)
+\makepagestyle{titlepage}
+
+
+
+% Customize captions
+\newcommand{\captionSize}{\small}
+\newcommand{\captionStyle}{\scshape}
+\newcommand{\captionWidthRatio}{0.9}
+
+\captionnamefont{\captionSize\captionStyle}
+\captiontitlefont{\captionSize}
+\captiondelim{ -- }
+\captiontitlefinal{}
+\changecaptionwidth
+%\captionwidth{\captionWidthRatio\textwidth}
+
+% Define colors
+%\newcommand{\titleColor}{\color[rgb]{0.616, 0.0627, 0.176}}
+\newcommand{\titleColor}{\color[rgb]{0,0,0}}
+
+\newcommand{\partChapterNumColor}{\titleColor}
+\newcommand{\dropCapColor}{\titleColor}
+%\newcommand{\tocPageColor}{\color[rgb]{0.0980, 0.329, 0.651}}
+
+\newcommand{\tocPageColor}{\color[rgb]{0, 0,0}}
+\definecolor{shade0}{rgb}{1.0 , 1.0 , 1.0 }
+\definecolor{shade1}{rgb}{0.9 , 0.9 , 0.9 }
+\definecolor{shade2}{rgb}{0.8 , 0.8 , 0.8 }
+\definecolor{shade3}{rgb}{0.65, 0.65, 0.65}
+\definecolor{shade4}{rgb}{0.45, 0.45, 0.45}
+\definecolor{shade5}{rgb}{0.0 , 0.0 , 0.0 }
+
+\pagestyle{headings}
+\makepagestyle{titlepage}
+

@@ -1,1 +1,50 @@
+
+
 \chapter{Introdu\c cão}
+\label{chapter:introduction}
+
+\begin{introduction}
+A sort description of the chapter.
+
+A memorable quote can also be used.
+\end{introduction}
+
+
+
+\section{Acrónimos}
+
+Primeira e seguintes referências: \ac{h2o}, \ac{h2o}
+
+Plural, acrónimo expandido e curto: \acp{h2o}, \acs{h2o}, \acl{h2o}
+
+Com citação \footnote{Necessária entrada na bibliografia}: \ac{adsl}, \ac{adsl}
+
+
+\section{Code Blocks}
+
+\begin{lstlisting}{language=C,caption="Scheduler"}
+
+#include <stdio.h>
+#define N 10
+/* Block
+ * comment */
+ 
+int main()
+{
+    int i;
+ 
+    // Line comment.
+    puts("Hello world!");
+ 
+    for (i = 0; i < N; i++)
+    {
+        puts("LaTeX is also great for programmers!");
+    }
+ 
+    return 0;
+}
+\end{lstlisting}
+ 
+
+
+
