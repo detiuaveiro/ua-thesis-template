@@ -205,7 +205,9 @@
 \includepdf[pages=-]{cover.pdf}
 
 %
-%Front matter (%Custom Chapter style
+%Front matter
+
+%Custom Chapter style named thesis
 \makechapterstyle{thesis}{% Based on ell
   \chapterstyle{default}
   \renewcommand*{\chapnumfont}{\normalfont\sffamily}
@@ -231,6 +233,7 @@
 
 %Select chapter style from existing or select custom
 \chapterstyle{brotherton} % Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo,indexes)
+% thesis can also be used as defined previously
 %
 
 
@@ -279,6 +282,8 @@
 %\small
 %\listofpdfcomments[liststyle=SubjectAuthor]
 %\cleardoublepage
+
+\selectlanguage{portuguese}
 
 %Table of contents
 \small
