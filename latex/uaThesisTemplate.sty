@@ -35,7 +35,7 @@
 \newcommand{\Acknowledgements}[1]{\def\ciAcknowledgements{#1}}
 \newcommand{\JuriMember}[2]{
     \listadd{\ciJuriMember}{\JURI{\JURICATEGORY}{#1}{#2}}
-} 
+}
 \newcommand{\Abstract}[4]{\listadd{\ciAbstract}{
   \TitlePage
     \vspace*{55mm}
@@ -85,7 +85,7 @@
 \def\ua@white{1}
 
 
-\DeclareOption{engineering}{\ua@arts
+\DeclareOption{arts}{\ua@arts
   \let\ua@redT=\ua@red\let\ua@greenT=\ua@green\let\ua@blueT=\ua@blue
   \let\ua@redM=\ua@red\let\ua@greenM=\ua@green\let\ua@blueM=\ua@blue
   \let\ua@redB=\ua@red\let\ua@greenB=\ua@green\let\ua@blueB=\ua@blue
@@ -424,7 +424,7 @@
      \else
          \ifnum\value{cjuri} =1%
          vogais~/~examiners committee
-         \fi    
+         \fi
      \fi
      \addtocounter{cjuri}{1}
 }
@@ -442,7 +442,7 @@
 \renewcommand*{\do}[1]{
    ##1
 }
-        
+
 %
 % Creates entire cover
 %
@@ -454,9 +454,9 @@
 
   \TitlePage
      \HEADER{\BAR} % the \FIG{} is optional
-           {\ciThesisYear}    
+           {\ciThesisYear}
    \dolistloop{\ciTitle}
-   
+
   \EndTitlePage
   \titlepage\ \endtitlepage % empty page
 
@@ -475,7 +475,7 @@
           }}
            {\ciThesisYear}
    \dolistloop{\ciTitle}
-        
+
   \EndTitlePage
   \titlepage\ \endtitlepage % empty page
 \fi
@@ -492,7 +492,7 @@
 \TitlePage
   \INNERHEADER{}{\ciThesisYear}
    \dolistloop{\ciTitle}
-   
+
   \vspace*{25mm}
   \TEXT{}
        {Disserta\c c\~ao apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a obten\c c\~ao do grau de {\ciDegreeTitle} em {\ciDegreeName}, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}.}
@@ -530,7 +530,7 @@
 \TitlePage
   \vspace*{55mm}
   \SECTION{o j\'uri~/~the jury}
-       {}   
+       {}
     \dolistloop{\ciJuriMember}
    \EndTitlePage
 \titlepage\ \endtitlepage % empty page
@@ -545,7 +545,7 @@
   \vspace*{55mm}
   \SECTION{\textbf{agradecimentos~/\newline acknowledgements}}
        {\ciAcknowledgements}
-       
+
 \EndTitlePage
 \titlepage\ \endtitlepage % empty page
 \fi
