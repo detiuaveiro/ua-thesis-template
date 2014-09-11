@@ -28,3 +28,4 @@ clean-out:
 
 clean: clean-out
 	latexmk -C
+	rm -f matter.bbl matter.lpc matter.mw matter.run.xml matter.upa
