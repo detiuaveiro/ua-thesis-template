@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{plain.Kopka.03}
+Helmut Kopka and Patrick~W. Daly.
+\newblock {\em Guide to LaTeX}.
+\newblock Addison-Wesley Professional, 4th edition, 2003.
+\newblock ISBN-10: 0321173856, ISBN-13: 978-0321173850.
+
+\bibitem{plain.Lamport.94}
+Leslie Lamport.
+\newblock {\em LaTeX: A Document Preparation System}.
+\newblock Addison-Wesley Professional, 2nd edition, 1994.
+\newblock ISBN-10: 0201529831, ISBN-13: 978-0201529838.
+
+\end{thebibliography}
