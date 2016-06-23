@@ -146,7 +146,7 @@
 % Change font size to conform with the rest of the document text
 \renewcommand{\abstracttextfont}{\normalsize}
 
-% Customize headers and footers
+% Customize headers and footers including page numbers
 \newcommand{\hfTextSize}{\footnotesize}
 \newcommand{\headTextStyle}{\lsstyle\scshape\MakeTextLowercase}
 \nouppercaseheads
@@ -154,16 +154,18 @@
              {\hfTextSize\thepage}%
              {}%
              {\hfTextSize\headTextStyle\leftmark}
+\makeevenhead{plain}%
+             {\hfTextSize\thepage}%
+             {}%
+             {\hfTextSize\headTextStyle\leftmark}
 \makeoddhead{headings}%
             {\hfTextSize\headTextStyle\rightmark}%
             {}%
             {\hfTextSize\thepage}
-
-
-\pagestyle{headings}
-% Clear style for title page (no header nor footer)
-\makepagestyle{titlepage}
-
+\makeoddhead{plain}%
+            {\hfTextSize\headTextStyle\rightmark}%
+            {}%
+            {\hfTextSize\thepage}
 
 
 % Customize captions
@@ -193,7 +195,4 @@
 \definecolor{shade3}{rgb}{0.65, 0.65, 0.65}
 \definecolor{shade4}{rgb}{0.45, 0.45, 0.45}
 \definecolor{shade5}{rgb}{0.0 , 0.0 , 0.0 }
-
-\pagestyle{headings}
-\makepagestyle{titlepage}
 

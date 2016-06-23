@@ -40,12 +40,12 @@
 \usepackage{subcaption}
 
 % Computer Modern Typewritter (For bold ttfamily in listings)
-\usepackage{lmodern}
+%\usepackage{lmodern}
 % OR... this one
-%\usepackage[scaled]{beramono} % TTT Font
-\usepackage{anyfontsize} % As the name says...
+\usepackage[scaled]{beramono} % TTT Font
+%\usepackage{anyfontsize} % As the name says...
 
-\RequirePackage{textcase}
+%\RequirePackage{textcase}
 
 % Dropped Caps
 %\usepackage{lettrine}
@@ -85,30 +85,9 @@
 \usepackage{eurosym}
 
 % Code boxes
-\usepackage{listings}
-
-\lstloadlanguages{C++,Java}
-
-\lstset{
-	frame=tb,
-	frameround=ffff,
-	language=C++,
-	tabsize=2,
-	captionpos=b,
-	commentstyle=\ttfamily\color{gray},
-	stringstyle=\ttfamily\color{gray},
-	keywordstyle=\ttfamily\bfseries,
-	basicstyle=\scriptsize\mdseries,
-	aboveskip=1.5\baselineskip,
-	belowskip=1.5\baselineskip,
-	breaklines=true,
-	float,
-	numberbychapter=false,
-	breakatwhitespace=true
-	%stepnumber=1,
-	%numbersep=5pt,
-	%numbers = left
-}
+\usepackage{minted}
+\renewcommand\listingscaption{Código}
+\fvset{fontsize=\footnotesize} % Make Code blocks smaller
 
 %Biber using IEEE style for proper UTF-8 support
 \usepackage[backend=biber,style=ieee, sorting=none]{biblatex}
@@ -144,7 +123,7 @@
 \tikzstyle{every node}=[font=\small]
 \tikzstyle{every path}=[line width=0.8pt,line cap=round,line join=round]
 
-
+% For inline TT text (e.g. code snippets)
 \usepackage{verbatim}
 
  %Frames around figures and allow force placement
@@ -235,13 +214,13 @@
     \raggedleft {\chaptitlefont ##1}\par\nobreak\vskip 4\onelineskip}}
 
 %Select chapter style from existing or select custom
-% \chapterstyle{thesis} % Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo,indexes)
+%\chapterstyle{thesis} % Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo,indexes)
 % thesis can also be used as defined previously
 %
 
 %If you feel adventurous you can also define all aspects of your theme
 %Use either this input or the chapterstyle before
-\input{custom-theme.tex}
+%\input{custom-theme.tex}
 
 
 %Exclude sub figures from List of Figures
@@ -305,7 +284,7 @@
 
 
 % Start of Thesis text ----------------------------------------------------------
-
+\normalsize
 %Line spacing: 1.5 pt
 \OnehalfSpacing
 

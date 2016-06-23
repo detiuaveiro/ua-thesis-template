@@ -1,6 +1,6 @@
 
 
-\chapter{Introdu\c cão}
+\chapter{Introdução}
 \label{chapter:introduction}
 
 \begin{introduction}
@@ -22,7 +22,8 @@ Com citação \footnote{Necessária entrada na bibliografia}: \ac{adsl}, \ac{ads
 
 \section{Code Blocks}
 
-\begin{lstlisting}{language=C,caption="Scheduler"}
+\begin{listing}
+\begin{minted}{c}
 
 #include <stdio.h>
 #define N 10
@@ -43,8 +44,10 @@ int main()
  
     return 0;
 }
-\end{lstlisting}
- 
+\end{minted}
+\caption{This is below the code.}
+\label{lbl:snippet-test}
+\end{listing}
 
-
+\lipsum[5]
 
