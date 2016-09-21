@@ -23,6 +23,8 @@
 \def\ciKeywords{}
 
 %User Hooks
+\newcommand{\DocumentTypeThesis}{\def\ciDocumentTypeThesis{}}
+\newcommand{\DocumentTypeDissertation}{\def\ciDocumentTypeDissertation{}}
 \newcommand{\ThesisYear}[1]{\def\ciThesisYear{#1}}
 \newcommand{\Title}[1]{\listadd{\ciTitle}{\TITLE{\DISPLAYAUTHOR}{#1\newline} }}
 \newcommand{\Author}[1]{\def\ciAuthor{#1}}
@@ -494,8 +496,15 @@
    \dolistloop{\ciTitle}
 
   \vspace*{25mm}
-  \TEXT{}
-       {Disserta\c c\~ao apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a obten\c c\~ao do grau de {\ciDegreeTitle} em {\ciDegreeName}, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}.}
+  \TEXT{}{%
+\noindent%
+ \ifdefined \ciDocumentTypeThesis%
+Tese%
+ \else \ifdefined \ciDocumentTypeDissertation%
+Disserta\c c\~ao%
+    \fi %
+  \fi% 
+~apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a obten\c c\~ao do grau de {\ciDegreeTitle} em {\ciDegreeName}, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}.}
     \vspace{120mm}
 \ifdefined \ciGrantFirst
     \SPONSOR{}{
