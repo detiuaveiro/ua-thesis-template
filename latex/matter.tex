@@ -1,12 +1,19 @@
 %%!TEX encoding = UTF-8 Unicode
 
 % According to UA rules, font size should range from 10 to 12pt.
-\documentclass[12pt,a4paper,openright,final,twoside,onecolumn]{memoir}
+\documentclass[11pt,a4paper,openright,final,twoside,onecolumn]{memoir}
 
 \listfiles
 \fixpdflayout
 
 \usepackage[utf8]{inputenc}
+
+% Computer Modern Typewritter (For bold ttfamily in listings)
+\usepackage{lmodern}
+% OR... Bera Mono
+%\usepackage[scaled]{beramono} % TTT Font
+%\usepackage{anyfontsize} % As the name says...
+
 \usepackage[T1]{fontenc}
 
 %For PDF merging
@@ -35,15 +42,10 @@
 
 %Side by side figures
 % Eg. Fig 1a, Fig 1b
-\let\subcaption\undefined
-\let\subfloat\undefined
+\usepackage[hang,small,bf]{caption}
+%\let\tion\undefined
+%\let\subfloat\undefined
 \usepackage{subcaption}
-
-% Computer Modern Typewritter (For bold ttfamily in listings)
-%\usepackage{lmodern}
-% OR... this one
-\usepackage[scaled]{beramono} % TTT Font
-%\usepackage{anyfontsize} % As the name says...
 
 %\RequirePackage{textcase}
 
@@ -52,11 +54,11 @@
 
 
 % Configure Hyperlink color
-%\usepackage[breaklinks=true,colorlinks=false,linkcolor=blue]
+%\usepackage[breaklinks=true,colorlinks=false,linkcolor=blue]{hyperref}
+% Or use the default
 \usepackage{hyperref}
 
-
-%Redefine section names
+%Optional: Redefine section names
 %\def\sectionautorefname{Section}
 %\def\chapterautorefname{Chapter}
 %\def\figureautorefname{Figure}
@@ -87,16 +89,11 @@
 % Code boxes
 \usepackage{minted}
 \renewcommand\listingscaption{Código}
-\fvset{fontsize=\footnotesize} % Make Code blocks smaller
+\fvset{fontsize=\footnotesize} % Make Code blocks smaller than text
 
 %Biber using IEEE style for proper UTF-8 support
 \usepackage[backend=biber,style=ieee, sorting=none]{biblatex}
 \bibliography{bib/references.bib, bib/rfc.bib}
-
- %Configure Linespacing
-\usepackage{setspace}
-
-
 
 %Use acronyms
 \usepackage[printonlyused]{acronym} % For acronyms
@@ -108,7 +105,9 @@
 \usetikzlibrary{arrows,shadows,trees,shapes,snakes,automata,backgrounds,petri,mindmap} % for pgf-umlsd
 
 %For Electric Circuits
-\usepackage{siunitx}
+\usepackage[detect-weight=true, binary-units=true]{siunitx}
+\sisetup{load-configurations = binary}
+
 \usepackage[american,cuteinductors,smartlabels]{circuitikz}
 
 \usetikzlibrary{calc}
@@ -181,7 +180,7 @@
 
 %Or custom spacing
 %\addtolength{\parskip}{0.5\baselineskip}
-
+\linespread{1.5}
 
 \begin{document}
 \includepdf[pages=-]{cover.pdf}
@@ -213,6 +212,7 @@
     \vskip\onelineskip
     \raggedleft {\chaptitlefont ##1}\par\nobreak\vskip 4\onelineskip}}
 
+
 %Select chapter style from existing or select custom
 %\chapterstyle{thesis} % Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo,indexes)
 % thesis can also be used as defined previously
@@ -222,7 +222,7 @@
 %Use either this input or the chapterstyle before
 %\input{custom-theme.tex}
 
-
+\chapterstyle{veelo}
 %Exclude sub figures from List of Figures
 %\captionsetup[subfloat]{list=no}
 
@@ -253,28 +253,24 @@
 
 
 %%Optional! Remove in final version.
-\small
-\listofpdfcomments[liststyle=SubjectAuthor]
+{\small\listofpdfcomments[liststyle=SubjectAuthor]}
+
 \cleardoublepage
 
 %Table of contents
-\small
-\tableofcontents
+{\small\tableofcontents}
 \cleardoublepage
 
 %List of figures
-\small
-\listoffigures
-\normalsize
+{\small\listoffigures}
+
 
 %List of tables
 \cleardoublepage
-\small
-\listoftables
+{\small\listoftables}
 
 %Print Glossary
-\include{glossary}
-
+{\small\include{glossary}}
 
 %
 %Main document starts here
@@ -284,7 +280,6 @@
 
 
 % Start of Thesis text ----------------------------------------------------------
-\normalsize
 %Line spacing: 1.5 pt
 \OnehalfSpacing
 
