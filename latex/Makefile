@@ -14,7 +14,7 @@ cover:
 	latexmk -pdf -g cover.tex
 
 matter: cover
-	latexmk -pdf -g matter.tex
+	latexmk -pdf --pdflatex='pdflatex -file-line-error --shell-escape -synctex=1'  -g matter.tex
 
 thesis: matter
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out/thesis-print.pdf matter.pdf
