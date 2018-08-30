@@ -23,6 +23,10 @@ cover:
 matter: cover
 	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/$@.tex
 
+preview: cover
+	${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/cover.tex &
+	${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/matter.tex &
+
 print: matter
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-print.pdf ${OUT}/matter.pdf
 	./scripts/simplify-colors.sh ${OUT}/thesis-print.pdf
