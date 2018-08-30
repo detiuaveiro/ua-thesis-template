@@ -1,4 +1,4 @@
-.PHONY: cover matter print ebook cleanall clean
+.PHONY: all build preview print ebook cleanall clean
 
 # Vars
 SRC     := ${PWD}/src
@@ -15,23 +15,21 @@ LATEXMK_FLAGS += -outdir=${OUT}
 LATEXMK_FLAGS += -pdflatex="pdflatex -file-line-error -synctex=1 --shell-escape %O %S"
 LATEXMK_FLAGS += -e '$$makeindex=qq/sh -c "cd "`dirname "%D"`" ; makeindex %O -o "`basename "%D"`" "`basename "%S"`""/;'
 
-all: cover matter
+all: build
 
-cover:
-	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/$@.tex
+build:
+	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/cover.tex
+	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/matter.tex
 
-matter: cover
-	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/$@.tex
-
-preview: cover
+preview:
 	${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/cover.tex &
 	${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/matter.tex &
 
-print: matter
+print: clean build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-print.pdf ${OUT}/matter.pdf
-	./scripts/simplify-colors.sh ${OUT}/thesis-print.pdf
+	${SCRIPTS}/simplify-colors.sh ${OUT}/thesis-print.pdf
 
-ebook: clean matter
+ebook: clean build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-ebook.pdf ${OUT}/matter.pdf
 
 clean:
