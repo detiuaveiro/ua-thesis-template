@@ -18,8 +18,7 @@ LATEXMK_FLAGS += -e '$$makeindex=qq/sh -c "cd "`dirname "%D"`" ; makeindex %O -o
 all: build
 
 build:
-	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/cover.tex
-	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/matter.tex
+	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/cover.tex ${SRC}/matter.tex
 
 preview:
 	${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/cover.tex &
@@ -33,8 +32,7 @@ ebook: clean build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-ebook.pdf ${OUT}/matter.pdf
 
 clean:
-	${LATEXMK} ${LATEXMK_FLAGS} -c ${SRC}/cover.tex
-	${LATEXMK} ${LATEXMK_FLAGS} -c ${SRC}/matter.tex
+	${LATEXMK} ${LATEXMK_FLAGS} -c ${SRC}/cover.tex ${SRC}/matter.tex
 
 cleanall:
 	rm -rf out/*
