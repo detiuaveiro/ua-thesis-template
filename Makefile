@@ -9,16 +9,19 @@ SCRIPTS := ${PWD}/scripts
 LATEXMK := latexmk
 LATEXMK_FLAGS := -pdf
 #LATEXMK_FLAGS += -silent
+LATEXMK_FLAGS += -view=none
+LATEXMK_FLAGS += -auxdir=${OUT}
 LATEXMK_FLAGS += -outdir=${OUT}
 LATEXMK_FLAGS += -pdflatex="pdflatex -file-line-error -synctex=1 --shell-escape %O %S"
+LATEXMK_FLAGS += -e '$$makeindex=qq/sh -c "cd "`dirname "%D"`" ; makeindex %O -o "`basename "%D"`" "`basename "%S"`""/;'
 
 all: cover matter
 
 cover:
-	${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/$@.tex
+	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/$@.tex
 
 matter: cover
-	${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/$@.tex
+	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/$@.tex
 
 print: matter
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-print.pdf ${OUT}/matter.pdf
@@ -31,4 +34,4 @@ clean:
 	${LATEXMK} ${LATEXMK_FLAGS} -c
 
 cleanall:
-	rm -f out/*
+	rm -rf out/*
