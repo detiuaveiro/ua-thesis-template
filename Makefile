@@ -33,7 +33,8 @@ ebook: clean build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-ebook.pdf ${OUT}/matter.pdf
 
 clean:
-	${LATEXMK} ${LATEXMK_FLAGS} -c
+	${LATEXMK} ${LATEXMK_FLAGS} -c ${SRC}/cover.tex
+	${LATEXMK} ${LATEXMK_FLAGS} -c ${SRC}/matter.tex
 
 cleanall:
 	rm -rf out/*
