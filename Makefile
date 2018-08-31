@@ -32,7 +32,7 @@ ebook: clean build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-ebook.pdf ${OUT}/matter.pdf
 
 clean:
-	${LATEXMK} ${LATEXMK_FLAGS} -c ${SRC}/cover.tex ${SRC}/matter.tex
+	@find ${OUT} ! -name '*.pdf' ! -name "`basename ${OUT}`" | xargs rm -rf
 
 cleanall:
-	rm -rf ${OUT}/*
+	@rm -rf ${OUT}/*
