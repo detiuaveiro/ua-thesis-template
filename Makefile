@@ -24,11 +24,11 @@ preview:
 	${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/cover.tex &
 	${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/matter.tex &
 
-print: clean build
+print: build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-print.pdf ${OUT}/matter.pdf
 	${SCRIPTS}/simplify-colors.sh ${OUT}/thesis-print.pdf
 
-ebook: clean build
+ebook: build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-ebook.pdf ${OUT}/matter.pdf
 
 clean:
