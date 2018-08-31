@@ -1,8 +1,8 @@
 .PHONY: all build preview print ebook cleanall clean
 
 # Vars
-SRC     := ${PWD}/src
-OUT     := ${PWD}/out
+SRC     := ${PWD}
+OUT     := ${PWD}/build
 SCRIPTS := ${PWD}/scripts
 
 # Commands
@@ -35,4 +35,4 @@ clean:
 	${LATEXMK} ${LATEXMK_FLAGS} -c ${SRC}/cover.tex ${SRC}/matter.tex
 
 cleanall:
-	rm -rf out/*
+	rm -rf ${OUT}/*

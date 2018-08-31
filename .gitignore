@@ -1,1 +1,89 @@
-out/
+# Output
+build/
+
+# Rest for linux,windows,osx,vim,emacs,sublimetext,visualstudiocode
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+$RECYCLE.BIN/
+*.cab
+*.elc
+*.lnk
+*.msi
+*.msix
+*.msm
+*.msp
+*.rel
+*.stTheme.cache
+*.stackdump
+*.sublime-workspace
+*.tmPreferences.cache
+*.tmlanguage.cache
+*_archive
+*_flymake.*
+*~
+.AppleDB
+.AppleDesktop
+.AppleDouble
+.DS_Store
+.DocumentRevisions-V100
+.LSOverride
+.Spotlight-V100
+.TemporaryItems
+.Trash-*
+.Trashes
+.VolumeIcon.icns
+.\#*
+._*
+.apdisk
+.cask/
+.com.apple.timemachine.donotpresent
+.dir-locals.el
+.directory
+.fseventsd
+.fuse_hidden*
+.netrwhist
+.nfs*
+.org-id-locations
+.projectile
+.vscode/*
+/.emacs.desktop
+/.emacs.desktop.lock
+/auto/
+/elpa/
+/eshell/history
+/eshell/lastdir
+/server/
+GitHub.sublime-settings
+Icon
+Network Trash Folder
+Package Control.ca-bundle
+Package Control.ca-certs/
+Package Control.ca-list
+Package Control.cache/
+Package Control.last-run
+Package Control.merged-ca-bundle
+Package Control.system-ca-bundle
+Package Control.user-ca-bundle
+Session.vim
+Temporary Items
+Thumbs.db
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]*.un~
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+[Dd]esktop.ini
+\#*\#
+auto-save-list
+bh_unicode_properties.cache
+dist/
+ehthumbs.db
+ehthumbs_vista.db
+flycheck_*.el
+oscrypto-ca-bundle.crt
+sftp-config.json
+tags
+tramp
