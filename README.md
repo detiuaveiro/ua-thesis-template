@@ -34,5 +34,5 @@ make cleanall
 ## Dependencies
 
 - TeX Live or MacTeX
-- gs (for `make print` and `make ebook`)
+- gs (for `make print`, `make ebook` and `simplify-colors.sh`)
 - imagemagick and poppler (for `simplify-colors.sh`)
