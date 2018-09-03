@@ -26,7 +26,7 @@ writing and on save the updated document is compiled and displayed!
 Build versions of the document for publishing:
 
 ```
-make print  
+make print
 make ebook
 ```
 
@@ -47,3 +47,4 @@ you think you've already solved the problem in the LaTeX sources, maybe try a
 - A TeX distribution: TeX Live or MacTeX
 - gs (for `make print`, `make ebook` and `simplify-colors.sh`)
 - imagemagick and poppler (for `simplify-colors.sh`)
+- pygments (for minted)
