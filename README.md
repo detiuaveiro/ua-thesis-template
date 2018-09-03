@@ -51,6 +51,6 @@ you think you've already solved the problem in the LaTeX sources, maybe try a
 
 ## Authors
 
-Tomás Oliveira e Silva created the [http://sweet.ua.pt/tos/TeX/ua_thesis.tgz](original template) which was later picked up by João Paulo Barraca who [http://code.ua.pt//projects/latex-ua/repository](improved and maintained it for years).
+Tomás Oliveira e Silva created the [original template](http://sweet.ua.pt/tos/TeX/ua_thesis.tgz) which was later picked up by João Paulo Barraca who [improved and maintained it for years](http://code.ua.pt//projects/latex-ua/repository).
 
 This is a fork by Fábio Maia and Ricardo Jesus who wanted to further improve the template and setup a clean environment and workflow for writing their MSc thesis.
