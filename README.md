@@ -1,14 +1,16 @@
 # ua-thesis-template
 
-A thesis LaTeX template that complies with the University of Aveiro's guidelines and provides a simple CLI workflow around `make` that was developed and tested for cross-compatibility on Linux (Slackware, ArchLinux) and macOS (High Sierra 10.13.6).
+A thesis LaTeX template that complies with the University of Aveiro's
+guidelines and provides a simple CLI workflow around `make` that was developed
+and tested for cross-compatibility on Linux (Slackware, ArchLinux) and macOS
+(High Sierra 10.13.6).
 
 ## Usage
 
 Build a development version of the document:
 
 ```
-make
-make build
+make [build]
 ```
 
 Continuously build the development version of the document:
@@ -17,22 +19,31 @@ Continuously build the development version of the document:
 make preview
 ```
 
+This option is great when paired with a document viewer (such as Okular) which
+automatically reloads the document on file change. This means you can keep
+writing and on save the updated document is compiled and displayed!
+
 Build versions of the document for publishing:
 
 ```
-make print
+make print  
 make ebook
 ```
 
 Clean the working directory:
 
 ```
-make clean
-make cleanall
+make clean[all]
 ```
+
+`clean` will leave the output products (the PDFs) in place, while `cleanall`
+will remove these too. If your document is not compiling for some reason and
+you think you've already solved the problem in the LaTeX sources, maybe try a
+`cleanall` before insisting. Sometimes the underlying build programs (namely
+`latexmk`) get stuck in inconsistent temporary files.
 
 ## Dependencies
 
-- TeX Live or MacTeX
+- A TeX distribution: TeX Live or MacTeX
 - gs (for `make print`, `make ebook` and `simplify-colors.sh`)
 - imagemagick and poppler (for `simplify-colors.sh`)
