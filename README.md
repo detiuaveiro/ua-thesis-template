@@ -48,3 +48,9 @@ you think you've already solved the problem in the LaTeX sources, maybe try a
 - gs (for `make print`, `make ebook` and `simplify-colors.sh`)
 - imagemagick and poppler (for `simplify-colors.sh`)
 - pygments (for minted)
+
+## Authors
+
+Tomás Oliveira e Silva created the [http://sweet.ua.pt/tos/TeX/ua_thesis.tgz](original template) which was later picked up by João Paulo Barraca who [http://code.ua.pt//projects/latex-ua/repository](improved and maintained it for years).
+
+This is a fork by Fábio Maia and Ricardo Jesus who wanted to further improve the template and setup a clean environment and workflow for writing their MSc thesis.
