@@ -35,3 +35,13 @@ clean:
 
 cleanall:
 	@rm -rf ${OUT}/*
+
+lint:
+ifeq ($(strip $(texfile)),)
+	@ >&2 echo 'make lint: missing operand'
+	@ >&2 echo 'usage: make lint texfile="some_tex_file.tex"'
+else
+	$(eval txtfile := $(shell echo "$(OUT)/`basename "$(texfile)" .tex`.txt"))
+	@pandoc -s "$(texfile)" -o "$(txtfile)"
+	@proselint "$(txtfile)" || true
+endif

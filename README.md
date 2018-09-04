@@ -30,7 +30,14 @@ make print
 make ebook
 ```
 
-Clean the working directory:
+Run linters (for now only [proselint](http://proselint.com/)) against a TeX
+file (e.g. chapter 1):
+
+```
+make lint texfile=chapter1.tex
+```
+
+Clean the build directory:
 
 ```
 make clean[all]
