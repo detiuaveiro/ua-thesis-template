@@ -31,10 +31,10 @@ ebook: build
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-ebook.pdf ${OUT}/matter.pdf
 
 clean:
-	@find ${OUT} ! -name '*.pdf' ! -name "`basename ${OUT}`" | xargs rm -rf
+	@find ${OUT} -type f ! -name '*.pdf' ! -name '.*' -exec rm "{}" \;
 
 cleanall:
-	@rm -rf ${OUT}/*
+	@find ${OUT} -type f ! -name '.*' -exec rm "{}" \;
 
 lint:
 ifeq ($(strip $(texfile)),)
