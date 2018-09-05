@@ -38,8 +38,10 @@ cleanall:
 
 lint:
 ifeq ($(strip $(texfile)),)
-	@ >&2 echo 'make lint: missing operand'
-	@ >&2 echo 'usage: make lint texfile="some_tex_file.tex"'
+	+@for f in `ls -v chapters/*.tex`; do  \
+		echo "* $$f";  \
+		make --no-print-directory lint texfile="$$f";  \
+	done
 else
 	$(eval txtfile := $(shell echo "$(OUT)/`basename "$(texfile)" .tex`.txt"))
 	@pandoc -s "$(texfile)" -o "$(txtfile)"
