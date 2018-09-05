@@ -1,5 +1,11 @@
 # Output
-build/
+build/*
+# Ignore the contents of every subdirectory
+build/**/*
+# But not the directories themselves
+!build/**/
+# And allow gitkeeps
+!build/**/.gitkeep
 
 # Rest for linux,windows,osx,vim,emacs,sublimetext,visualstudiocode
 !.vscode/extensions.json
