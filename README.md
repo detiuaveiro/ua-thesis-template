@@ -34,8 +34,11 @@ Run linters (for now only [proselint](http://proselint.com/)) against a TeX
 file (e.g. chapter 1):
 
 ```
-make lint texfile=chapter1.tex
+make lint [texfile=chapter1.tex]
 ```
+
+If you do not specify the `texfile` to lint, then all TeX files in `chapters/`
+will be linted.
 
 Clean the build directory:
 
@@ -48,6 +51,40 @@ will remove these too. If your document is not compiling for some reason and
 you think you've already solved the problem in the LaTeX sources, maybe try a
 `cleanall` before insisting. Sometimes the underlying build programs (namely
 `latexmk`) get stuck in inconsistent temporary files.
+
+## How to use the template
+
+This is all great, but how can this repository be used as a starting point for
+writing your own thesis?
+
+In our opinion you have mostly three options:
+- Download/clone the repository and copy *all* files to a directory of your
+  desire, for instance to inside some special folder within you own thesis
+  repository.  
+  Notice that this will not allow you to easily keep up with this template
+  should it change.
+- Fork the repository to your own and work there. If you want to include it
+  within your own thesis repository, you can use `git submodules` for this.
+- Use `git subtree` to pull this repository to your main thesis repository and
+  work directly there. Changes in your copy will be versioned by your main
+  thesis repo, while you will still be able to pull new updates from here
+  should they appear.
+
+I've chosen the last of these options, as it seems to be the most flexible and
+easy-to-use alternative. Here follow the main commands you will need should you
+choose to go along with this too.
+```
+$ git subtree add  --prefix $DESTDIR git@github.com:fabiomaia/ua-thesis-template.git master --squash;
+$ git subtree pull --prefix $DESTDIR git@github.com:fabiomaia/ua-thesis-template.git master --squash;
+```
+
+They should be self explanatory, but:
+- The first of these will pull this repository for the first time to
+  `$DESTDIR`.
+- The second is used for subsequent pulls.
+
+This assumes that you are within an already initialized git repo. Look for more
+on the documentation.
 
 ## Dependencies
 
