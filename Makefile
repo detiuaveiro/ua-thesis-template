@@ -43,6 +43,8 @@ ifeq ($(strip $(texfile)),)
 		make --no-print-directory lint texfile="$$f";  \
 	done
 else
+	@lacheck "$(texfile)"
+	@chktex -q --verbosity=3 "$(texfile)"
 	$(eval txtfile := $(shell echo "$(OUT)/`basename "$(texfile)" .tex`.txt"))
 	@pandoc -s "$(texfile)" -o "$(txtfile)"
 	@proselint "$(txtfile)" || true
