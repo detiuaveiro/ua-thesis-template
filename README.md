@@ -93,6 +93,24 @@ on the documentation.
 - imagemagick and poppler (for `simplify-colors.sh`)
 - pygments (for minted)
 
+As for pygments and proselint, those can by installed with pip by issuing `pip
+install -r requirements.txt` at the root of this repository.
+
+On Ubuntu relatives the following dependencies, installable with `apt-get` may
+also be required
+- biber
+- texlive-bibtex-extra
+- texlive-latex-extra
+- texlive-science
+
+These endorse dependencies which may or may not come with the TeX Live package
+distributed with your Linux distribution.
+
+Usually TeX Live is split into a minimal package and a `texlive-extra` which is
+filled with the remainder of TeX Live, be it fonts, styles, language support,
+and so on. So, if a LaTeX dependency is missing on your installation, do verify
+that you are not missing one of these packages.
+
 ## Authors
 
 Tomás Oliveira e Silva created the [original
