@@ -1,2 +1,6 @@
 pygments
 proselint
+texlive-latex-extra
+texlive-bibtex-extra
+texlive-science
+biber
