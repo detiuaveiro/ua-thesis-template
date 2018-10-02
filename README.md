@@ -96,7 +96,7 @@ on the documentation.
 As for pygments and proselint, those can by installed with pip by issuing `pip
 install -r requirements.txt` at the root of this repository.
 
-On Ubuntu relatives the following dependencies, installable with `apt-get` may
+On Ubuntu relatives the following dependencies, installable with `apt` may
 also be required
 - biber
 - texlive-bibtex-extra
