@@ -16,6 +16,16 @@
 
 \usepackage[T1]{fontenc}
 
+% For Overleaf support
+\usepackage{ifthen}
+\def\useoverleaf{0}  % change to non-zero (for instance, 1) to enable it
+
+\makeatletter
+\newcommand{\makecoverfile}[0]{%
+  \immediate\write18{latexmk -pdf cover.tex}%
+}
+\makeatother
+
 %For PDF merging
 \usepackage{pdfpages}
 
@@ -87,7 +97,10 @@
 \usepackage{eurosym}
 
 % Code boxes
-\usepackage[outputdir=build]{minted}
+\ifthenelse{\equal{\useoverleaf}{0}}
+{\usepackage[outputdir=build]{minted}}
+{\usepackage{minted}}%
+
 \renewcommand\listingscaption{Código}
 \fvset{fontsize=\footnotesize} % Make Code blocks smaller than text
 
@@ -183,6 +196,7 @@
 \linespread{1.5}
 
 \begin{document}
+\ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
 \includepdf[pages=-]{cover.pdf}
 
 %
