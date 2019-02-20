@@ -86,6 +86,15 @@ They should be self explanatory, but:
 This assumes that you are within an already initialized git repo. Look for more
 on the documentation.
 
+## Use it in [Overleaf](https://www.overleaf.com)
+
+It is possible to use this template in overleaf.
+
+To enable it:
+
+- in `matter.tex`change `\def\useoverleaf{0}`to 1
+- add `fc-portuges.def`to the project the file be can found in [here](http://mirrors.ctan.org/install/macros/latex/contrib/fmtcount.tds.zip) 
+
 ## Dependencies
 
 - A TeX distribution: TeX Live or MacTeX
