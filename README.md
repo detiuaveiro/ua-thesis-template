@@ -99,6 +99,7 @@ To enable it:
 
 - A TeX distribution: TeX Live or MacTeX
 - gs (for `make print`, `make ebook` and `simplify-colors.sh`)
+- pandoc (for `make lint`)
 - imagemagick and poppler (for `simplify-colors.sh`)
 - pygments (for minted)
 
