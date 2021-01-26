@@ -37,12 +37,11 @@
 %For English and Portuguese languages
 %Portuguese will be the default.
 %Use \setdefaultlanguage to change it
-\usepackage{csquotes}
 \usepackage[english,portuguese]{babel}
 
-% For custom date format
-\usepackage{datetime}
-\newdateformat{thesisdate}{\monthname[\THEMONTH] \THEYEAR} % Month Year
+% Uncomment to use a custom date format
+%\usepackage{datetime}
+%\newdateformat{thesisdate}{\monthname[\THEMONTH] \THEYEAR} % Month Year
 
 \usepackage{microtype} % Make pdf look better
 
@@ -77,7 +76,8 @@
 
 %For PDF Comments
 \usepackage{comment}
-\usepackage{pdfcomment}
+\ifthenelse{\equal{\useoverleaf}{0}}
+{\usepackage{pdfcomment}}%
 \usepackage{bookmark} % New Bookmarks
 
 %For Multiple columns in Glossary
@@ -103,6 +103,7 @@
 
 \renewcommand\listingscaption{Código}
 \fvset{fontsize=\footnotesize} % Make Code blocks smaller than text
+\usepackage{csquotes}
 
 %Biber using IEEE style for proper UTF-8 support
 \usepackage[backend=biber,style=ieee, sorting=none]{biblatex}
@@ -115,13 +116,17 @@
 \usepackage[version=0.96]{pgf}
 \usepackage{tikz}
 \usepackage{pgf-umlsd}
-\usetikzlibrary{arrows,shadows,trees,shapes,snakes,automata,backgrounds,petri,mindmap} % for pgf-umlsd
+\usetikzlibrary{arrows,shadows,trees,shapes,decorations,automata,backgrounds,petri,mindmap} % for pgf-umlsd
 
 %For Electric Circuits
 \usepackage[detect-weight=true, binary-units=true]{siunitx}
 \sisetup{load-configurations = binary}
 
-\usepackage[american,cuteinductors,smartlabels]{circuitikz}
+% Set Voltage direction accordingly
+% Option : oldvoltagedirection,nooldvoltagedirection,RPvoltages,EFvoltages
+% More information at: https://mirrors.ibiblio.org/CTAN/graphics/pgf/contrib/circuitikz/doc/circuitikzmanual.pdf
+%By default this template is using the Old Voltage Direction
+\usepackage[oldvoltagedirection,american,cuteinductors,smartlabels]{circuitikz}
 
 \usetikzlibrary{calc}
 \ctikzset{bipoles/thickness=1}
