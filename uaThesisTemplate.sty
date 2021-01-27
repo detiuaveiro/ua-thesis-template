@@ -58,6 +58,12 @@
 \DeclareOption{final}{\ua@final@true}
 
 %
+% New 2021 rules which remove the department name from the cover page
+%
+\newif\ifua@coverdepname@\ua@coverdepname@true
+\DeclareOption{coverdepname}{\ua@coverdepname@false}
+
+%
 % color of the cover page top bar
 % (pantone approximations according to http://goffgrafix.com/pantone-rgb-100.php)
 %
@@ -275,8 +281,12 @@
 \def\ua@above#1#2{\rlap{\smash{\raise 10pt\hbox{\ua@font@size1\textsf{#1}}}}\hbox{\ua@font@size1\textsf{#2}}}
 \def\ua@below#1#2{\rlap{\smash{\lower 10pt\hbox{\ua@font@size1\textsf{#2}}}}\hbox{\ua@font@size1\textsf{#1}}}
 \long\def\HEADER#1#2{\vspace*{5mm}\noindent\ua@font@size1\rlap{\parbox{\textwidth}{%
+    \ifua@coverdepname@
+    \ua@font@size1\hspace*{77mm}#1\textsf{\vspace*{0.7mm}\textbf{Universidade de Aveiro}}\space\space
+    \else
     \ua@font@size1\hspace*{77mm}#1\textsf{\textbf{Universidade de Aveiro}}\space\space
       \ua@above{\ua@textA}{\ua@textB}%
+    \fi
     \iffalse
       \hrule width \textwidth height .3pt depth 0mm\relax
     \else
@@ -297,8 +307,12 @@
 
 
 \long\def\INNERHEADER#1#2{\vspace*{5mm}\noindent\ua@font@size1\rlap{\parbox{\textwidth}{%
+    \ifua@coverdepname@
+    \ua@font@size1\hspace*{77mm}#1\textsf{\vspace*{0.7mm}\textbf{Universidade de Aveiro}}\space\space
+    \else
     \ua@font@size1\hspace*{77mm}#1\textsf{\textbf{Universidade de Aveiro}}\space\space
       \ua@above{\ua@textA}{\ua@textB}%
+    \fi
     \iffalse
       \hrule width \textwidth height .3pt depth 0mm\relax
     \else
