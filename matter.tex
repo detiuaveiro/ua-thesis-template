@@ -101,7 +101,9 @@
 {\usepackage[outputdir=build]{minted}}
 {\usepackage{minted}}%
 
+
 \renewcommand\listingscaption{Código}
+
 \fvset{fontsize=\footnotesize} % Make Code blocks smaller than text
 \usepackage{csquotes}
 
@@ -204,6 +206,7 @@
 \linespread{1.5}
 
 \begin{document}
+
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
 \includepdf[pages=-]{cover.pdf}
 

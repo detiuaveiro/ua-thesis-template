@@ -309,9 +309,15 @@
     \else
     \ua@font@size1\vspace*{-8.8mm}\noindent\hspace*{67mm}\includegraphics[height=9mm]{figs/uaLogoNew}%
     \fi%
-    \ifua@final@\else
-      \smash{\rlap{\kern 10mm\lower 110mm\hbox{\Huge\textsf{\textbf{DOCUMENTO}}}}}%
-      \smash{\rlap{\kern 20mm\lower 122mm\hbox{\Huge\textsf{\textbf{PROVIS\'ORIO}}}}}%
+    \ifua@final@
+    \else
+      \ifdefined \ciDocumentTypeThesisProposal%
+        \smash{\rlap{\kern 10mm\lower 110mm\hbox{\Huge\textsf{\textbf{PROPOSTA}}}}}%
+        \smash{\rlap{\kern 20mm\lower 122mm\hbox{\Huge\textsf{\textbf{DE TESE}}}}}%
+      \else
+        \smash{\rlap{\kern 10mm\lower 110mm\hbox{\Huge\textsf{\textbf{DOCUMENTO}}}}}%
+        \smash{\rlap{\kern 20mm\lower 122mm\hbox{\Huge\textsf{\textbf{PROVIS\'ORIO}}}}}%
+      \fi
     \fi
   \par\vspace*{40mm}}
 
