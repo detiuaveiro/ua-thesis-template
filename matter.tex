@@ -36,7 +36,7 @@
 
 %For English and Portuguese languages
 %Portuguese will be the default.
-%Use \setdefaultlanguage to change it
+%Uncomment \setlanguage below to change it
 \usepackage[english,portuguese]{babel}
 
 % Uncomment to use a custom date format
@@ -206,6 +206,9 @@
 \begin{document}
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
 \includepdf[pages=-]{cover.pdf}
+
+%%Uncomment to enable English
+%\selectlanguage{english}
 
 %
 %Front matter
