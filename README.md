@@ -94,6 +94,11 @@ The result should be a git repository for your thesis work. In the `$DESTDIR` (e
 you will have the document to edit. If you wish you can add a reference to another git repository
 to track your own changes.
 
+## Use as a template in github
+
+Please check the [github instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+to create your own repository using this as a template.
+
 ## Use it in [Overleaf](https://www.overleaf.com)
 
 It is possible to use this template in overleaf.
