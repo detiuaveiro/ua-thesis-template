@@ -24,6 +24,7 @@
 
 %User Hooks
 \newcommand{\DocumentTypeThesis}{\def\ciDocumentTypeThesis{}}
+\newcommand{\DocumentTypeThesisProposal}{\def\ciDocumentTypeThesisProposal{}}
 \newcommand{\DocumentTypeDissertation}{\def\ciDocumentTypeDissertation{}}
 \newcommand{\ThesisYear}[1]{\def\ciThesisYear{#1}}
 \newcommand{\Title}[1]{\listadd{\ciTitle}{\TITLE{\DISPLAYAUTHOR}{#1\newline} }}
@@ -33,6 +34,7 @@
 \newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2}}}
 \newcommand{\SecondSupervisor}[4]{\def\ciSecondSupervisorName{{#1}}\def\ciSecondSupervisorTitle{{#2}}\def\ciSecondSupervisorDepart{{#3}}\def\ciSecondSupervisorSchool{{#4}}}
 \newcommand{\Degree}[2]{\def\ciDegreeTitle{#1}\def\ciDegreeName{#2}}
+\newcommand{\MAPProgram}[1]{\def\ciMAPProgram{#1}}
 \newcommand{\GrantText}[2]{\def\ciGrantFirst{#1}\def\ciGrantSecond{#2}}
 \newcommand{\Acknowledgements}[1]{\def\ciAcknowledgements{#1}}
 \newcommand{\JuriMember}[2]{
@@ -291,17 +293,31 @@
       \hrule width \textwidth height .3pt depth 0mm\relax
     \else
       % pdflatex apparently draws the logo before the hrule (why?), so we need to split the hrule in two
+      \ifdefined \ciMAPProgram
+      \hrule width 35mm height 0.3pt depth 0mm\relax
+      \else
       \hrule width 66mm height 0.3pt depth 0mm\relax
+      \fi%
       \vskip -0.3pt
       \nointerlineskip\moveright 75.2mm\vbox{\hrule width 134.8mm height 0.3pt depth 0mm}\nointerlineskip
     \fi
     \ua@font@size1\hspace*{77mm}\rlap{\ua@font@size1\textsf{\textbf{\strut #2}}}%
       \hphantom{\ua@font@size1\textsf{\textbf{Universidade de Aveiro}}}\space\space
       \ua@below{\ua@textC}{\ua@textD}}}\par
+    \ifdefined \ciMAPProgram
+    \ua@font@size1\vspace*{-8.8mm}\noindent\hspace*{36mm}\includegraphics[height=9mm]{figs/map}%
+    \else
     \ua@font@size1\vspace*{-8.8mm}\noindent\hspace*{67mm}\includegraphics[height=9mm]{figs/uaLogoNew}%
-    \ifua@final@\else
-      \smash{\rlap{\kern 10mm\lower 110mm\hbox{\Huge\textsf{\textbf{DOCUMENTO}}}}}%
-      \smash{\rlap{\kern 20mm\lower 122mm\hbox{\Huge\textsf{\textbf{PROVIS\'ORIO}}}}}%
+    \fi%
+    \ifua@final@
+    \else
+      \ifdefined \ciDocumentTypeThesisProposal%
+        \smash{\rlap{\kern 10mm\lower 110mm\hbox{\Huge\textsf{\textbf{PROPOSTA}}}}}%
+        \smash{\rlap{\kern 20mm\lower 122mm\hbox{\Huge\textsf{\textbf{DE TESE}}}}}%
+      \else
+        \smash{\rlap{\kern 10mm\lower 110mm\hbox{\Huge\textsf{\textbf{DOCUMENTO}}}}}%
+        \smash{\rlap{\kern 20mm\lower 122mm\hbox{\Huge\textsf{\textbf{PROVIS\'ORIO}}}}}%
+      \fi
     \fi
   \par\vspace*{40mm}}
 
@@ -323,7 +339,11 @@
     \ua@font@size1\hspace*{77mm}\rlap{\ua@font@size1\textsf{\textbf{\strut #2}}}%
       \hphantom{\ua@font@size1\textsf{\textbf{Universidade de Aveiro}}}\space\space
       \ua@below{\ua@textC}{\ua@textD}}}\par
+  \ifdefined \ciMAPProgram
+  \ua@font@size1\vspace*{-10.8mm}\noindent\hspace*{10.5mm}\includegraphics[height=15mm]{figs/map}
+  \else    
   \ua@font@size1\vspace*{-10.8mm}\noindent\hspace*{63.56mm}\includegraphics[height=15.88mm]{figs/uaLogoNew}%
+  \fi%
 %    \ifua@final@\else
 %      \smash{\rlap{\kern 10mm\lower 120mm\hbox{\Huge\textsf{\textbf{DOCUMENTO}}}}}%
 %      \smash{\rlap{\kern 20mm\lower 132mm\hbox{\Huge\textsf{\textbf{PROVIS\'ORIO}}}}}%
@@ -518,13 +538,30 @@
   \vspace*{25mm}
   \TEXT{}{%
 \noindent%
+\ifdefined \ciDocumentTypeThesisProposal%
+Proposta de Tese%
+\else
  \ifdefined \ciDocumentTypeThesis%
 Tese%
- \else \ifdefined \ciDocumentTypeDissertation%
+ \else 
+    \ifdefined \ciDocumentTypeDissertation%
 Disserta\c c\~ao%
     \fi %
-  \fi% 
-~apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a obten\c c\~ao do grau de {\ciDegreeTitle} em {\ciDegreeName}, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}.}
+  \fi%
+\fi%  
+~apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a
+\ifdefined \ciDocumentTypeThesisProposal%
+conclusão da unidade curricular Proposta de Tese, condi\c c\~ao necess\'aria para  
+\fi%
+obten\c c\~ao do grau de {\ciDegreeTitle} 
+\ifdefined \ciMAPProgram%
+no âmbito do Programa de Doutoramento
+\fi%
+em {\ciDegreeName}
+\ifdefined \ciMAPProgram%
+ das Universidades do Minho, Aveiro e Porto (MAP-\ciMAPProgram)
+\fi%
+, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}.}
     \vspace{120mm}
 \ifdefined \ciGrantFirst
     \SPONSOR{}{
