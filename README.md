@@ -1,9 +1,13 @@
-# ua-thesis-template
+# (Unofficial) University of Aveiro Thesis Template
 
 A thesis LaTeX template that complies with the University of Aveiro's
 guidelines and provides a simple CLI workflow around `make` that was developed
 and tested for cross-compatibility on Linux (Slackware, ArchLinux, Debian, Ubuntu) and macOS
 (High Sierra 10.13.6).
+
+This template was developed by professors and students and it is not endorsed by the University.
+We will try to keep up to date with thesis requirements but some discrepancies may exist.
+Feel free to open issues and pull requests with new options, packages and fixes.
 
 ## Usage
 
