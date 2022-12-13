@@ -101,7 +101,9 @@
 {\usepackage[outputdir=build]{minted}}
 {\usepackage{minted}}%
 
-\renewcommand\listingscaption{Código}
+\addto\captionsportuguese{%
+  \renewcommand\listingscaption{Código}
+}
 \fvset{fontsize=\footnotesize} % Make Code blocks smaller than text
 \usepackage{csquotes}
 
