@@ -134,8 +134,9 @@
 % Trees, Arrows, Mindmaps and other popular objects
 %\usetikzlibrary{arrows,shadows,trees,shapes,decorations,automata,backgrounds,petri,mindmap} % for pgf-umlsd
 
+% Package to master SI units
+\usepackage[detect-weight=true, binary-units=true]{siunitx}
 % For Electric Circuits
-%\usepackage[detect-weight=true, binary-units=true]{siunitx}
 %\sisetup{load-configurations = binary}
 
 % Set Voltage direction accordingly
@@ -168,7 +169,7 @@
 %\restylefloat{lstlisting}
 
 % For test purposes you may use the lipsum package to create dummy text
-% \usepackage{lipsum}
+\usepackage{lipsum} % REMOVE
 
 %Keep floats inside section!
 \usepackage[section]{placeins}
@@ -261,6 +262,8 @@
 % Check the memoir documentation for the available themes
 % Default is veelo
 \chapterstyle{veelo}
+\makeoddfoot{plain}{}{\thepage}{} % Added by André Zúquete to fix a page numbering issue on the veelo chapter style
+
 
 % If you feel adventurous you can also define all aspects of your theme
 % Use either this input or the chapterstyle before

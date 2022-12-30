@@ -17,7 +17,7 @@ Primeira e seguintes referências: \ac{h2o}, \ac{h2o}
 
 Plural, acrónimo expandido e curto: \acp{h2o}, \acs{h2o}, \acl{h2o}
 
-Com citação \footnote{Necessária entrada na bibliografia}: \ac{adsl}, \ac{adsl}
+Com citação\footnote{Necessária entrada na bibliografia}: \ac{adsl}, \ac{adsl}
 
 
 \section{Fontes}
@@ -40,9 +40,12 @@ Com citação \footnote{Necessária entrada na bibliografia}: \ac{adsl}, \ac{ads
 Utilizando o pacote \verb|siunitx| é possível utilizar unidades do Sistema Internacional. Exemplo: a aceleração da gravidade é de \SI{9.8}{\metre\per\second\squared} e um ficheiro ocupa \SI{1}{\mebi\byte}. 
 
 \section{Code Blocks}
-\lipsum[5]
+%\lipsum[5]
+Uma listagem pode ser apresentada com o ambiente \texttt{listing}, que é um float (objeto flutuante, tal como uma figura ou uma tabela).
 
-\begin{listing}
+A listagem em Código~\ref{lbl:snippet-test} mostra um exemplo em C.
+
+\begin{listing}[h]
 \begin{minted}{c}
 
 #include <stdio.h>
@@ -65,9 +68,9 @@ int main()
     return 0;
 }
 \end{minted}
-\caption{This is below the code.}
+\caption{This caption appears below the code.}
 \label{lbl:snippet-test}
 \end{listing}
 
-\lipsum[5]
+%\lipsum[5]
 
