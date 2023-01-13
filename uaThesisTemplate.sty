@@ -18,16 +18,19 @@
 
 %Lists
 \def\ciJuriMember{}
-\def\ciTitle{}
+\def\ciTitleEN{}
+\def\ciTitlePT{}
 \def\ciAbstract{}
 \def\ciKeywords{}
+\def\ciAbstractText{}
 
 %User Hooks
 \newcommand{\DocumentTypeThesis}{\def\ciDocumentTypeThesis{}}
 \newcommand{\DocumentTypeThesisProposal}{\def\ciDocumentTypeThesisProposal{}}
 \newcommand{\DocumentTypeDissertation}{\def\ciDocumentTypeDissertation{}}
 \newcommand{\ThesisYear}[1]{\def\ciThesisYear{#1}}
-\newcommand{\Title}[1]{\listadd{\ciTitle}{\TITLE{\DISPLAYAUTHOR}{#1\newline} }}
+\newcommand{\TitleEN}[1]{\def\ciTitleEN{#1} }
+\newcommand{\TitlePT}[1]{\def\ciTitlePT{#1} }
 \newcommand{\Author}[1]{\def\ciAuthor{#1}}
 \newcommand{\Quote}[2]{\def\ciQuoteText{#1}\def\ciQuoteAuthor{#2}}
 \newcommand{\Dedication}[1]{\def\ciDedication{#1}}
@@ -40,7 +43,8 @@
 \newcommand{\JuriMember}[2]{
     \listadd{\ciJuriMember}{\JURI{\JURICATEGORY}{#1}{#2}}
 }
-\newcommand{\Abstract}[4]{\listadd{\ciAbstract}{
+\newcommand{\Abstract}[4]{\def\ciAbstractText{#4}
+\listadd{\ciAbstract}{
   \TitlePage
     \vspace*{55mm}
    \SECTION{\textbf{#1}}
@@ -497,8 +501,11 @@
   \TitlePage
      \HEADER{\BAR} % the \FIG{} is optional
            {\ciThesisYear}
-   \dolistloop{\ciTitle}
-
+   
+	\TITLE{\DISPLAYAUTHOR}{\selectlanguage{portuguese}\ciTitlePT\newline}
+	\TITLE{ }{\selectlanguage{english}\ciTitleEN\newline}
+	 
+	
   \EndTitlePage
   \titlepage\ \endtitlepage % empty page
 
@@ -516,8 +523,10 @@
           \end{minipage}
           }}
            {\ciThesisYear}
-   \dolistloop{\ciTitle}
 
+	\TITLE{\DISPLAYAUTHOR}{\selectlanguage{portuguese}\ciTitlePT\newline}
+	\TITLE{ }{\selectlanguage{english}\ciTitleEN\newline}
+	
   \EndTitlePage
   \titlepage\ \endtitlepage % empty page
 \fi
@@ -533,8 +542,11 @@
 
 \TitlePage
   \INNERHEADER{}{\ciThesisYear}
-   \dolistloop{\ciTitle}
 
+	\TITLE{\DISPLAYAUTHOR}{\selectlanguage{portuguese}\ciTitlePT\newline}
+	\TITLE{ }{\selectlanguage{english}\ciTitleEN\newline}
+	
+	
   \vspace*{25mm}
   \TEXT{}{%
 \noindent%
@@ -621,6 +633,13 @@ em {\ciDegreeName}
 %
 % Abstracts
 %
+% Disable hyphens in abstracts by enabling a high penalty for hyphens and overfull
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
 \dolistloop{\ciAbstract}
 
 }
