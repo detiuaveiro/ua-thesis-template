@@ -216,6 +216,12 @@
 %\addtolength{\parskip}{0.5\baselineskip}
 \linespread{1.5}
 
+\newcommand\mainmatterWithoutReset
+{\edef\temppagenumber{\arabic{page}}%
+  \mainmatter
+  \setcounter{page}{\temppagenumber}%
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document begins here
@@ -358,8 +364,11 @@
 % Load appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\include{appendix-a}
-%\include{appendix-b}
-%\include{appendix-c}
+\mainmatterWithoutReset
+\appendix
+
+% \include{appendix-a}
+% \include{appendix-b}
+% \include{appendix-c}
 
 \end{document}
