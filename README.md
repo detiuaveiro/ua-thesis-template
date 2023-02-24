@@ -105,8 +105,9 @@ It is possible to use this template in overleaf.
 
 To enable it:
 
-- in `matter.tex`change `\def\useoverleaf{0}`to 1
-- add `fc-portuges.def`to the project the file be can found in [here](http://mirrors.ctan.org/install/macros/latex/contrib/fmtcount.tds.zip) 
+- in `matter.tex` change `\def\useoverleaf{0}`to 1
+- add `fc-portuges.def` to the project the file be can found in [here](http://mirrors.ctan.org/install/macros/latex/contrib/fmtcount.tds.zip) 
+- change the main document to `matter.tex`
 
 ## Dependencies
 
