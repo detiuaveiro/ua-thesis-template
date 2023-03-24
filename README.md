@@ -82,7 +82,7 @@ $ mkdir mythesis
 $ git init .
 $ git commit --allow-empty -n -m "Initial commit."
 $ git subtree add  --prefix document https://github.com/detiuaveiro/ua-thesis-template.git master --squash;
-$ git subtree pull --prefix document https://github.com/detiuaveiro/ua-thesis-template.git --squash;
+$ git subtree pull --prefix document https://github.com/detiuaveiro/ua-thesis-template.git master --squash;
 ```
 
 - The first line will init a new repository for your thesis
