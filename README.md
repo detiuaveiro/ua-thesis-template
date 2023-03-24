@@ -1,4 +1,4 @@
-University of Aveiro Thesis Template
+# University of Aveiro Thesis Template
 
 A thesis LaTeX template that complies with the University of Aveiro's
 guidelines and provides a simple CLI workflow around `make` that was developed
