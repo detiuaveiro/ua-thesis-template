@@ -126,6 +126,9 @@
 % Indenting the first paragraph after section start
 \usepackage{indentfirst}
 
+% For fixing listoflistings with memoir
+\usepackage{xparse}
+
 % Uncomment the next lines to enable chart support through pgf and tikz
 % This may require you to install further packages in your Tex system
 %\usepackage[version=0.96]{pgf}
@@ -196,6 +199,7 @@
   \FloatBarrier
   \oldchapter#1{#2}
 }
+
 
 
 % Use the built-in division styling
@@ -317,6 +321,29 @@
 % List of tables with slightly smaller font
 \cleardoublepage
 {\small\listoftables}
+
+% List of code snippets
+
+% Fix for Listings with memoir
+
+\RenewDocumentCommand \chapter { s O{#3} m }{%
+  \FloatBarrier
+  \IfValueTF{#1}  % if optional star is seen
+    {\oldchapter*{#2}}
+    {\oldchapter#1{#2}}
+}
+
+\renewcommand{\listingscaption}{Código}
+\renewcommand{\listoflistingscaption}{Lista de Excertos de Código}
+\cleardoublepage
+{\small\listoflistings}
+\addcontentsline{toc}{chapter}{\listoflistingscaption}
+
+% Reset Chapters
+\renewcommand{\chapter}[2][]{
+  \FloatBarrier
+  \oldchapter#1{#2}
+}
 
 % Print Glossary
 {\small\include{glossary}}
