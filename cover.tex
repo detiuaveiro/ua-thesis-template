@@ -23,6 +23,8 @@
 %%% The complete list of options and commands can
 %%%  be found in uaThesisTemplate.sty
 
+%%% Before continuing, please edit the thesis
+%%% fields from fields.tex file.
 
 %%% Select your area of study and department from
 %%%  the following lists and replace them in the
@@ -63,6 +65,9 @@
 
 \usepackage{xspace}% used by \sigla
 
+%% Import the defined thesis variables
+\input{fields.tex}
+
 %%% This package is only used to create a dummy
 %%%  text for the abstract. You can remove the
 %%%  following line in the final document.
@@ -94,13 +99,9 @@
 
 %\MAPProgram{i}
 
-%%% Edit author's name
-%% Author's full name
-\Author{FIRST NAME\\LAST NAME}
+\Author{\gAuthorFirst\\\gAuthorLast}
 
-%%% Edit thesis title in Portuguese
-%% Thesis Mandatory Title in Portuguese
-\TitlePT{TÍTULO DA TESE (MÁXIMO 70 CARACTERES)}
+\TitlePT{\gTitle}
 
 %%% OPTIONAL: you can write your thesis title in
 %%%  other languages. You can repeat the following
@@ -182,13 +183,8 @@ the problem in a way that will allow a solution}{Bertrand Russell}
 %% Optional Acknowledgement text
 \Acknowledgements{Agradeço toda a ajuda a todos os meus colegas e companheiros.}
 
-%%% Edit the keywords and abstract in Portuguese
-%%% Don't forget to remove the \blindtext[3]
-%%%  declaration.
-%%% Don't remove the \selectlanguage statement or you will end with incorrect hyphenation
-%% Mandatory Keywords and Abstract in Portuguese
-\Abstract{Palavras Chave}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
-         {Resumo}{\selectlanguage{portuguese}Um resumo é um pequeno apanhado de um trabalho mais longo (como uma tese, dissertação ou trabalho de pesquisa). O resumo relata de forma concisa os objetivos e resultados da sua pesquisa, para que os leitores saibam exatamente o que se aborda no seu documento.\\Embora a estrutura possa variar um pouco dependendo da sua área de estudo, o seu resumo deve descrever o propósito do seu trabalho, os métodos que você usou e as conclusões a que chegou.\\Uma maneira comum de estruturar um resumo é usar a estrutura IMRaD. Isso significa: \begin{itemize} \item Introdução \item Métodos \item Resultados \item Discussão \end{itemize} Veja mais pormenores aqui:\\\texttt{https://www.scribbr.com/dissertation/abstract/}}
+\Abstract{Palavras Chave}{\gKeywords}
+         {Resumo}{\gAbstract}
 
 %%% OPTIONAL: you can write the keywords and
 %%%  abstract in other languages. You can repeat
