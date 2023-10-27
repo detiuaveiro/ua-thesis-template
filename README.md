@@ -73,7 +73,7 @@ In our opinion you have mostly three options:
   thesis repo, while you will still be able to pull new updates from here
   should they appear.
 
-I've chosen the last of these options, as it seems to be the most flexible and
+The last of these options mas be the most adquate, as it seems to be the most flexible and
 easy-to-use alternative. Here follow the main commands you will need should you
 choose to go along with this too.
 ```
@@ -126,7 +126,7 @@ also be required
 - texlive-latex-extra
 - texlive-science
 
-These endorse dependencies which may or may not come with the TeX Live package
+These endorsed dependencies which may or may not come with the TeX Live package
 distributed with your Linux distribution.
 
 Usually TeX Live is split into a minimal package and a `texlive-extra` which is
