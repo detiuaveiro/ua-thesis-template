@@ -10,6 +10,12 @@ Feel free to open issues and pull requests with new options, packages and fixes.
 
 ## Usage
 
+Optional: In debian and ubuntu you can install all dependencies automatically:
+
+```
+make setup
+```
+
 Build a development version of the document:
 
 ```
