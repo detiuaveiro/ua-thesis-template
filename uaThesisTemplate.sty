@@ -35,7 +35,9 @@
 \newcommand{\Quote}[2]{\def\ciQuoteText{#1}\def\ciQuoteAuthor{#2}}
 \newcommand{\Dedication}[1]{\def\ciDedication{#1}}
 \newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2}}}
+\newcommand{\Supervisora}[2]{\def\ciSupervisoraName{{#1}}\def\ciSupervisoraTitle{{#2}}}
 \newcommand{\SecondSupervisor}[4]{\def\ciSecondSupervisorName{{#1}}\def\ciSecondSupervisorTitle{{#2}}\def\ciSecondSupervisorDepart{{#3}}\def\ciSecondSupervisorSchool{{#4}}}
+\newcommand{\SecondSupervisora}[4]{\def\ciSecondSupervisoraName{{#1}}\def\ciSecondSupervisoraTitle{{#2}}\def\ciSecondSupervisoraDepart{{#3}}\def\ciSecondSupervisoraSchool{{#4}}}
 \newcommand{\Degree}[2]{\def\ciDegreeTitle{#1}\def\ciDegreeName{#2}}
 \newcommand{\MAPProgram}[1]{\def\ciMAPProgram{#1}}
 \newcommand{\GrantText}[2]{\def\ciGrantFirst{#1}\def\ciGrantSecond{#2}}
@@ -539,6 +541,10 @@
 \ifdefined \ciSecondSupervisorName
   \def\yourSecondSupervisor{, e do Doutor {\ciSecondSupervisorName}, Professor {\ciSecondSupervisorTitle} {\ciSecondSupervisorDepart} {\ciSecondSupervisorSchool}}
 \fi
+\newcommand{\yourSecondSupervisora}{}
+\ifdefined \ciSecondSupervisoraName
+  \def\yourSecondSupervisora{, e da Doutora {\ciSecondSupervisoraName}, Professora {\ciSecondSupervisoraTitle} {\ciSecondSupervisoraDepart} {\ciSecondSupervisoraSchool}}
+\fi
 
 \TitlePage
   \INNERHEADER{}{\ciThesisYear}
@@ -573,7 +579,13 @@ em {\ciDegreeName}
 \ifdefined \ciMAPProgram%
  das Universidades do Minho, Aveiro e Porto (MAP-\ciMAPProgram)
 \fi%
-, realizada sob a orienta\c c\~ao cient\'ifica do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle} do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}.}
+, realizada sob a orienta\c c\~ao cient\'ifica 
+\ifdefined \ciSupervisoraName%
+da Doutora {\ciSupervisoraName}, Professora {\ciSupervisoraTitle}
+\else
+do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle}
+\fi%
+do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}{\yourSecondSupervisora}.}
     \vspace{95mm}
 \ifdefined \ciGrantFirst
     \SPONSOR{}{
