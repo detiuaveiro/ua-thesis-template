@@ -1,0 +1,126 @@
+#####
+# OPTIONAL CONFIGURATIONS
+#####
+#fontsize: 11 # According to UA rules should be between 10 and 12
+#customDT: \monthname[\THEMONTH] \THEYEAR # Uncomment to use a custom date format
+#floatsOnFacingPgs: True # enable floats on facing pages
+#colorBoxesOnLinks: True # enable color boxes on links
+#siSetup: True # enable eletric circuit SI units
+#english: True # enable english in the document
+#chapterStyle: veelo # Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo, indexes)
+#excludeSubFigsFromLOF: False # Exclude sub figures from List of Figures
+quotation:
+  lang: english 
+  text: The greatest challenge to any thinker is stating the problem in a way that will allow a solution
+  author: Bertrand Russell
+grantText:
+  - Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.
+  - Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.
+dedication: Dedico este trabalho à minha esposa e filho pelo incansável apoio.
+acknowledgements: Agradeço toda a ajuda a todos os meus colegas e companheiros.
+
+#####
+# MANDATORY CONFIGURATIONS
+#####
+final: False # Whether this is the final revision of the thesis
+# | area        |   | department |
+# ---------------   --------------
+# | arts        |   | dao        |
+# | sciences    |   | dbio       |
+# | education   |   | dcspt      |
+# | economy     |   | deca       |
+# | engineering |   | degeit     |
+# | humanities  |   | de         |
+# | health      |   | deti       |
+# |             |   | demac      |
+# |             |   | decivil    |
+# |             |   | dem        |
+# |             |   | dfis       |
+# |             |   | dlc        |
+# |             |   | dmat       |
+# |             |   | dq         |
+# |             |   | dcm        |
+# |             |   | dgeo       |
+# ---------------   --------------
+area: engineering
+department: deti
+docType: ThesisProposal # Possible values: Thesis ThesisProposal Dissertation
+# Uncomment if you are a student of a MAP Doctoral program 
+# http://www.map.edu.pt/
+# | area                | identifier |
+# | Biology of Plants   | bioplant   |
+# | Computer Science    | i          |
+# | Physics             | fis        |
+# | Telecommunications  | tele       |
+# MAPProgram: i 
+author: FIRST NAME\\LAST NAME
+titlePT: TÍTULO DA TESE (MÁXIMO 70 CARACTERES)
+titleEN: THESIS TITLE (MAX 70 CHARACTERS)
+# name   : Supervisor's name
+# categoy: One of the following list
+#
+# | category               |
+# --------------------------
+# | catedrático            |
+# | catedrático convidado  |
+# | associado c/ agregação |
+# | associado              |
+# | auxiliar               |
+# | auxiliar convidado     |
+# --------------------------
+supervisor:
+  name: (nome do orientador)
+  category: associado
+
+# OPTIONAL: you can add a second supervisor.
+#
+# \SecondSupervisor{name}{category}
+#  {[preposition: (at, in, no, da)] department}
+#  {[preposition: (at, in, do, na)] school}
+#
+# name      : See above.
+# category  : See above.
+# department: Can be a department, faculty or
+#             other; Choose the preposition
+#             accordingly.
+# school    : University/Scholl name; Choose the
+#             preposition accordingly.
+secondSupervisor:
+  name: (co-orientador)
+  category: auxiliar convidado
+  department: do Departamento de Matemática
+  school: da Universidade de Aveiro
+degree:
+  title: Mestre # Degree title (Mestre or Doutor)
+  name: Engenharia de Computadores e Telemática # Degree name
+keywordsPT: texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.
+abstractPT: |
+  ```{=latex}
+  Um resumo é um pequeno apanhado de um trabalho mais longo (como uma tese, dissertação ou trabalho de pesquisa). O resumo relata de forma concisa os objetivos e resultados da sua pesquisa, para que os leitores saibam exatamente o que se aborda no seu documento.\\Embora a estrutura possa variar um pouco dependendo da sua área de estudo, o seu resumo deve descrever o propósito do seu trabalho, os métodos que você usou e as conclusões a que chegou.\\Uma maneira comum de estruturar um resumo é usar a estrutura IMRaD. Isso significa: \begin{itemize} \item Introdução \item Métodos \item Resultados \item Discussão \end{itemize} Veja mais pormenores aqui:\\\texttt{https://www.scribbr.com/dissertation/abstract/}
+  ```
+keywordsEN: textbook, architecture, history, construction, construction materials, traditional knowledge.
+abstractEN: |
+  ```{=latex}
+  An abstract is a short summary of a longer work (such as a thesis, dissertation or research paper).\\The abstract concisely reports the aims and outcomes of your research, so that readers know exactly what your paper is about.\\Although the structure may vary slightly depending on your discipline, your abstract should describe the purpose of your work, the methods you’ve used, and the conclusions you’ve drawn.\\One common way to structure your abstract is to use the IMRaD structure. This stands for: \begin{itemize} \item Introduction \item Methods \item Results \item Discussion \end{itemize} Check for more details here:\\\texttt{https://www.scribbr.com/dissertation/abstract/}
+  ```
+juriPresident:
+  name: Prof. Doutor João Antunes da Silva
+  class: professor associado da Faculdade de Engenharia da Universidade do Porto
+juri:
+  - name: Prof. Doutor João Antunes da Silva
+    class: professor associado da Faculdade de Engenharia da Universidade do Porto
+  - name: Prof. Doutor João Antunes da Silva
+    class: professor associado da Faculdade de Engenharia da Universidade do Porto
+  - name: Prof. Doutor João Antunes da Silva
+    class: professor associado da Faculdade de Engenharia da Universidade do Porto
+  - name: Prof. Doutor João Antunes da Silva
+    class: professor associado da Faculdade de Engenharia da Universidade do Porto
+  - name: Prof. Doutor João Antunes da Silva
+    class: professor associado da Faculdade de Engenharia da Universidade do Porto
+acronyms:
+  - id: ai
+    short: AI
+    long: Artificial Intelligence
+  - id: pdf
+    short: PDF
+    long: Portable Document Format
