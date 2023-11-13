@@ -1,4 +1,5 @@
 .venv/
 venv/
 filters/pandoc-minted/
-
+matter.tex
+cover.tex

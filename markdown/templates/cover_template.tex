@@ -13,7 +13,6 @@
 % Remove 'coverdepname' parameter to remove department name from cover pages
 % Add 'final' parameter to remove "DOCUMENTO PROVISÓRIO" from cover page
 \documentclass[11pt,twoside,a4paper$if(final)$,final$endif$]{report}
-%\documentclass[11pt,twoside,a4paper]{report}
 
 %%% This file is a template for the cover of your
 %%%  thesis.
@@ -99,7 +98,9 @@ $endif$
 %%% | Physics             | fis        |
 %%% | Telecommunications  | tele       |
 
-%\MAPProgram{i}
+$if(mapProgram)$
+\MAPProgram{$mapProgram$}
+$endif$
 
 %%% Edit author's name
 %% Author's full name
@@ -120,30 +121,43 @@ $endif$
 
 %%% OPTIONAL: add a quotation if you like.
 %% Optional Quotation
+$if(quotation)$
 \Quote{\selectlanguage{$quotation.lang$}$quotation.text$}{$quotation.author$}
+$endif$
 
 %%% Edit your supervisor's information.
 %%%
+%%% Use this command for male supervisor
 %%% \Supervisor{name}{category}
+%%%
+%%% Or this command for femmale supervisor
+%%% \Supervisora{name}{category}
 %%%
 %%% name   : Supervisor's name
 %%% categoy: One of the following list
 %%%
-%%% | category               |
-%%% --------------------------
-%%% | catedrático            |
-%%% | catedrático convidado  |
-%%% | associado c/ agregação |
-%%% | associado              |
-%%% | auxiliar               |
-%%% | auxiliar convidado     |
-%%% --------------------------
+%%% | category                  |
+%%% -----------------------------
+%%% | catedrático/a             |
+%%% | catedrático/a convidado/a |
+%%% | associado/a c/ agregação  |
+%%% | associado/a               |
+%%% | auxiliar                  |
+%%% | auxiliar convidado        |
+%%% -----------------------------
 %% Supervisor information
+$if(supervisor.femmale)$
+\Supervisora{$supervisor.name$}{$supervisor.category$}
+$else$
 \Supervisor{$supervisor.name$}{$supervisor.category$}
-
+$endif$
 %%% OPTIONAL: you can add a second supervisor.
 %%%
+%%% Use this command for male supervisor
 %%% \SecondSupervisor{name}{category}
+%%% 
+%%% Or this command for femmale supervisor
+%%% \SecondSupervisora{name}{category}
 %%%  {[preposition: (at, in, no, da)] department}
 %%%  {[preposition: (at, in, do, na)] school}
 %%%
@@ -156,7 +170,11 @@ $endif$
 %%%             preposition accordingly.
 %% Optional SecondSuperviser information
 $if(secondSupervisor)$
+	$if(supervisor.femmale)$
+\SecondSupervisora{$secondSupervisor.name$}{$secondSupervisor.category$}{$secondSupervisor.department$}{$secondSupervisor.school$}
+	$else$
 \SecondSupervisor{$secondSupervisor.name$}{$secondSupervisor.category$}{$secondSupervisor.department$}{$secondSupervisor.school$}
+	$endif$
 $endif$
 
 %%% Edit your degree information.

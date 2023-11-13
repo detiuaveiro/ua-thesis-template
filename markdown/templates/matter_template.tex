@@ -141,14 +141,20 @@ $endif$
 
 % Uncomment the next lines to enable chart support through pgf and tikz
 % This may require you to install further packages in your Tex system
-%\usepackage[version=0.96]{pgf}
-%\usepackage{tikz}
+$if(pgfAndTikz)$
+\usepackage[version=0.96]{pgf}
+\usepackage{tikz}
+$endif$
 
 % UML support
-%\usepackage{pgf-umlsd}
+$if(uml)$
+\usepackage{pgf-umlsd}
+$endif$
 
 % Trees, Arrows, Mindmaps and other popular objects
-%\usetikzlibrary{arrows,shadows,trees,shapes,decorations,automata,backgrounds,petri,mindmap} % for pgf-umlsd
+$if(tikzExtra)$
+\usetikzlibrary{arrows,shadows,trees,shapes,decorations,automata,backgrounds,petri,mindmap} % for pgf-umlsd
+$endif$
 
 % Package to master SI units
 \usepackage[detect-weight=true, binary-units=true]{siunitx}
@@ -162,18 +168,20 @@ $endif$
 % Option : oldvoltagedirection,nooldvoltagedirection,RPvoltages,EFvoltages
 % More information at: https://mirrors.ibiblio.org/CTAN/graphics/pgf/contrib/circuitikz/doc/circuitikzmanual.pdf
 % By default this template is using the Old Voltage Direction
-%\usepackage[oldvoltagedirection,american,cuteinductors,smartlabels]{circuitikz}
-%\usetikzlibrary{calc}
-%\ctikzset{bipoles/thickness=1}
-%\ctikzset{bipoles/length=0.8cm}
-%\ctikzset{bipoles/diode/height=.375}
-%\ctikzset{bipoles/diode/width=.3}
-%\ctikzset{tripoles/thyristor/height=.8}
-%\ctikzset{tripoles/thyristor/width=1}
-%\ctikzset{bipoles/vsourceam/height/.initial=.7}
-%\ctikzset{bipoles/vsourceam/width/.initial=.7}
-%\tikzstyle{every node}=[font=\small]
-%\tikzstyle{every path}=[line width=0.8pt,line cap=round,line join=round]
+$if(voltageDirection)$
+\usepackage[$voltageDirection$,american,cuteinductors,smartlabels]{circuitikz}
+\usetikzlibrary{calc}
+\ctikzset{bipoles/thickness=1}
+\ctikzset{bipoles/length=0.8cm}
+\ctikzset{bipoles/diode/height=.375}
+\ctikzset{bipoles/diode/width=.3}
+\ctikzset{tripoles/thyristor/height=.8}
+\ctikzset{tripoles/thyristor/width=1}
+\ctikzset{bipoles/vsourceam/height/.initial=.7}
+\ctikzset{bipoles/vsourceam/width/.initial=.7}
+\tikzstyle{every node}=[font=\small]
+\tikzstyle{every path}=[line width=0.8pt,line cap=round,line join=round]
+$endif$
 
 % For inline TT text (e.g. code snippets)
 \usepackage{verbatim}
@@ -189,7 +197,6 @@ $endif$
 %\restylefloat{lstlisting}
 
 % For test purposes you may use the lipsum package to create dummy text
-% todo: can be cleaner?
 $if(final)$
 $else$
 \usepackage{lipsum} % REMOVE
@@ -219,7 +226,7 @@ $endif$
 }
 
 % TODO: evaluate if this is allowed
-% Support longtabled from pandoc
+% Support longtables for pandoc compatibility
 \usepackage{longtable}
 
 % Use the built-in division styling
@@ -255,6 +262,10 @@ $endif$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
+% Fix the numbering scheme by having a ghost style for page numbering
+\pagenumbering{Alph}
+
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
 \includepdf[pages=-]{cover.pdf}
 
@@ -371,6 +382,8 @@ $endif$
 % Print Glossary
 % {\small\include{glossary}}
 
+% Could not include from the file as in the latex format because of pandoc limitations
+% This is the content of /glossary.tex
 \chapter{Glossário}
 
 \footnotesize

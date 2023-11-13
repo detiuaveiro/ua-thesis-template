@@ -8,7 +8,7 @@ all:
 		--template=./templates/cover_template.tex \
 		--metadata-file=metadata.yaml && \
 	pandoc \
-		--filter ./filters/filters.py \
+		--filter ./filters/acronyms.py \
 		--filter ./filters/pandoc-minted/pandoc-minted.py \
 		--template=./templates/matter_template.tex \
 		-o ../matter.tex \
@@ -22,3 +22,19 @@ install:
 
 	cd filters && \
 	git clone https://github.com/nick-ulle/pandoc-minted.git
+
+test:
+	. .venv/bin/activate && \
+	pandoc \
+		-f markdown /dev/null \
+		-o ../cover.tex \
+		--template=./templates/cover_template.tex \
+		--metadata-file=metadata.yaml && \
+	pandoc \
+		--filter ./filters/acronyms.py \
+		--filter ./filters/pandoc-minted/pandoc-minted.py \
+		--template=./templates/matter_template.tex \
+		-o ../matter.tex \
+		--metadata-file=metadata.yaml \
+		./demo.md
+

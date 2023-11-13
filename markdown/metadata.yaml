@@ -3,12 +3,18 @@
 #####
 #fontsize: 11 # According to UA rules should be between 10 and 12
 #customDT: \monthname[\THEMONTH] \THEYEAR # Uncomment to use a custom date format
-#floatsOnFacingPgs: True # enable floats on facing pages
-#colorBoxesOnLinks: True # enable color boxes on links
-#siSetup: True # enable eletric circuit SI units
-#english: True # enable english in the document
+#floatsOnFacingPgs: true # enable floats on facing pages
+#colorBoxesOnLinks: true # enable color boxes on links
+#siSetup: true # enable eletric circuit SI units
+#english: true # enable english in the document
 #chapterStyle: veelo # Others: dowding, demo2, dash, chappell, brotherton, bianchi, ger, madsen, tatcher, veelo, indexes)
 #excludeSubFigsFromLOF: False # Exclude sub figures from List of Figures
+# Uncomment if you are a student of a MAP Doctoral program 
+#mapProgram: i # bioplant i fis tele
+#pgfAndTikz: true # enable chart support through pgf and tikz
+#tikzExtra: true # Trees, Arrows, Mindmaps and other popular objects
+#uml: true # UML support
+#voltageDirection: oldvoltagedirection # Option : oldvoltagedirection,nooldvoltagedirection,RPvoltages,EFvoltages
 quotation:
   lang: english 
   text: The greatest challenge to any thinker is stating the problem in a way that will allow a solution
@@ -71,12 +77,8 @@ titleEN: THESIS TITLE (MAX 70 CHARACTERS)
 supervisor:
   name: (nome do orientador)
   category: associado
-
+  femmale: False
 # OPTIONAL: you can add a second supervisor.
-#
-# \SecondSupervisor{name}{category}
-#  {[preposition: (at, in, no, da)] department}
-#  {[preposition: (at, in, do, na)] school}
 #
 # name      : See above.
 # category  : See above.
@@ -90,6 +92,7 @@ secondSupervisor:
   category: auxiliar convidado
   department: do Departamento de Matemática
   school: da Universidade de Aveiro
+  femmale: False
 degree:
   title: Mestre # Degree title (Mestre or Doutor)
   name: Engenharia de Computadores e Telemática # Degree name
@@ -118,9 +121,6 @@ juri:
   - name: Prof. Doutor João Antunes da Silva
     class: professor associado da Faculdade de Engenharia da Universidade do Porto
 acronyms:
-  - id: ai
-    short: AI
-    long: Artificial Intelligence
-  - id: pdf
-    short: PDF
-    long: Portable Document Format
+  - id: id
+    short: ID
+    long: identifier
