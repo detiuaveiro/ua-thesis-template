@@ -12,6 +12,8 @@ Full instructions come from the links below, this file is just for testing and q
 
 Some redundant features might not be showcased here.
 
+This file is not intended to only show features working, it also displays what features to expect not to work.
+
 Headers
 =======
 

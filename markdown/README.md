@@ -9,6 +9,7 @@ The `markdown` directory is structured as follows:
 ```
 .
 ├── content
+│   └── thesis.md 
 ├── demo.md
 ├── filters
 │   ├── acronyms.py
@@ -26,6 +27,8 @@ The `markdown` directory is structured as follows:
 ```
 
 `content` is where all the markdown files for the thesis will reside.
+
+`thesis.md` is where one should write their thesis, or one of its parts.
 
 `demo.md` is a demo file showcasing pandoc's markdown functionality.
 
