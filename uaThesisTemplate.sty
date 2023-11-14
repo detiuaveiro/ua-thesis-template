@@ -31,7 +31,7 @@
 \newcommand{\ThesisYear}[1]{\def\ciThesisYear{#1}}
 \newcommand{\TitleEN}[1]{\def\ciTitleEN{#1} }
 \newcommand{\TitlePT}[1]{\def\ciTitlePT{#1} }
-\newcommand{\Author}[1]{\def\ciAuthor{#1}}
+\newcommand{\Author}[2]{\def\ciAuthorFirst{#1}\def\ciAuthorLast{#2}}
 \newcommand{\Quote}[2]{\def\ciQuoteText{#1}\def\ciQuoteAuthor{#2}}
 \newcommand{\Dedication}[1]{\def\ciDedication{#1}}
 \newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2}}}
@@ -45,7 +45,7 @@
 \newcommand{\JuriMember}[2]{
     \listadd{\ciJuriMember}{\JURI{\JURICATEGORY}{#1}{#2}}
 }
-\newcommand{\Abstract}[4]{\def\ciAbstractText{#4}
+\newcommand{\Abstract}[4]{\def\ciAbstractKeywords{#2}\def\ciAbstractText{#4}
 \listadd{\ciAbstract}{
   \TitlePage
     \vspace*{55mm}
@@ -481,7 +481,7 @@
 \newcounter{ctitle}
 \newcommand{\DISPLAYAUTHOR}{%
     \ifnum\value{ctitle} = 0%
-     {\ciAuthor}
+     {\ciAuthorFirst}\\{\ciAuthorLast}
      \fi
      \addtocounter{ctitle}{1}
 }

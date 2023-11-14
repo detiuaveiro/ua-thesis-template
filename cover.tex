@@ -96,7 +96,7 @@
 
 %%% Edit author's name
 %% Author's full name
-\Author{FIRST NAME\\LAST NAME}
+\Author{FIRST NAME}{LAST NAME}
 
 %%% Edit thesis title in Portuguese
 %% Thesis Mandatory Title in Portuguese
@@ -119,7 +119,7 @@ the problem in a way that will allow a solution}{Bertrand Russell}
 %%% Use this command for male supervisor
 %%% \Supervisor{name}{category}
 %%%
-%%% Or this command for femmale supervisor
+%%% Or this command for female supervisor
 %%% \Supervisora{name}{category}
 %%%
 %%% name   : Supervisor's name
@@ -142,7 +142,7 @@ the problem in a way that will allow a solution}{Bertrand Russell}
 %%% Use this command for male supervisor
 %%% \SecondSupervisor{name}{category}
 %%% 
-%%% Or this command for femmale supervisor
+%%% Or this command for female supervisor
 %%% \SecondSupervisora{name}{category}
 %%%  {[preposition: (at, in, no, da)] department}
 %%%  {[preposition: (at, in, do, na)] school}
@@ -221,6 +221,15 @@ the problem in a way that will allow a solution}{Bertrand Russell}
 
 
 \begin{document}
+
+% Temporary file for .pdf metadata
+\newwrite\metadata
+\immediate\openout\metadata=myfile.tmp
+\immediate\write\metadata{{\ciAuthorFirst} {\ciAuthorLast}}
+\immediate\write\metadata{{\ciTitlePT}}
+\immediate\write\metadata{{\ciAbstractKeywords}}
+\immediate\write\metadata{Thesis/Dissertation of University of Aveiro} % Eventually, change to Abstract text {\ciAbstractText}
+\immediate\closeout\metadata
 
 %%% By default we consider portuguese to be the
 %%%  main language (the last one in the usepackage
