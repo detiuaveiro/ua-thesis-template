@@ -12,6 +12,7 @@ all:
 		--filter ./filters/pandoc-minted/pandoc-minted.py \
 		--template=./templates/matter_template.tex \
 		-o ../matter.tex \
+		--top-level-division=chapter \
 		--metadata-file=metadata.yaml \
 		./content/*.md
 
@@ -35,6 +36,7 @@ test:
 		--filter ./filters/pandoc-minted/pandoc-minted.py \
 		--template=./templates/matter_template.tex \
 		-o ../matter.tex \
+		--top-level-division=chapter \
 		--metadata-file=metadata.yaml \
 		./demo.md
 
