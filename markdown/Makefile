@@ -9,6 +9,7 @@ all:
 		--metadata-file=metadata.yaml && \
 	pandoc \
 		--filter ./filters/acronyms.py \
+		--filter ./filters/citations.py \
 		--filter ./filters/pandoc-minted/pandoc-minted.py \
 		--template=./templates/matter_template.tex \
 		-o ../matter.tex \
@@ -33,6 +34,7 @@ test:
 		--metadata-file=metadata.yaml && \
 	pandoc \
 		--filter ./filters/acronyms.py \
+		--filter ./filters/citations.py \
 		--filter ./filters/pandoc-minted/pandoc-minted.py \
 		--template=./templates/matter_template.tex \
 		-o ../matter.tex \
