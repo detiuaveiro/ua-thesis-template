@@ -18,6 +18,7 @@
 
 %Lists
 \def\ciJuriMember{}
+\def\ciSupervisorMember{}
 \def\ciTitleEN{}
 \def\ciTitlePT{}
 \def\ciAbstract{}
@@ -36,8 +37,12 @@
 \newcommand{\Dedication}[1]{\def\ciDedication{#1}}
 \newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2}}}
 \newcommand{\Supervisora}[2]{\def\ciSupervisoraName{{#1}}\def\ciSupervisoraTitle{{#2}}}
-\newcommand{\SecondSupervisor}[4]{\def\ciSecondSupervisorName{{#1}}\def\ciSecondSupervisorTitle{{#2}}\def\ciSecondSupervisorDepart{{#3}}\def\ciSecondSupervisorSchool{{#4}}}
-\newcommand{\SecondSupervisora}[4]{\def\ciSecondSupervisoraName{{#1}}\def\ciSecondSupervisoraTitle{{#2}}\def\ciSecondSupervisoraDepart{{#3}}\def\ciSecondSupervisoraSchool{{#4}}}
+\newcommand{\SupervisorMember}[5]{
+    \listadd{\ciSupervisorMember}{\SUPERVISOR{#5}{#1}{#2}{#3}{#4}}
+}
+\newcommand{\SupervisoraMember}[5]{
+    \listadd{\ciSupervisorMember}{\SUPERVISORA{#5}{#1}{#2}{#3}{#4}}
+}
 \newcommand{\Degree}[2]{\def\ciDegreeTitle{#1}\def\ciDegreeName{#2}}
 \newcommand{\MAPProgram}[1]{\def\ciMAPProgram{#1}}
 \newcommand{\GrantText}[2]{\def\ciGrantFirst{#1}\def\ciGrantSecond{#2}}
@@ -379,6 +384,10 @@
 % font sizes and with bold characters.
 \long\def\SECTION#1#2{\TEXT{\ua@font@size2\textbf{#1}}{\ua@font@size1#2}}
 
+% Used to display the list of members of the Supervisors
+\long\def\SUPERVISOR#1#2#3#4#5{, {#1}do Doutor {#2}, Professor {#3} {#4} {#5}}
+\long\def\SUPERVISORA#1#2#3#4#5{, {#1}da Doutora {#2}, Professora {#3} {#4} {#5}}
+
 % Used to display the list of members of the Juri
 \long\def\JURI#1#2#3{\TEXT{#1}{\textsf{#2}\newline\ua@font@size0{#3}}\par\medskip\vspace*{20pt}}
 
@@ -534,18 +543,6 @@
 \fi
 
 
-%
-% First thesis pages
-%
-\newcommand{\yourSecondSupervisor}{}
-\ifdefined \ciSecondSupervisorName
-  \def\yourSecondSupervisor{, e do Doutor {\ciSecondSupervisorName}, Professor {\ciSecondSupervisorTitle} {\ciSecondSupervisorDepart} {\ciSecondSupervisorSchool}}
-\fi
-\newcommand{\yourSecondSupervisora}{}
-\ifdefined \ciSecondSupervisoraName
-  \def\yourSecondSupervisora{, e da Doutora {\ciSecondSupervisoraName}, Professora {\ciSecondSupervisoraTitle} {\ciSecondSupervisoraDepart} {\ciSecondSupervisoraSchool}}
-\fi
-
 \TitlePage
   \INNERHEADER{}{\ciThesisYear}
 
@@ -585,7 +582,7 @@ da Doutora {\ciSupervisoraName}, Professora {\ciSupervisoraTitle}
 \else
 do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle}
 \fi%
-do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}{\yourSecondSupervisora}.}
+do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMember}.}
     \vspace{95mm}
 \ifdefined \ciGrantFirst
     \SPONSOR{}{
