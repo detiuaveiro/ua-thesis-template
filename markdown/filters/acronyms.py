@@ -20,6 +20,8 @@ def replace_acronyms(key, value, format, meta):
         if a.endswith('s'): # separate if 's' because a plural acronym can end with punctuation
             c = a[-1].lower() + c
             a = a[:-1]
+        if value.startswith('_'):
+            return [pf.RawInline('latex', f'{value[1:]}')]
         if a in acronyms:
             cnt = acrocnt.get(a)
             if cnt is None:
