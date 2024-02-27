@@ -119,7 +119,7 @@ the problem in a way that will allow a solution}{Bertrand Russell}
 %%% Use this command for male supervisor
 %%% \Supervisor{name}{category}
 %%%
-%%% Or this command for femmale supervisor
+%%% Or this command for female supervisor
 %%% \Supervisora{name}{category}
 %%%
 %%% name   : Supervisor's name
@@ -140,12 +140,13 @@ the problem in a way that will allow a solution}{Bertrand Russell}
 %%% OPTIONAL: you can add a second supervisor.
 %%%
 %%% Use this command for male supervisor
-%%% \SecondSupervisor{name}{category}
+%%% \SupervisorMember{name}{category}
 %%% 
-%%% Or this command for femmale supervisor
-%%% \SecondSupervisora{name}{category}
+%%% Or this command for female supervisor
+%%% \SupervisoraMember{name}{category}
 %%%  {[preposition: (at, in, no, da)] department}
 %%%  {[preposition: (at, in, do, na)] school}
+%%%  {[preposition: (and, e)] }
 %%%
 %%% name      : See above.
 %%% category  : See above.
@@ -154,8 +155,17 @@ the problem in a way that will allow a solution}{Bertrand Russell}
 %%%             accordingly.
 %%% school    : University/Scholl name; Choose the
 %%%             preposition accordingly.
+%%% last      : Write {e } (Portuguese) or {and } (English)
+%%%             for the last enumerated Supervisor; Or
+%%%             nothing {} for all other supervisors 
 %% Optional SecondSuperviser information
-\SecondSupervisor{(co-orientador)}{auxiliar convidado}{do Departamento de Matemática}{da Universidade de Aveiro}
+\SupervisorMember{(co-orientador)}{auxiliar convidado}{do Departamento de Matemática}{da Universidade de Aveiro}{}
+
+%%% Repeat the above declaration for additional
+%%%  Supervisor members as many times as necessary.
+%% Additional Supervisor members
+\SupervisoraMember{(co-orientadora)}{associada c/ agregação}{do Departamento de Biologia}{da Universidade de Aveiro}{}
+\SupervisorMember{(co-orientador)}{auxiliar convidado}{do Departamento de Física}{da Universidade de Aveiro}{e }
 
 %%% Edit your degree information.
 %%%
