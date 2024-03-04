@@ -240,11 +240,26 @@
 \pagenumbering{Alph}
 
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
-\includepdf[pages=-]{cover.pdf}
 
 % Uncomment to enable English
 %\selectlanguage{english}
 
+\newread\metadata
+\immediate\openin\metadata=myfile.tmp
+\immediate\read\metadata to\tmpAuthor
+\immediate\read\metadata to\tmpTitle
+\immediate\read\metadata to\tmpKeywords
+\immediate\read\metadata to\tmpAbstract
+\immediate\closein\metadata
+
+\hypersetup{
+  pdfauthor={\tmpAuthor},
+  pdftitle={\tmpTitle},
+  pdfkeywords={\tmpKeywords},
+  pdfsubject={\tmpAbstract},
+}
+
+\includepdf[pages=-]{cover.pdf}
 
 % Front matter
 
