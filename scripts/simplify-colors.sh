@@ -37,7 +37,10 @@ fi
 mkdir -p "$BUILD"
 rm -f "$BUILD"/*
 
-gs -q -sDEVICE=pdfwrite -dSAFER -o "$BUILD/%d-`basename $FILENAME .pdf`-split.pdf" "$FILENAME"
+gs -q -sDEVICE=pdfwrite -dSAFER \
+    --permit-file-write="$BUILD/" \
+    --permit-file-control="$BUILD/" \
+    -o "$BUILD/%d-`basename $FILENAME .pdf`-split.pdf" "$FILENAME"
 
 for i in `ls -v "$BUILD"/*-split.pdf`; do
     echo "$i"
