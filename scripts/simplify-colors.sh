@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # This script will convert all pages WITHOUT actual colors
 # but with grays expressed in color values to actual grays.
