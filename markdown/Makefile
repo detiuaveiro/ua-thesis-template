@@ -15,7 +15,15 @@ all:
 		-o ../matter.tex \
 		--top-level-division=chapter \
 		--metadata-file=metadata.yaml \
-		./content/*.md
+		./content/*.md && \
+	pandoc \
+		--filter ./filters/acronyms.py \
+		--filter ./filters/citations.py \
+		--filter ./filters/pandoc-minted/pandoc-minted.py \
+		-o ../appendix.tex \
+		--top-level-division=chapter \
+		--metadata-file=metadata.yaml \
+		./appendixes/*.md
 
 install:
 	python3 -m venv .venv
