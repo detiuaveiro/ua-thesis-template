@@ -59,6 +59,8 @@
  }
 }
 
+\newcommand{\AIUse}[1]{\def\ciAIUse{#1}}
+
 %
 % Remove "Documento provisório" from the cover page
 %
@@ -653,6 +655,16 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}{\you
 \hbadness=10000
 
 \dolistloop{\ciAbstract}
+
+\ifdefined \ciAIUse
+\TitlePage
+  \vspace*{55mm}
+  \SECTION{\textbf{Acknowledgement of use of \newline AI tools}}
+       {\textbf{Recognition of the use of generative Artificial Intelligence technologies and tools, software and other support tools.} \newline \ciAIUse}
+
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+\fi
 
 }
 
