@@ -60,7 +60,6 @@
     \SECTION{\textbf{#3}}
          {#4}
   \EndTitlePage
-  \titlepage\ \endtitlepage % empty page
  }
 }
 
@@ -369,7 +368,7 @@
 % argument is the thesis title.
 %
 \long\def\TITLE#1#2{\noindent\hspace*{15mm}\parbox[t]{52mm}{\raggedright
-  \ua@font@size3\textsf{\textbf{#1}}}\hspace*{10mm}\parbox[t]{120mm}{\raggedright
+  \ua@font@size3\textsf{\textbf{#1}}}\hspace*{10mm}\parbox[t]{110mm}{\raggedright
   \ua@font@size3\textsf{\textbf{#2}}}\par}
 
 %
@@ -379,7 +378,7 @@
 % one \TEXT macro call.
 %
 \long\def\TEXT#1#2{\noindent\hspace*{15mm}\parbox[t]{52mm}{\raggedright\sloppy
-  \textsf{#1}}\hspace*{10mm}\parbox[t]{120mm}{\textsf{#2}}\par\medskip}
+  \textsf{#1}}\hspace*{10mm}\parbox[t]{110mm}{\textsf{#2}}\par\medskip}
 
 
 % Used to put a new section in the page. Similar to TEXT but with different
@@ -520,30 +519,6 @@
 
 
   \EndTitlePage
-  \titlepage\ \endtitlepage % empty page
-
-%
-% Second alternative, with a citation
-%
-\ifdefined \ciQuoteText
-  \TitlePage
-    \HEADER{\BAR\FIG{
-           \begin{minipage}{100mm} % no more than 120mm
-            ``\textit{\ciQuoteText}''
-             \begin{flushright}
-	  	  	     --- \ciQuoteAuthor
-             \end{flushright}
-          \end{minipage}
-          }}
-           {\ciThesisYear}
-
-	\TITLE{\DISPLAYAUTHOR}{\selectlanguage{portuguese}\ciTitlePT\newline}
-	\TITLE{ }{\selectlanguage{english}\ciTitleEN\newline}
-
-  \EndTitlePage
-  \titlepage\ \endtitlepage % empty page
-\fi
-
 
 %
 % First thesis pages
@@ -588,30 +563,24 @@ da Doutora {\ciSupervisoraName}, Professora {\ciSupervisoraTitle}
 do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle}
 \fi%
 do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMember}.}
-    \vspace{95mm}
+    \vspace{75mm}
 \ifdefined \ciGrantFirst
-    \SPONSOR{}{
-          \ifdefined \ciGrantFirst%
-              \ciGrantFirst
-           \fi}
-             {\ifdefined \ciGrantSecond%
-              \ciGrantSecond
-           \fi
-           }
+    \SPONSOR{}
+{\ifdefined \ciGrantFirst\noindent\ciGrantFirst\fi}
+%
+{\ifdefined \ciGrantSecond\noindent\ciGrantSecond\fi}
 \fi
    \EndTitlePage
-\titlepage\ \endtitlepage % empty page
 
 %
 % Dedicatory
 %
 \ifdefined \ciDedication
 \TitlePage
-  \vspace*{55mm}
+  \vspace*{95mm}
   \TEXT{}
        {\ciDedication}
 \EndTitlePage
-\titlepage\ \endtitlepage % empty page
 \fi
 
 %
@@ -620,13 +589,11 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
 %
 %
 \TitlePage
-  \vspace*{55mm}
+  \vspace*{95mm}
   \SECTION{o j\'uri~/~the jury}
        {}
     \dolistloop{\ciJuriMember}
    \EndTitlePage
-\titlepage\ \endtitlepage % empty page
-
 
 %
 % Acknowledgement page
@@ -634,12 +601,11 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
 %
 \ifdefined \ciAcknowledgements
 \TitlePage
-  \vspace*{55mm}
+  \vspace*{95mm}
   \SECTION{\textbf{agradecimentos~/\newline acknowledgements}}
        {\ciAcknowledgements}
 
 \EndTitlePage
-\titlepage\ \endtitlepage % empty page
 \fi
 
 
@@ -663,7 +629,6 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
        {\textbf{Recognition of the use of generative Artificial Intelligence technologies and tools, software and other support tools.} \newline \ciAIUse}
 
 \EndTitlePage
-\titlepage\ \endtitlepage % empty page
 \fi
 
 }
