@@ -510,7 +510,7 @@
 %
 % First alternative, with a figure
 
-  \TitlePage
+\TitlePage
      \HEADER{\BAR} % the \FIG{} is optional
            {\ciThesisYear}
 
@@ -518,7 +518,7 @@
 	\TITLE{ }{\selectlanguage{english}\ciTitleEN\newline}
 
 
-  \EndTitlePage
+\EndTitlePage
 
 %
 % First thesis pages
@@ -570,7 +570,7 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
 %
 {\ifdefined \ciGrantSecond\noindent\ciGrantSecond\fi}
 \fi
-   \EndTitlePage
+\EndTitlePage
 
 %
 % Dedicatory
@@ -593,7 +593,7 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
   \SECTION{o j\'uri~/~the jury}
        {}
     \dolistloop{\ciJuriMember}
-   \EndTitlePage
+\EndTitlePage
 
 %
 % Acknowledgement page
@@ -604,7 +604,6 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
   \vspace*{95mm}
   \SECTION{\textbf{agradecimentos~/\newline acknowledgements}}
        {\ciAcknowledgements}
-
 \EndTitlePage
 \fi
 
@@ -625,12 +624,11 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
 \ifdefined \ciAIUse
 \TitlePage
   \vspace*{55mm}
-  \SECTION{\textbf{Acknowledgement of use of \newline AI tools}}
-       {\textbf{Recognition of the use of generative Artificial Intelligence technologies and tools, software and other support tools.} \newline \ciAIUse}
+  \SECTION{\textbf{reconhecimento do uso de\newline ferramentas de AI}}
+       {\textbf{Reconhecimento do uso de tecnologias e ferramentas de Inteligência Artificial (IA) generativa, softwares e outras ferramentas de apoio.} \newline \ciAIUse}
 
 \EndTitlePage
 \fi
 
 }
-
 \endinput
