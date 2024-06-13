@@ -23,25 +23,25 @@ setup:
 	@sudo apt install texlive-latex-base texlive-lang-portuguese texlive-lang-english biber texlive-latex-extra texlive-science python3-pygments python3-proselint pandoc imagemagick latexmk ghostscript lacheck chktex
 
 build: 
-	@mkdir -p ${OUT}/chapters
-	cd ${OUT} ; ${LATEXMK} ${LATEXMK_FLAGS} -cd ${SRC}/cover.tex ${SRC}/matter.tex
+	@mkdir -p "${OUT}/chapters"
+	cd "${OUT}" ; "${LATEXMK}" ${LATEXMK_FLAGS} -cd "${SRC}/cover.tex" "${SRC}/matter.tex"
 
 preview: build
-	(${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/cover.tex & ${LATEXMK} ${LATEXMK_FLAGS} -pvc -cd ${SRC}/matter.tex)
+	("${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/cover.tex" & "${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/matter.tex")
 
 print: build
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-print.pdf ${OUT}/matter.pdf
-	${SCRIPTS}/simplify-colors.sh ${OUT}/thesis-print.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-print.pdf" "${OUT}/matter.pdf"
+	"${SCRIPTS}/simplify-colors.sh" "${OUT}/thesis-print.pdf"
 
 ebook: build
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${OUT}/thesis-ebook.pdf ${OUT}/matter.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-ebook.pdf" "${OUT}/matter.pdf"
 
 clean: 
-	@find ${OUT} -type f ! -name '*.pdf' -delete
-	@find ${OUT}/* -type d -delete
+	@find "${OUT}" -type f ! -name '*.pdf' -delete
+	@find "${OUT}"/* -type d -delete
 
 cleanall: 
-	@rm -rf ${OUT}/* 
+	@rm -rf "${OUT}/*" 
 
 lint:
 ifeq ($(strip $(texfile)),)
