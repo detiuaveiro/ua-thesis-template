@@ -19,6 +19,7 @@ LATEXMK_FLAGS += -pdflatex="pdflatex -file-line-error --shell-escape %O %S"
 all: build
 
 setup:
+	@sudo apt update
 	@sudo apt install texlive-latex-base texlive-lang-portuguese texlive-lang-english biber texlive-latex-extra texlive-science python3-pygments python3-proselint pandoc imagemagick latexmk ghostscript lacheck chktex
 
 build: 
