@@ -96,7 +96,7 @@
 
 %%% Edit author's name
 %% Author's full name
-\Author{FIRST NAME\\LAST NAME}
+\Author{FIRST NAME}{LAST NAME}
 
 %%% Edit thesis title in Portuguese
 %% Thesis Mandatory Title in Portuguese
@@ -236,6 +236,15 @@
 
 
 \begin{document}
+
+% Temporary file for .pdf metadata
+\newwrite\metadata
+\immediate\openout\metadata=myfile.tmp
+\immediate\write\metadata{{\ciAuthorFirst} {\ciAuthorLast}}
+\immediate\write\metadata{{\ciTitlePT}}
+\immediate\write\metadata{{\ciKeywords}}
+\immediate\write\metadata{Thesis/Dissertation of University of Aveiro} % Eventually, change to Abstract text {\ciAbstractText}
+\immediate\closeout\metadata
 
 %%% By default we consider portuguese to be the
 %%%  main language (the last one in the usepackage
