@@ -9,7 +9,8 @@
 % Before each optional line you will have a small comment
 
 % According to UA rules, font size should range from 10 to 12pt.
-\documentclass[$if(fontsize)$$fontsize$$else$11$endif$pt,a4paper,openright,twoside,onecolumn]{memoir}
+%\documentclass[$if(fontsize)$$fontsize$$else$11$endif$pt,a4paper,openright,twoside,onecolumn]{memoir}
+\documentclass[$if(fontsize)$$fontsize$$else$11$endif$pt,a4paper,oneside,onecolumn]{memoir}
 
 \listfiles
 \fixpdflayout
@@ -128,7 +129,7 @@ $endif$
 
 % Setup bibliography with Biber using IEEE style for proper UTF-8 support
 \usepackage[backend=biber, style=ieee, sorting=none, natbib=true, mincitenames=1, maxcitenames=2]{biblatex}
-\bibliography{bib/references.bib, bib/rfc.bib}
+\bibliography{bib/references.bib}
 
 % Use acronyms
 \usepackage[printonlyused]{acronym} % For acronyms
@@ -267,7 +268,8 @@ $endif$
 \pagenumbering{Alph}
 
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
-\includepdf[pages=-]{cover.pdf}
+%\includepdf[pages=-]{cover.pdf}
+\setcounter{page}{0}\includepdf[pages=-]{cover.pdf}
 
 $if(english)$
 % Uncomment to enable English

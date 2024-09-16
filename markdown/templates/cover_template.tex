@@ -12,7 +12,7 @@
 
 % Remove 'coverdepname' parameter to remove department name from cover pages
 % Add 'final' parameter to remove "DOCUMENTO PROVISÓRIO" from cover page
-\documentclass[11pt,twoside,a4paper$if(final)$,final$endif$]{report}
+\documentclass[11pt,a4paper$if(final)$,final$endif$]{report}
 
 %%% This file is a template for the cover of your
 %%%  thesis.
@@ -121,9 +121,9 @@ $endif$
 
 %%% OPTIONAL: add a quotation if you like.
 %% Optional Quotation
-$if(quotation)$
-\Quote{\selectlanguage{$quotation.lang$}$quotation.text$}{$quotation.author$}
-$endif$
+%$if(quotation)$
+%\Quote{\selectlanguage{€quotation.lang€}€quotation.text€}{€quotation.author€}
+%$endif$
 
 %%% Edit your supervisor's information.
 %%%
@@ -171,9 +171,9 @@ $endif$
 %% Optional SecondSuperviser information
 $if(secondSupervisor)$
 	$if(supervisor.femmale)$
-\SecondSupervisora{$secondSupervisor.name$}{$secondSupervisor.category$}{$secondSupervisor.department$}{$secondSupervisor.school$}
+\SupervisoraMember{$secondSupervisor.name$}{$secondSupervisor.category$}{$secondSupervisor.department$}{$secondSupervisor.school$}
 	$else$
-\SecondSupervisor{$secondSupervisor.name$}{$secondSupervisor.category$}{$secondSupervisor.department$}{$secondSupervisor.school$}
+\SupervisorMember{$secondSupervisor.name$}{$secondSupervisor.category$}{$secondSupervisor.department$}{$secondSupervisor.school$}
 	$endif$
 $endif$
 
@@ -206,6 +206,14 @@ $endif$
 $if(acknowledgements)$
 \Acknowledgements{$acknowledgements$}
 $endif$
+
+%%% OPTIONAL: Acknowledge the use of AI Tools
+$if(ai)$
+\AIUse{$ai$}
+$endif$
+%Reconheço o uso de [inserir sistema(s) de IA e respetiva hiperligação] para [indicar utilização específica de IA ou outras tarefas]. Reconheço a utilização de [indicar software, código ou plataforma] para [indicar utilização específica de software, código ou platafoma ou para outras tarefas].
+%Exemplo 1: Reconheço a utilização do ChatGPT 3.5 (Open AI, https://chat.openai.com) para resumir as notas iniciais e para rever o rascunho final, a utilização do Office365 (Microsoft, https://www.office.com) para a escrita do texto.
+%Exemplo 2: Não foram utilizados no presente trabalho quaisquer conteúdos gerados por tecnologias de IA.
 
 %%% Edit the keywords and abstract in Portuguese
 %%% Don't forget to remove the \blindtext[3]
