@@ -6,7 +6,7 @@
 % Before each optional line you will have a small comment
 
 % According to UA rules, font size should range from 10 to 12pt.
-\documentclass[11pt,a4paper,openright,twoside,onecolumn]{memoir}
+\documentclass[11pt,a4paper,oneside,onecolumn]{memoir}
 
 \listfiles
 \fixpdflayout
@@ -118,7 +118,7 @@
 
 % Setup bibliography with Biber using IEEE style for proper UTF-8 support
 \usepackage[backend=biber, style=ieee, sorting=none, natbib=true, mincitenames=1, maxcitenames=2]{biblatex}
-\bibliography{bib/references.bib, bib/rfc.bib}
+\bibliography{bib/references.bib}
 
 % Use acronyms
 \usepackage[printonlyused]{acronym} % For acronyms
@@ -240,7 +240,7 @@
 \pagenumbering{Alph}
 
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
-\includepdf[pages=-]{cover.pdf}
+\setcounter{page}{0}\includepdf[pages=-]{cover.pdf}
 
 % Uncomment to enable English
 %\selectlanguage{english}
@@ -281,6 +281,8 @@
 \chapterstyle{veelo}
 \makeoddfoot{plain}{}{\thepage}{} % Added by André Zúquete to fix a page numbering issue on the veelo chapter style
 
+% Select Page style
+\pagestyle{plain}
 
 % If you feel adventurous you can also define all aspects of your theme
 % Use either this input or the chapterstyle before
@@ -300,10 +302,6 @@
   \par\addvspace{2\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}%
 }
 
-% Select Page style
-\pagestyle{plain}
-
-
 \frontmatter
 
 \tightlists
@@ -315,15 +313,14 @@
 
 % Initial document tables start here: TOC, LOF, LOT, Glossary
 % Table of contents with slightly smaller font
-\cleardoublepage
 {\small\tableofcontents}
 
 % List of figures with slightly smaller font
-\cleardoublepage
+\clearpage
 {\small\listoffigures}
 
 % List of tables with slightly smaller font
-\cleardoublepage
+\clearpage
 {\small\listoftables}
 
 % List of code snippets
@@ -337,11 +334,11 @@
     {\oldchapter#1{#2}}
 }
 
-\renewcommand{\listingscaption}{Código}
-\renewcommand{\listoflistingscaption}{Lista de Excertos de Código}
-\cleardoublepage
-{\small\listoflistings}
-\addcontentsline{toc}{chapter}{\listoflistingscaption}
+%\renewcommand{\listingscaption}{Código}
+%\renewcommand{\listoflistingscaption}{Lista de Excertos de Código}
+%\clearpage
+%{\small\listoflistings}
+%\addcontentsline{toc}{chapter}{\listoflistingscaption}
 
 % Reset Chapters
 \renewcommand{\chapter}[2][]{
@@ -350,6 +347,7 @@
 }
 
 % Print Glossary
+\clearpage
 {\small\include{glossary}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
