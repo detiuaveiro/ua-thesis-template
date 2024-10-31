@@ -23,7 +23,6 @@
 %%% The complete list of options and commands can
 %%%  be found in uaThesisTemplate.sty
 
-
 %%% Select your area of study and department from
 %%%  the following lists and replace them in the
 %%%  \usepackage declaration ([area,department]).
@@ -50,13 +49,10 @@
 %% Import the UA thesis template
 \usepackage[engineering,deti]{uaThesisTemplate}
 
-
 %% Optional packages for utf8 encoding and T1 fonts
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
-%% For prettier pages
-\usepackage{lmodern}
+\renewcommand\familydefault{\sfdefault}
 
 %% We will use english and portuguese
 \usepackage[english,portuguese]{babel}
@@ -81,8 +77,8 @@
 
 %%% Uncomment one of the following options:
 %\DocumentTypeThesis
-\DocumentTypeThesisProposal
-%\DocumentTypeDissertation
+%\DocumentTypeThesisProposal
+\DocumentTypeDissertation
 
 %%% Uncomment if you are a student of a MAP Doctoral program 
 %%% http://www.map.edu.pt/
@@ -148,12 +144,12 @@
 %%% department: Can be a department, faculty or
 %%%             other; Choose the preposition
 %%%             accordingly.
-%%% school    : University/Scholl name; Choose the
+%%% school    : University/School name; Choose the
 %%%             preposition accordingly.
 %%% last      : Write {e } (Portuguese) or {and } (English)
 %%%             for the last enumerated Supervisor; Or
 %%%             nothing {} for all other supervisors 
-%% Optional SecondSuperviser information
+%% Optional SecondSupervisor information
 \SupervisorMember{(co-orientador)}{auxiliar convidado}{do Departamento de Matemática}{da Universidade de Aveiro}{}
 
 %%% Repeat the above declaration for additional
@@ -176,26 +172,31 @@
 %%%
 %%% \GrantText{grant1}{grant2}
 %% Optional Grant support texts
-\GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.}
-          {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.}
+\GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.\\
+          \newline
+          (if applicable- Portuguese mandatory)}
+          {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.\\
+          \newline
+          (if applicable- Portuguese mandatory)}
 
-%%% OPTIONAL: Add a dedication text.
-%% Optional Dedication text
-\Dedication{Dedico este trabalho à minha esposa e filho pelo incansável apoio.}
+%%% Edit the Jury President information.
+%% First Member will be the President of the Jury
+\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+
+%%% Repeat the above declaration for additional
+%%%  members of the jury as many times as necessary.
+%% Additional members of the Jury
+\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+
+
 
 %%% OPTIONAL: Add an acknowledgement text
 %% Optional Acknowledgement text
 \Acknowledgements{Agradeço toda a ajuda a todos os meus colegas e companheiros.}
-
-%%% OPTIONAL: Acknowledge the use of AI Tools
-%\AIUse{I acknowledge the use of [insert AI system(s) and link] to [specific use of generative artificial intelligence or other tasks].
-%I acknowledge the use of [software, codes or platforms] to [specific use software, codes or platforms or to other tasks].
-%}
-%Reconheço o uso de [inserir sistema(s) de IA e respetiva hiperligação] para [indicar utilização específica de IA ou outras tarefas]. Reconheço a utilização de [indicar software, código ou plataforma] para [indicar utilização específica de software, código ou platafoma ou para outras tarefas].
-%Exemplo 1: Reconheço a utilização do ChatGPT 3.5 (Open AI, https://chat.openai.com) para resumir as notas iniciais e para rever o rascunho final, a utilização do Office365 (Microsoft, https://www.office.com) para a escrita do texto.
-%Exemplo 2: Não foram utilizados no presente trabalho quaisquer conteúdos gerados por tecnologias de IA.
-
-
 
 %%% Edit the keywords and abstract in Portuguese
 %%% Don't forget to remove the \blindtext[3]
@@ -215,18 +216,20 @@
 \Abstract{keywords}{textbook, architecture, history, construction, construction materials, traditional knowledge.}
          {abstract}{\selectlanguage{english}An abstract is a short summary of a longer work (such as a thesis, dissertation or research paper).\\The abstract concisely reports the aims and outcomes of your research, so that readers know exactly what your paper is about.\\Although the structure may vary slightly depending on your discipline, your abstract should describe the purpose of your work, the methods you’ve used, and the conclusions you’ve drawn.\\One common way to structure your abstract is to use the IMRaD structure. This stands for: \begin{itemize} \item Introduction \item Methods \item Results \item Discussion \end{itemize} Check for more details here:\\\texttt{https://www.scribbr.com/dissertation/abstract/}}
 
-%%% Edit the Jury President information.
-%% First Member will be the President of the Jury
-\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
 
-%%% Repeat the above declaration for additional
-%%%  members of the jury as many times as necessary.
-%% Additional members of the Jury
-\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
-\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
-\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
-\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
-\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+%%% OPTIONAL: Acknowledge the use of AI Tools
+\AIUse{I acknowledge the use of [insert AI system(s) and link] to [specific use of generative artificial intelligence or other tasks].
+I acknowledge the use of [software, codes or platforms] to [specific use software, codes or platforms or to other tasks].
+\newline\newline
+{Example 1: I acknowledge the use of ChatGPT 3.5 (Open AI, https://chat.openai.com) to summarise the initial notes and to proofread the final draft and the use of 
+Office365 (Microsoft, https://www.office.com) for text writing and productivity.}
+\newline\newline
+{Example 2: No content generated by AI technologies has been used in this Thesis.}
+}
+%Reconheço o uso de [inserir sistema(s) de IA e respetiva hiperligação] para [indicar utilização específica de IA ou outras tarefas]. Reconheço a utilização de [indicar software, código ou plataforma] para [indicar utilização específica de software, código ou platafoma ou para outras tarefas].
+%Exemplo 1: Reconheço a utilização do ChatGPT 3.5 (Open AI, https://chat.openai.com) para resumir as notas iniciais e para rever o rascunho final, a utilização do Office365 (Microsoft, https://www.office.com) para a escrita do texto.
+%Exemplo 2: Não foram utilizados no presente trabalho quaisquer conteúdos gerados por tecnologias de IA.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

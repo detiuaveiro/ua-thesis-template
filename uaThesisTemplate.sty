@@ -33,7 +33,6 @@
 \newcommand{\TitleEN}[1]{\def\ciTitleEN{#1} }
 \newcommand{\TitlePT}[1]{\def\ciTitlePT{#1} }
 \newcommand{\Author}[1]{\def\ciAuthor{#1}}
-\newcommand{\Dedication}[1]{\def\ciDedication{#1}}
 \newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2}}}
 \newcommand{\Supervisora}[2]{\def\ciSupervisoraName{{#1}}\def\ciSupervisoraTitle{{#2}}}
 \newcommand{\SupervisorMember}[5]{
@@ -389,7 +388,7 @@
 \long\def\SUPERVISORA#1#2#3#4#5{, {#1}da Doutora {#2}, Professora {#3} {#4} {#5}}
 
 % Used to display the list of members of the Juri
-\long\def\JURI#1#2#3{\TEXT{#1}{\textsf{#2}\newline\ua@font@size0{#3}}\par\medskip\vspace*{20pt}}
+\long\def\JURI#1#2#3{\TEXT{#1}{\textsf{#2}\newline\smallskip\ua@font@size0{#3}}\par\medskip\vspace*{20pt}}
 
 %Used to display a text acknowledging the grant
 \long\def\SPONSOR#1#2#3{\TEXT{#1}{\begin{minipage}[t]{52.5mm}\ua@font@size1\textsf{#2}\end{minipage}\hspace*{5mm}\begin{minipage}[t]{52.5mm}\ua@font@size1\textsf{#3}\end{minipage}}}
@@ -572,17 +571,6 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
 \EndTitlePage
 
 %
-% Dedicatory
-%
-\ifdefined \ciDedication
-\TitlePage
-  \vspace*{95mm}
-  \TEXT{}
-       {\ciDedication}
-\EndTitlePage
-\fi
-
-%
 %
 % Juri Page
 %
@@ -623,8 +611,8 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
 \ifdefined \ciAIUse
 \TitlePage
   \vspace*{55mm}
-  \SECTION{\textbf{reconhecimento do uso de\newline ferramentas de AI}}
-       {\textbf{Reconhecimento do uso de tecnologias e ferramentas de Inteligência Artificial (IA) generativa, softwares e outras ferramentas de apoio.} \newline \ciAIUse}
+  \SECTION{\textbf{acknowledgement of use of AI tools}}
+       {\textbf{Recognition of the use of generative Artificial Intelligence technologies and tools, software and other support tools.}\medskip\newline\ciAIUse}
 
 \EndTitlePage
 \fi
