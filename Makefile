@@ -53,8 +53,8 @@ ebook: build
 
 clean: 
 	@echo "Deleting all files except PDFs in the build directory"
-	@find "${OUT}" -type f ! -name '*.pdf' -delete
-	@find "${OUT}"/* -type d -delete
+	@find "${OUT}" -type f ! \( -name '*.pdf' -o -name '.gitkeep' \) -delete
+	@find "${OUT}"/* -empty -type d -delete
 
 clean_aux:
 	@echo "Deleting AUX files in the build directory"
