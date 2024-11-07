@@ -244,6 +244,7 @@
 % Uncomment to enable English
 %\selectlanguage{english}
 
+% Read from a temporary file created for the .pdf metadata
 \newread\metadata
 \immediate\openin\metadata=myfile.tmp
 \immediate\read\metadata to\tmpAuthor
@@ -252,6 +253,7 @@
 \immediate\read\metadata to\tmpAbstract
 \immediate\closein\metadata
 
+% Configure .pdf metadata
 \hypersetup{
   pdfauthor={\tmpAuthor},
   pdftitle={\tmpTitle},
