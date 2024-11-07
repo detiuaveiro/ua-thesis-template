@@ -240,7 +240,6 @@
 \pagenumbering{Alph}
 
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
-\setcounter{page}{0}\includepdf[pages=-]{cover.pdf}
 
 % Uncomment to enable English
 %\selectlanguage{english}
@@ -260,7 +259,7 @@
   pdfsubject={\tmpAbstract},
 }
 
-\includepdf[pages=-]{cover.pdf}
+\setcounter{page}{0}\includepdf[pages=-]{cover.pdf}
 
 % Front matter
 
