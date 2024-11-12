@@ -40,7 +40,7 @@
 \newcommand{\ThesisYear}[1]{\def\ciThesisYear{#1}}
 \newcommand{\TitleEN}[1]{\def\ciTitleEN{#1} }
 \newcommand{\TitlePT}[1]{\def\ciTitlePT{#1} }
-\newcommand{\Author}[1]{\def\ciAuthor{#1}}
+\newcommand{\Author}[2]{\def\ciAuthorFirst{#1}\def\ciAuthorLast{#2}}
 \newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2}}}
 \newcommand{\Supervisora}[2]{\def\ciSupervisoraName{{#1}}\def\ciSupervisoraTitle{{#2}}}
 \newcommand{\SupervisorMember}[5]{
@@ -424,7 +424,7 @@
 \newcounter{ctitle}
 \newcommand{\DISPLAYAUTHOR}{%
     \ifnum\value{ctitle} = 0%
-     {\ciAuthor}
+     {\ciAuthorFirst}\\{\ciAuthorLast}
      \fi
      \addtocounter{ctitle}{1}
 }
