@@ -62,7 +62,7 @@ clean_aux:
 
 cleanall: 
 	@echo "Deleting all files in the build directory"
-	@rm -rf "${OUT}/*" 
+	@rm -rf "${OUT}"/* 
 
 lint:
 ifeq ($(strip $(texfile)),)
