@@ -10,8 +10,8 @@ LATEXMK := $(or $(shell command -v latexmk),latexmk)
 LATEXMK_FLAGS := -pdf
 #LATEXMK_FLAGS += -silent
 LATEXMK_FLAGS += -view=none
-LATEXMK_FLAGS += -auxdir=${OUT}
-LATEXMK_FLAGS += -outdir=${OUT}
+LATEXMK_FLAGS += -auxdir="${OUT}"
+LATEXMK_FLAGS += -outdir="${OUT}"
 LATEXMK_FLAGS += -pdflatex="pdflatex -file-line-error --shell-escape %O %S"
 # LATEXMK_FLAGS += -e '$$makeindex=q/sh -c "cd `dirname "%D"`" ; makeindex %O -o "`basename "%D"`" "`basename "%S"`";/'
 
