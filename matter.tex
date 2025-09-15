@@ -9,7 +9,6 @@
 \documentclass[11pt,a4paper,oneside,onecolumn]{memoir}
 
 \listfiles
-\fixpdflayout
 
 \usepackage[utf8]{inputenc}
 
@@ -118,7 +117,7 @@
 
 % Setup bibliography with Biber using IEEE style for proper UTF-8 support
 \usepackage[backend=biber, style=ieee, sorting=none, natbib=true, mincitenames=1, maxcitenames=2]{biblatex}
-\bibliography{bib/references.bib}
+\bibliography{bib/references.bib, bib/rfc.bib}
 
 % Use acronyms
 \usepackage[printonlyused]{acronym} % For acronyms
@@ -141,7 +140,7 @@
 %\usetikzlibrary{arrows,shadows,trees,shapes,decorations,automata,backgrounds,petri,mindmap} % for pgf-umlsd
 
 % Package to master SI units
-\usepackage[detect-weight=true, binary-units=true]{siunitx}
+\usepackage[detect-weight=true]{siunitx}
 % For Electric Circuits
 %\sisetup{load-configurations = binary}
 
