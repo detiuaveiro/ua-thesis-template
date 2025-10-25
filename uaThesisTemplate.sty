@@ -8,13 +8,15 @@
 %
 % Some tweeks by Pedro Miguel Oliveira Estima to help new users
 
-\ProvidesPackage{uaThesisTemplate}[2024/11/04 v0.2 UA thesis template]
+\ProvidesPackage{uaThesisTemplate}[2025/10/25 v0.3 UA thesis template]
 \usepackage{graphicx}
 \usepackage{color}
 %\usepackage{a4wide}
 \usepackage{etoolbox}
 
 \usepackage{helvet}
+
+\renewcommand{\familydefault}{\sfdefault}
 
 %Lists
 \def\ciJuriMember{}
@@ -28,9 +30,7 @@
 %
 % The environment used to build a special page.
 %
-\def\TitlePage{\newpage\begingroup\thispagestyle{empty}
-
-}
+\def\TitlePage{\newpage\begingroup\thispagestyle{empty}}
 \def\EndTitlePage{\endgroup\newpage}
 
 %User Hooks
@@ -440,6 +440,8 @@
 \newcommand{\MakeCover}{%
 
 \begingroup
+\SingleSpacing
+
 \fontfamily{phv}\selectfont
 \stockaiv
 \settrims{0pt}{0pt}
@@ -570,124 +572,4 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMem
 
 \endgroup
 }
-
-%Custom Chapter style named `thesis`
-\makechapterstyle{index}{
-  \chapterstyle{veelo}
-  \renewcommand*{\chapnumfont}{\normalfont\sffamily}
-  \renewcommand*{\chaptitlefont}{\normalfont\Large\sffamily\textbf}
-  \settowidth{\chapindent}{\chapnumfont 111}
-  \renewcommand*{\chapterheadstart}{}
-  \renewcommand*{\printchaptername}{}
-  \renewcommand*{\chapternamenum}{}
-  \renewcommand*{\printchapternum}{}
-  \renewcommand*{\chapterheadstart}{}
-  \renewcommand*{\printchaptertitle}[1]{%
-    \raggedleft {\chaptitlefont ##1}\par\nobreak}}
-
-
-\newcommand{\IndexContents}{
-  \begingroup
-  \fontfamily{phv}\selectfont
-  \stockaiv
-  \settrims{0pt}{0pt}
-  \settypeblocksize{240mm}{210mm}{*}
-  \setbinding{0pt}
-  \setlrmargins{*}{0cm}{*}
-  \setulmargins{1cm}{*}{*}
-  \setheadfoot{1cm}{1cm}
-  \setheaderspaces{0cm}{*}{*}
-  %\settrimmedsize{297mm}{210mm}{*}
-  \checkandfixthelayout
-
-  \chapterstyle{index}
-
-  \TitlePage
-  \vspace*{55mm}
-  \SECTION{\textbf{Index~/~Índice}}{\vspace{-\baselineskip}\SingleSpacing
-      \small\tableofcontents*}
-  \EndTitlePage
-
-  \endgroup
-  }
-
-\newcommand{\IndexTables}{
-  \begingroup
-  \fontfamily{phv}\selectfont
-  \stockaiv
-  \settrims{0pt}{0pt}
-  \settypeblocksize{290mm}{210mm}{*}
-  \setbinding{0pt}
-  \setlrmargins{*}{0cm}{*}
-  \setulmargins{0cm}{*}{*}
-  \setheadfoot{0cm}{0cm}
-  \setheaderspaces{0cm}{*}{*}
-  \settrimmedsize{297mm}{210mm}{*}
-  \checkandfixthelayout
-  \renewcommand*{\cftsectionleader}{}
-
-  \chapterstyle{index}
-
-  \TitlePage
-  \vspace*{55mm}
-  \SECTION{}{\vspace{-\baselineskip}\SingleSpacing
-      \small\listoftables*}
-  \EndTitlePage
-
-  \endgroup
-  }
-
-\newcommand{\IndexFigures}{
-  \begingroup
-  \fontfamily{phv}\selectfont
-  \stockaiv
-  \settrims{0pt}{0pt}
-  \settypeblocksize{290mm}{210mm}{*}
-  \setbinding{0pt}
-  \setlrmargins{*}{0cm}{*}
-  \setulmargins{0cm}{*}{*}
-  \setheadfoot{0cm}{0cm}
-  \setheaderspaces{0cm}{*}{*}
-  \settrimmedsize{297mm}{210mm}{*}
-  \checkandfixthelayout
-  \renewcommand*{\cftsectionleader}{}
-
-  \chapterstyle{index}
-
-  \TitlePage
-  \vspace*{55mm}
-  \SECTION{}{\vspace{-\baselineskip}\SingleSpacing
-      \small\listoffigures*}
-  \EndTitlePage
-
-  \endgroup
-  }
-
-\newcommand{\IndexListings}{
-  \begingroup
-  \fontfamily{phv}\selectfont
-  \stockaiv
-  \settrims{0pt}{0pt}
-  \settypeblocksize{290mm}{210mm}{*}
-  \setbinding{0pt}
-  \setlrmargins{*}{0cm}{*}
-  \setulmargins{0cm}{*}{*}
-  \setheadfoot{0cm}{0cm}
-  \setheaderspaces{0cm}{*}{*}
-  \settrimmedsize{297mm}{210mm}{*}
-  \checkandfixthelayout
-  \renewcommand*{\cftsectionleader}{}
-
-  \chapterstyle{index}
-
-  \TitlePage
-  \vspace*{55mm}
-  \SECTION{}{\vspace{-\baselineskip}\SingleSpacing
-      \small\listoflistings*}
-  \EndTitlePage
-  \addcontentsline{toc}{chapter}{\listoflistingscaption}
-  \endgroup
-  }
-
-
 \endinput
