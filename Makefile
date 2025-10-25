@@ -36,20 +36,19 @@ endif
 build: 
 	@echo "Building the document"
 	@mkdir -p "${OUT}/chapters"
-	cd "${OUT}" ; "${LATEXMK}" ${LATEXMK_FLAGS} -cd "${SRC}/cover.tex" "${SRC}/matter.tex"
+	cd "${OUT}" ; "${LATEXMK}" ${LATEXMK_FLAGS} -cd "${SRC}/thesis.tex"
 
 preview: build
 	@echo "Creating a preview PDF"
-	("${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/cover.tex" & "${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/matter.tex")
+	("${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/thesis.tex")
 
 print: build
 	@echo "Creating print PDF"
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-print.pdf" "${OUT}/matter.pdf"
 	"${SCRIPTS}/simplify-colors.sh" "${OUT}/thesis-print.pdf"
 
 ebook: build
 	@echo "Creating ebook PDF"
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-ebook.pdf" "${OUT}/matter.pdf"
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-ebook.pdf" "${OUT}/thesis.pdf"
 
 clean: 
 	@echo "Deleting all files except PDFs in the build directory"
