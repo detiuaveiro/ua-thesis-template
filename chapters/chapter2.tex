@@ -1,0 +1,101 @@
+\chapter{Capítulo de Demonstração}
+\label{chap:demonstration}
+
+\begin{introduction}
+Este capítulo foi criado por um modelo de Inteligência Artificial para demonstrar as várias funcionalidades disponíveis neste template de \LaTeX{}. 
+\end{introduction}
+
+O capítulo foi concebido para ser um guia prático para estudantes, apresentando elementos comuns de uma tese, como formatação de texto, citações, figuras, tabelas e listagens de código. O objetivo é fornecer exemplos claros que possam ser facilmente adaptados para o seu próprio trabalho.
+
+\section{Estrutura do Documento}
+Uma tese é tipicamente estruturada em capítulos, secções e subsecções. Isto ajuda a organizar o conteúdo de forma lógica e facilita a navegação para os leitores.
+
+\subsection{Secções e Subsecções}
+Pode criar secções usando o comando \verb|\section{}| e subsecções com \verb|\subsection{}|. Para um aninhamento mais profundo, \verb|\subsubsection{}| também está disponível. O template tratará automaticamente da numeração e adicioná-los-á ao índice.
+
+\subsubsection{Uma Nota sobre Rótulos (Labels)}
+É uma boa prática adicionar um \verb|\label{}| após cada capítulo, secção, figura e tabela. Isto permite referenciá-los no texto usando \verb|\ref{}| ou \verb|\autoref{}|, que gera automaticamente o tipo de referência correto (por exemplo, "Capítulo 1", "Figura 2.3"). Por exemplo, este capítulo é o Capítulo~\ref{chap:demonstration}.
+
+\section{Citações e Bibliografia}
+Citar as suas fontes corretamente é crucial. Este template usa \texttt{biblatex} para a gestão da bibliografia. Pode adicionar citações de várias maneiras. Por exemplo, pode citar uma fonte entre parênteses, como as normas da Universidade de Aveiro~\cite{modelos}.
+
+Aqui estão alguns comandos de citação comuns:
+\begin{itemize}
+    \item \verb|\cite{chave}|: Para uma citação parentética, e.g.,~\cite{modelos}.
+    \item \verb|\citet{chave}|: Para uma citação textual onde o autor faz parte do texto.
+    \item \verb|\citeauthor{chave}|: Para obter apenas o(s) autor(es).
+    \item \verb|\citeyear{chave}|: Para obter apenas o ano.
+\end{itemize}
+
+\section{Figuras e Tabelas}
+
+\subsection{Inclusão de Figuras}
+As figuras são essenciais para visualizar dados e conceitos. Pode incluir imagens usando o ambiente \texttt{figure} e o comando \verb|\includegraphics|. A Figura~\ref{fig:placeholder} mostra um exemplo. Lembre-se de usar imagens de alta qualidade e fornecer uma legenda descritiva.
+
+\begin{figure}[H]
+    \centering
+    \missingfigure[figwidth=0.6\textwidth]{Uma figura de exemplo}
+    \caption{Um exemplo de uma figura provisória. O pacote \texttt{todonotes} fornece o comando \texttt{missingfigure} para este propósito.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Criação de Tabelas}
+As tabelas são usadas para apresentar dados estruturados. O ambiente \texttt{table} é um flutuante, semelhante a \texttt{figure}. Dentro dele, o ambiente \texttt{tabular} é usado para construir a tabela. A Tabela~\ref{tab:example} é um exemplo simples.
+
+\begin{table}[H]
+    \centering
+    \caption{Uma tabela de exemplo mostrando diferentes tipos de dados.}
+    \label{tab:example}
+    \begin{tabular}{l c c}
+        \hline
+        \textbf{Parâmetro} & \textbf{Valor} & \textbf{Unidade} \\
+        \hline
+        Velocidade da Luz (c) & $2.998 \times 10^8$ & \si{\metre\per\second} \\
+        Constante Gravitacional (G) & $6.674 \times 10^{-11}$ & \si{\newton\metre\squared\per\kilogram\squared} \\
+        Tamanho de um ficheiro & 1 & \si{\mebi\byte} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{Listagens de Código}
+Este template usa o pacote \texttt{minted} para formatar código, que oferece um excelente realce de sintaxe. Pode incluir blocos de código num ambiente flutuante \texttt{listing}, como mostrado no Código~\ref{lst:c-example}.
+
+\begin{listing}[H]
+\begin{minted}[frame=lines,
+               framesep=2mm,
+               baselinestretch=1.2,
+               fontsize=\footnotesize,
+               linenos]{c}
+#include <stdio.h>
+
+int main()
+{
+    // Imprime uma saudação na consola
+    printf("Olá, Mundo!\n");
+    return 0;
+}
+\end{minted}
+\caption{Um programa "Olá, Mundo!" escrito em C.}
+\label{lst:c-example}
+\end{listing}
+
+Para código em linha, pode usar \verb|\mintinline{language}{code}|, por exemplo: \\ \mintinline{python}{print("Olá de Python!")}.
+
+\section{Fórmulas Matemáticas}
+O pacote \texttt{amsmath} fornece ferramentas abrangentes para a formatação de matemática. Pode escrever matemática em linha como $E = mc^2$ envolvendo-a em cifrões. Para equações em destaque, use o ambiente \texttt{equation}, que também fornece numeração.
+
+\begin{equation}
+    \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+    \label{eq:gaussian}
+\end{equation}
+
+A Equação~\ref{eq:gaussian} é a famosa integral Gaussiana.
+
+\section{Acrónimos e Unidades}
+
+\subsection{Acrónimos}
+O pacote \texttt{acronym} ajuda a gerir acrónimos. A primeira vez que usa um acrónimo, como \ac{adsl}, ele será expandido por extenso. As utilizações subsequentes, como \ac{adsl}, mostrarão apenas a forma abreviada. Também pode forçar a forma longa com \verb|\acl{h2o}| (\acl{h2o}) ou a forma curta com \verb|\acs{h2o}| (\acs{h2o}). Os plurais são tratados com \verb|\acp{h2o}|, que produz \acp{h2o}.
+
+
+\subsection{Unidades SI}
+O pacote \texttt{siunitx} deve ser usado para todas as grandezas físicas para garantir uma formatação correta e consistente. Por exemplo, a aceleração da gravidade é aproximadamente \SI{9.8}{\metre\per\second\squared}. Os tamanhos de dados também podem ser representados, por exemplo, \SI{1024}{\kibi\byte} é igual a \SI{1}{\mebi\byte}.

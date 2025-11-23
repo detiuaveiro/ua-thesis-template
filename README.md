@@ -2,7 +2,7 @@
 
 A thesis LaTeX template that complies with the University of Aveiro's
 guidelines and provides a simple CLI workflow around `make` that was developed
-and tested for cross-compatibility on Linux (Slackware, ArchLinux, Debian, Ubuntu) and macOS.
+and tested for cross-compatibility on Linux (Slackware, ArchLinux, Debian, Ubuntu, LinuxMint) and macOS.
 
 This template was developed by professors and students. 
 We will try to keep up to date with thesis requirements but some discrepancies may exist.
@@ -110,9 +110,9 @@ It is possible to use this template in overleaf.
 
 To enable it:
 
-- in `matter.tex` change `\def\useoverleaf{0}`to 1
+- in `thesis.tex` change `\def\useoverleaf{0}`to 1
 - add `fc-portuges.def` to the project the file be can found in [here](http://mirrors.ctan.org/install/macros/latex/contrib/fmtcount.tds.zip) 
-- change the main document to `matter.tex`
+- change the main document to `thesis.tex`
 
 ## Dependencies
 

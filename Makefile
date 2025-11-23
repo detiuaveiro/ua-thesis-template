@@ -24,10 +24,10 @@ setup:
 	@echo "Current Platform: $(PLATFORM)"
 	@echo "Current Distribution: $(DIST)"
 ifeq  ($(PLATFORM),Linux)
-ifeq ($(DIST),$(shell echo -n "${DIST}" | grep "Ubuntu\|Debian\|Kali"))
+ifeq ($(DIST),$(shell echo -n "${DIST}" | grep "Ubuntu\|Debian\|Kali\|Linuxmint"))
 	@sudo apt install texlive-latex-base texlive-lang-portuguese texlive-lang-english biber texlive-latex-extra texlive-science python3-pygments python3-proselint pandoc imagemagick latexmk ghostscript lacheck chktex
 else
-	@echo "Distribution not supported. Currently we support setup for: Ubuntu, Debian and Kali"
+	@echo "Distribution not supported. Currently we support setup for: Ubuntu, Debian, Linuxmint and Kali"
 endif
 else
 	@echo "Platform not supported. Currently we support setup for: Linux"
@@ -36,20 +36,19 @@ endif
 build: 
 	@echo "Building the document"
 	@mkdir -p "${OUT}/chapters"
-	cd "${OUT}" ; "${LATEXMK}" ${LATEXMK_FLAGS} -cd "${SRC}/cover.tex" "${SRC}/matter.tex"
+	cd "${OUT}" ; "${LATEXMK}" ${LATEXMK_FLAGS} -cd "${SRC}/thesis.tex"
 
 preview: build
 	@echo "Creating a preview PDF"
-	("${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/cover.tex" & "${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/matter.tex")
+	("${LATEXMK}" ${LATEXMK_FLAGS} -pvc -cd "${SRC}/thesis.tex")
 
 print: build
 	@echo "Creating print PDF"
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-print.pdf" "${OUT}/matter.pdf"
 	"${SCRIPTS}/simplify-colors.sh" "${OUT}/thesis-print.pdf"
 
 ebook: build
 	@echo "Creating ebook PDF"
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-ebook.pdf" "${OUT}/matter.pdf"
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${OUT}/thesis-ebook.pdf" "${OUT}/thesis.pdf"
 
 clean: 
 	@echo "Deleting all files except PDFs in the build directory"
