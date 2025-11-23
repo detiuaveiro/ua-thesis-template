@@ -140,6 +140,11 @@ filled with the remainder of TeX Live, be it fonts, styles, language support,
 and so on. So, if a LaTeX dependency is missing on your installation, do verify
 that you are not missing one of these packages.
 
+## Useful Links
+
+- bib file generator for references from IEEE RFCs: https://github.com/hupili/rfc.bib
+
+
 ## Authors
 
 Tomás Oliveira e Silva created the [original
