@@ -20,6 +20,10 @@ PLATFORM := $(shell uname)
 
 all: build
 
+md:
+	$(MAKE) -C ./markdown
+	$(MAKE) build
+
 setup:
 	@echo "Current Platform: $(PLATFORM)"
 	@echo "Current Distribution: $(DIST)"
