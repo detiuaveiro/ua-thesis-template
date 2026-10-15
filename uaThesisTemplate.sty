@@ -36,6 +36,7 @@
 %User Hooks
 \newcommand{\DocumentTypeThesis}{\def\ciDocumentTypeThesis{}}
 \newcommand{\DocumentTypeThesisProposal}{\def\ciDocumentTypeThesisProposal{}}
+\newcommand{\DocumentTypeProgressReport}{\def\ciDocumentTypeProgressReport{}}
 \newcommand{\DocumentTypeDissertation}{\def\ciDocumentTypeDissertation{}}
 \newcommand{\ThesisYear}[1]{\def\ciThesisYear{#1}}
 \newcommand{\TitleEN}[1]{\def\ciTitleEN{#1} }
@@ -493,9 +494,13 @@ Tese%
  \else
     \ifdefined \ciDocumentTypeDissertation%
 Disserta\c c\~ao%
-    \fi %
+    \else
+    \ifdefined \ciDocumentTypeProgressReport%
+Relat\'orio de Progresso%
+    \fi%
   \fi%
 \fi%
+\fi
 ~apresentada \`a Universidade de Aveiro para cumprimento dos requisitos necess\'arios \`a
 \ifdefined \ciDocumentTypeThesisProposal%
 conclusão da unidade curricular Proposta de Tese, condi\c c\~ao necess\'aria para
