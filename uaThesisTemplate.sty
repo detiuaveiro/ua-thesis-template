@@ -42,13 +42,13 @@
 \newcommand{\TitleEN}[1]{\def\ciTitleEN{#1} }
 \newcommand{\TitlePT}[1]{\def\ciTitlePT{#1} }
 \newcommand{\Author}[2]{\def\ciAuthorFirst{#1}\def\ciAuthorLast{#2}}
-\newcommand{\Supervisor}[2]{\def\ciSupervisorName{{#1}}\def\ciSupervisorTitle{{#2}}}
-\newcommand{\Supervisora}[2]{\def\ciSupervisoraName{{#1}}\def\ciSupervisoraTitle{{#2}}}
-\newcommand{\SupervisorMember}[5]{
-    \listadd{\ciSupervisorMember}{\SUPERVISOR{#5}{#1}{#2}{#3}{#4}}
+\newcommand{\Supervisor}[3][Professor]{\def\ciSupervisorName{{#2}}\def\ciSupervisorTitle{{#3}}\def\ciSupervisorRole{{#1}}}
+\newcommand{\Supervisora}[3][Professora]{\def\ciSupervisoraName{{#2}}\def\ciSupervisoraTitle{{#3}}\def\ciSupervisoraRole{{#1}}}
+\newcommand{\SupervisorMember}[6][Professor]{
+    \listadd{\ciSupervisorMember}{\SUPERVISOR{#6}{#2}{#3}{#4}{#5}{#1}}
 }
-\newcommand{\SupervisoraMember}[5]{
-    \listadd{\ciSupervisorMember}{\SUPERVISORA{#5}{#1}{#2}{#3}{#4}}
+\newcommand{\SupervisoraMember}[6][Professora]{
+    \listadd{\ciSupervisorMember}{\SUPERVISORA{#6}{#2}{#3}{#4}{#5}{#1}}
 }
 \newcommand{\Degree}[2]{\def\ciDegreeTitle{#1}\def\ciDegreeName{#2}}
 \newcommand{\MAPProgram}[1]{\def\ciMAPProgram{#1}}
@@ -393,8 +393,8 @@
 \long\def\SECTION#1#2{\TEXT{\ua@font@size2\textbf{#1}}{\ua@font@size1#2}}
 
 % Used to display the list of members of the Supervisors
-\long\def\SUPERVISOR#1#2#3#4#5{, {#1}do Doutor {#2}, Professor {#3} {#4} {#5}}
-\long\def\SUPERVISORA#1#2#3#4#5{, {#1}da Doutora {#2}, Professora {#3} {#4} {#5}}
+\long\def\SUPERVISOR#1#2#3#4#5#6{, {#1}do Doutor {#2}, {#6} {#3} {#4} {#5}}
+\long\def\SUPERVISORA#1#2#3#4#5#6{, {#1}da Doutora {#2}, {#6} {#3} {#4} {#5}}
 
 % Used to display the list of members of the Juri
 \long\def\JURI#1#2#3{\TEXT{#1}{\textsf{#2}\newline\smallskip\ua@font@size0{#3}}\par\medskip\vspace*{20pt}}
@@ -515,9 +515,9 @@ em {\ciDegreeName}%
 \fi%
 , realizada sob a orienta\c c\~ao cient\'ifica 
 \ifdefined \ciSupervisoraName%
-da Doutora {\ciSupervisoraName}, Professora {\ciSupervisoraTitle}
+da Doutora {\ciSupervisoraName}, {\ciSupervisoraRole} {\ciSupervisoraTitle}
 \else
-do Doutor {\ciSupervisorName}, Professor {\ciSupervisorTitle}
+do Doutor {\ciSupervisorName}, {\ciSupervisorRole} {\ciSupervisorTitle}
 \fi%
 do {\ua@textA} {\ua@textB} da Universidade de Aveiro\dolistloop{\ciSupervisorMember}.}
     \vspace{75mm}
