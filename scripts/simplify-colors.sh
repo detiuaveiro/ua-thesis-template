@@ -45,19 +45,19 @@ gs -q -sDEVICE=pdfwrite -dSAFER \
 for i in `ls -v "$BUILD"/*-split.pdf`; do
     echo "$i"
 
-    COLORS=$(convert "$i" -colorspace CMYK -unique-colors txt:- | grep \% | grep -v "0%,0%,0%" | cut -d ' ' -f 2 | sed -e "s/%//g" -e "s/(//g" -e "s/)//g")
+    COLORS=$(magick "$i" -colorspace CMYK -unique-colors txt:- | grep \% | grep -v "0%,0%,0%" | cut -d ' ' -f 2 | sed -e "s/%//g" -e "s/(//g" -e "s/)//g")
     if [ "X${COLORS}" == "X" ]; then
         forceGray "$i"
         continue
     fi
 
     GRAY=1
-    for c in "$COLORS"; do
+    for c in $COLORS; do
         COLOR=$(echo "$c" | sed -e "s/,/ /g")
         COLOR_C=$(echo -n "$COLOR" | cut -d ' ' -f 1)
         COLOR_M=$(echo -n "$COLOR" | cut -d ' ' -f 2)
         COLOR_Y=$(echo -n "$COLOR" | cut -d ' ' -f 3)
-        if [ "${COLOR_C}$COLOR_M" != "${COLOR_M}${COLOR_Y}" ]; then
+        if ! awk -v c="$COLOR_C" -v m="$COLOR_M" -v y="$COLOR_Y" 'BEGIN{exit !(c==m && m==y)}'; then
             GRAY=0
             break
         fi

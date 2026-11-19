@@ -15,7 +15,7 @@ LATEXMK_FLAGS += -outdir=${OUT}
 LATEXMK_FLAGS += -pdflatex="pdflatex -file-line-error --shell-escape %O %S"
 # LATEXMK_FLAGS += -e '$$makeindex=q/sh -c "cd `dirname "%D"`" ; makeindex %O -o "`basename "%D"`" "`basename "%S"`";/'
 
-DIST := $(shell lsb_release -si)
+DIST := $(shell . /etc/os-release 2>/dev/null && echo $$NAME)
 PLATFORM := $(shell uname)
 
 all: build
@@ -44,6 +44,7 @@ preview: build
 
 print: build
 	@echo "Creating print PDF"
+	cp "${OUT}/thesis.pdf" "${OUT}/thesis-print.pdf"
 	"${SCRIPTS}/simplify-colors.sh" "${OUT}/thesis-print.pdf"
 
 ebook: build
@@ -61,7 +62,7 @@ clean_aux:
 
 cleanall: 
 	@echo "Deleting all files in the build directory"
-	@rm -rf "${OUT}/*" 
+	@find "${OUT}" -type f ! -name '.gitkeep' -delete 
 
 lint:
 ifeq ($(strip $(texfile)),)
@@ -74,5 +75,5 @@ else
 	@chktex -q --verbosity=3 "$(texfile)"
 	$(eval txtfile := $(shell echo "$(OUT)/`basename "$(texfile)" .tex`.txt"))
 	@pandoc -s "$(texfile)" -o "$(txtfile)"
-	@proselint "$(txtfile)" || true
+	@proselint check "$(txtfile)" || true
 endif

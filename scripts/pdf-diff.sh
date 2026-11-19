@@ -20,7 +20,7 @@ for n in "$TMP"/new-*.png; do
 	if [ ! -f "$o" ]; then
 		cp "$n" "$OUT/pages/added-$base"
 		changed=$((changed + 1))
-	elif ! compare -metric AE -fuzz 2% "$o" "$n" "$OUT/pages/changed-$base" >/dev/null 2>&1; then
+	elif ! magick compare -metric AE -fuzz 2% "$o" "$n" "$OUT/pages/changed-$base" >/dev/null 2>&1; then
 		changed=$((changed + 1))
 	else
 		rm -f "$OUT/pages/changed-$base"
