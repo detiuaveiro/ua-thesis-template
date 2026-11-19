@@ -155,3 +155,13 @@ years](http://code.ua.pt//projects/latex-ua/repository).
 This is a fork by Fábio Maia and Ricardo Jesus who wanted to further improve
 the template and setup a clean environment and workflow for writing their MSc
 thesis.
+
+## Automated PDF
+
+Every push to `master` (and every pull request against it) builds the PDF via GitHub Actions
+(`.github/workflows/build-pdf.yml`). Download it from the workflow run's
+`thesis-pdf` artifact or from the `latest` release.
+The `thesis-pdf-diff` artifact compares it with the previous commit: a text
+diff plus highlighted PNGs of the changed pages.
+On pull requests the workflow also comments with the build status and a diff
+summary against the base branch (no release is published).

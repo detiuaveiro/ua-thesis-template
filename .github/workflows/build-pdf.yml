@@ -1,0 +1,100 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-lang-portuguese texlive-lang-english \
+            biber texlive-latex-extra texlive-science texlive-bibtex-extra texlive-fonts-recommended \
+            python3-pygments latexmk ghostscript poppler-utils imagemagick
+
+      - name: Build PDF
+        id: build
+        run: make build
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-pdf
+          path: build/thesis.pdf
+
+      - name: Build previous commit PDF and diff
+        id: diff
+        continue-on-error: true
+        run: |
+          git worktree add /tmp/prev HEAD^
+          make -C /tmp/prev build
+          scripts/pdf-diff.sh /tmp/prev/build/thesis.pdf build/thesis.pdf pdf-diff
+          cat pdf-diff/summary.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload PDF diff artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-pdf-diff
+          path: pdf-diff
+          if-no-files-found: ignore
+
+      - name: Publish to latest release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp build/thesis.pdf thesis.pdf
+          gh release delete latest --cleanup-tag --yes || true
+          gh release create latest thesis.pdf --target "$GITHUB_SHA" \
+            --title "Thesis PDF (latest)" \
+            --notes "PDF built from commit $GITHUB_SHA"
+
+      - name: Comment on pull request
+        if: always() && github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUILD: ${{ steps.build.outcome }}
+          DIFF: ${{ steps.diff.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo "### Thesis PDF build"
+            if [ "$BUILD" = success ]; then
+              echo "✅ Build succeeded for $(git rev-parse --short HEAD^2 2>/dev/null || git rev-parse --short HEAD)."
+            else
+              echo "❌ Build **failed**. See the [run logs]($RUN_URL)."
+            fi
+            if [ "$DIFF" = success ] && [ -f pdf-diff/summary.txt ]; then
+              echo
+              echo "**Changes compared with the base branch**"
+              sed 's/^/- /' pdf-diff/summary.txt
+              echo
+              echo "<details><summary>Text diff (first 60 lines)</summary>"
+              echo
+              echo '```diff'
+              head -n 60 pdf-diff/text-diff.txt
+              echo '```'
+              echo "</details>"
+              echo
+              echo "Download the PDF and highlighted page images from the [run artifacts]($RUN_URL)."
+            elif [ "$BUILD" = success ]; then
+              echo
+              echo "Could not compute the PDF diff. See the [run logs]($RUN_URL)."
+            fi
+          } > comment.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file comment.md --edit-last --create-if-none
