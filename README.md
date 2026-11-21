@@ -61,6 +61,17 @@ you think you've already solved the problem in the LaTeX sources, maybe try a
 `cleanall` before insisting. Sometimes the underlying build programs (namely
 `latexmk`) get stuck in inconsistent temporary files.
 
+
+Compile it from markdown using pandoc:
+
+```
+make md
+```
+
+`md` will compile all the markdown files inside `/markdown/content/`, merged alphabetically, into a two latex files that **will overwrite** `cover.tex` and `matter.tex`.
+After this, the `build` target will run.
+For more information please read `/markdown/README.md`
+
 ## How to use the template
 
 This is all great, but how can this repository be used as a starting point for
