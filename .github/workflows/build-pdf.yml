@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install minted backend
-        run: pip install pygments latexminted
+        run: pip install pygments latexminted==0.6.0
 
       - name: Install dependencies
         run: |
