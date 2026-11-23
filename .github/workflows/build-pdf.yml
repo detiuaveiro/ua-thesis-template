@@ -19,6 +19,15 @@ jobs:
         with:
           fetch-depth: 2
 
+      # latexminted shipped with TeX Live breaks on the runner's Python 3.14
+      # (argparse 'color' kwarg), so put a supported Python first on PATH.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install minted backend
+        run: pip install pygments latexminted==0.6.0
+
       - name: Install dependencies
         run: |
           sudo apt-get update
